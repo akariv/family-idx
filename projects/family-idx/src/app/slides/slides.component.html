@@ -1,0 +1,8 @@
+<div class='slides'>
+    <div class='chart-container' [style.background-color]='bgColor'>
+        <div class='chart'>
+            <app-chart [slide]='currentSlide' *ngIf='currentSlide'></app-chart>
+        </div>
+    </div>
+    <div class='slide' *ngFor='let slide of slides; let i = index' [attr.data-slide]='i' [innerHTML]='md._(i + "---" + slide.content)'></div>
+</div>

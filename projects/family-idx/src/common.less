@@ -1,0 +1,101 @@
+.font-light {
+  font-family: "Greta Text";
+  font-style: Normal;
+  font-weight: 300;
+}
+
+.font-light-italic {
+  font-family: "Greta Text";
+  font-style: Italic;
+  font-weight: 300;
+}
+
+.font-regular {
+  font-family: "Greta Text";
+  font-style: Normal;
+  font-weight: 400;
+}
+
+.font-regular-italic {
+  font-family: "Greta Text";
+  font-style: Italic;
+  font-weight: 400;
+}
+
+.font-medium {
+  font-family: "Greta Text";
+  font-style: Normal;
+  font-weight: 500;
+}
+
+.font-medium-italic {
+  font-family: "Greta Text";
+  font-style: Italic;
+  font-weight: 500;
+}
+
+.font-bold {
+  font-family: "Greta Text";
+  font-style: Normal;
+  font-weight: 700;
+}
+
+.font-bold-italic {
+  font-family: "Greta Text";
+  font-style: Italic;
+  font-weight: 700;
+}
+
+.font-rag-sans {
+  font-family: "RAG Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.overflow-scroll {
+    /*FireFox*/
+    scrollbar-width: none;
+    /*IE10+*/
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    &::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+        display: none;
+    }
+    overflow: scroll;
+}
+
+@mobile-threshold: 768px;
+
+.mobile(@rules) {
+    @media only screen and (max-width: (@mobile-threshold - 1px)) {
+        @rules();
+    }
+}
+
+.desktop(@rules) {
+    @media only screen and (min-width: @mobile-threshold) {
+        @rules();
+    }
+}
+
+.mobile({
+    ::ng-deep .layout-desktop {
+        display: none !important;
+    }
+});
+
+.desktop({
+    ::ng-deep .layout-mobile {
+        display: none !important;
+    }
+});
+
+@color-white: #fff;
+@color-dark-purple: #243856;
+
+@transition-duration: 1000ms;
+.transition(@props) {
+    // transition-property: @props;
+    // transition-duration: @transition-duration;
+    // transition-timing-function: linear;
+}

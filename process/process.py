@@ -89,6 +89,7 @@ if __name__ == '__main__':
                 indicators_ = [i['name'] for i in slide['specific_dimension']['indicators']]
             else:
                 indicators_ = [i['name'] for i in indicators.values() if i['dimension'] is not None]
+            non_indicators_ = [i['name'] for i in indicators.values() if i['name'] not in indicators_]
             countries_ = [x['name'] for x in slide['specific_countries']]
             for country in countries_:
                 values = []
@@ -98,6 +99,8 @@ if __name__ == '__main__':
                 )
                 for indicator in indicators_:
                     val = data.get((country, data_type_, indicator))
+                    if val is None and '-' in data_type_:
+                        val = data.get((country, data_type_.split('-')[0], indicator))
                     if val is not None:
                         if val['value'] is not None:
                             val['value'] = float(val['value'])
@@ -112,13 +115,21 @@ if __name__ == '__main__':
                 country_values.sort(key=lambda x: -x['sum'])
             slide['data'] = dict(
                 indicators=indicators_,
+                non_indicators=non_indicators_,
                 countries=country_values,
                 average=sum(c['sum'] for c in country_values) / len(country_values),
             )
 
+    content = load_table('Content', map='name', keep=['name', 'value'])
+    footer = content['footer']['value']
+
+    out = dict(
+        slides=slides,
+        footer=footer,
+    )
     import json
     with open('projects/family-idx/src/assets/slides.json', 'w') as f:
-        json.dump(slides, f, indent=2, ensure_ascii=False)
+        json.dump(out, f, indent=2, ensure_ascii=False)
     # print(json.dumps(slides[16], indent=2, ensure_ascii=False))
     # import pprint
     # pprint.pprint(slides[16])
