@@ -1,11 +1,12 @@
 export type Country = {
     name: string;
-    filename: string;
+    flag: string;
 };
 
 export type Section = {
     name: string;
     color: string;
+    role: string | null;
 };
 
 export type DataType = {
@@ -14,6 +15,7 @@ export type DataType = {
 
 export type Datum = {
     country_name: string;
+    flag: string;
     values: {
         value: number;
         estimated?: boolean;
@@ -21,9 +23,20 @@ export type Datum = {
     sum: number;
 };
 
+export type Indicator = {
+    name: string;
+    dimension: string;
+    section: string;
+    color: string;
+    skip: number;
+};
+
+export type Indicators = { [key: string]: Indicator };
+
 export type Data = {
     indicators: string[];
     non_indicators: string[];
+    indicator_info: Indicators;
     countries: Datum[];
     average: number;
 };

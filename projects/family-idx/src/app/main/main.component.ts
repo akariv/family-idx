@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Slide } from '../datatypes';
+import { Indicators, Slide } from '../datatypes';
 import { MarkdownService } from '../markdown.service';
 
 @Component({
@@ -10,14 +10,10 @@ import { MarkdownService } from '../markdown.service';
 })
 export class MainComponent {
   slides: Slide[] = [];
-  indicators: string[] = [];
-  footer = '';
   
   constructor(private http: HttpClient, public md: MarkdownService) {
     this.http.get('assets/slides.json').subscribe((data: any) => {
       this.slides = data.slides;
-      this.indicators = data.indicators;
-      this.footer = data.footer;
     });
   }
 }

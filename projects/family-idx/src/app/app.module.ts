@@ -7,13 +7,15 @@ import { SlidesComponent } from './slides/slides.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { ChartComponent } from './chart/chart.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlidesComponent,
     MainComponent,
-    ChartComponent
+    ChartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

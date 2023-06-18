@@ -2,11 +2,15 @@ import os
 import dataflows as DF
 import dataflows_airtable as DFA
 
-import dotenv
-dotenv.load_dotenv()
+try:
+    import dotenv
+    dotenv.load_dotenv()
+except:
+    ...
 
 AIRTABLE_BASE=os.environ['AIRTABLE_BASE']
 AIRTABLE_API_KEY=os.environ['AIRTABLE_API_KEY']
+print('AIRTABLE_API_KEY ', AIRTABLE_BASE[:3] + '...' + AIRTABLE_BASE[-3:])
 
 def load_table(table, map=None, keep=None):
     ret = DF.Flow(
@@ -31,11 +35,11 @@ def load_table(table, map=None, keep=None):
 
 
 if __name__ == '__main__':
-    countries = load_table('Countries', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'filename'])
-    sections = load_table('Sections', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'color'])
+    countries = load_table('Countries', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'flag'])
+    sections = load_table('Sections', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'color', 'role'])
     data_types = load_table('DataTypes', map=DFA.AIRTABLE_ID_FIELD, keep=['name'])
     indicators = load_table('Indicators', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'dimension'])
-    dimensions = load_table('Dimensions', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'indicators'])
+    dimensions = load_table('Dimensions', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'indicators', 'section'])
     data = load_table('Data', map=['country_name', 'data_type_name', 'indicator_name'], keep=[
         'country_name', 'data_type_name', 'indicator_name', 'value', 'estimated'
     ])
@@ -90,11 +94,12 @@ if __name__ == '__main__':
             else:
                 indicators_ = [i['name'] for i in indicators.values() if i['dimension'] is not None]
             non_indicators_ = [i['name'] for i in indicators.values() if i['name'] not in indicators_]
-            countries_ = [x['name'] for x in slide['specific_countries']]
-            for country in countries_:
+            countries_ = [(x['name'], x['flag']) for x in slide['specific_countries']]
+            for country, flag in countries_:
                 values = []
                 record = dict(
                     country_name=country,
+                    flag=flag,
                     values=values,
                 )
                 for indicator in indicators_:
@@ -113,19 +118,44 @@ if __name__ == '__main__':
                 country_values.sort(key=lambda x: x['sum'])
             else:
                 country_values.sort(key=lambda x: -x['sum'])
+
+            resolution = slide['resolution'] or None
+            indicator_info = []
+            skip = 0
+            for indicator_name in indicators_:
+                for indicator in indicators.values():
+                    if indicator['name'] != indicator_name:
+                        continue
+                    if indicator['dimension']:
+                        dimension = dimensions[indicator['dimension'][0]]
+                        section = sections[dimension['section'][0]]
+                        if len(indicator_info) == 0:
+                            pass
+                        elif resolution == 'dimension' and dimension['name'] != indicator_info[-1]['dimension']:
+                            skip += 1
+                        elif resolution == 'indicator':
+                            skip += 1
+                        
+                        item = dict(
+                            name=indicator['name'],
+                            dimension=dimension['name'],
+                            section=section['name'],
+                            color=section['color'],
+                            skip=skip
+                        )
+                        indicator_info.append(item)
+            indicator_info = dict((i['name'], i) for i in indicator_info)
+
             slide['data'] = dict(
                 indicators=indicators_,
                 non_indicators=non_indicators_,
+                indicator_info=indicator_info,
                 countries=country_values,
                 average=sum(c['sum'] for c in country_values) / len(country_values),
             )
 
-    content = load_table('Content', map='name', keep=['name', 'value'])
-    footer = content['footer']['value']
-
     out = dict(
         slides=slides,
-        footer=footer,
     )
     import json
     with open('projects/family-idx/src/assets/slides.json', 'w') as f:

@@ -91,11 +91,13 @@
 });
 
 @color-white: #fff;
+@color-black: #000;
 @color-dark-purple: #243856;
+@color-text: #243856;
 
 @transition-duration: 1000ms;
 .transition(@props) {
-    // transition-property: @props;
-    // transition-duration: @transition-duration;
-    // transition-timing-function: linear;
+    transition-property: @props;
+    transition-duration: @transition-duration;
+    transition-timing-function: linear;
 }

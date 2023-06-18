@@ -1,0 +1,7 @@
+<div class='countries' [class.visible]='countriesVisible()' [class.intro]='slide.section.role === "intro"' #countries>
+
+</div>
+<div class='chart' [class.intro]='slide.section.role === "intro"' #chart>
+    <div class='grid' [style.backgroundImage]='gridImage'></div>
+    <div class='average' [class.visible]='slide.show_average' #average></div>
+</div>

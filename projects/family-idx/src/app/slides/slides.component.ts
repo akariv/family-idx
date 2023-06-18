@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
-import { Slide } from '../datatypes';
+import { Indicators, Slide } from '../datatypes';
 import { timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 
@@ -25,19 +25,21 @@ export class SlidesComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver((entries) => {
+      let handled = false;
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !handled) {
           const el = entry.target as HTMLElement;
           const slideNum = el.getAttribute('data-slide'); 
           if (slideNum !== null) {
             console.log('SLIDE NUM', slideNum);
             const slide = this.slides[parseInt(slideNum)];
             this.handleSlide(slide);
+            handled = true;
           }
         }
       });
-    }, {threshold: 0.75});
-    for (const el of this.el.nativeElement.querySelectorAll('.slide')) {
+    }, {threshold: 0.25});
+    for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
       this.observer.observe(el);
     }
   }

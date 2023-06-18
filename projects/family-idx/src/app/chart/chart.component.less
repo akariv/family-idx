@@ -6,12 +6,78 @@
     overflow: hidden;
     position: relative;
     display: flex;
+    flex-flow: row-reverse;
 
-    ::ng-deep {
-        .bar {
+    .countries {
+        flex: 0 0 120px;
+        height: 100%;
+        position: relative;
+        ::ng-deep {
+            .label {
+                position: absolute;
+                right: 6px;
+                .font-rag-sans;
+                font-weight: 300;
+                font-size: 13px;
+                white-space: nowrap;
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                color: @color-white;
+                .flag {
+                    display: flex;
+                    flex-flow: row;
+                    align-items: center;
+                    justify-content: center;
+                    width: 16px;
+                    height: 16px;
+                    background-image: url(../../assets/flag-bg.svg);
+                    background-size: 14px 10px;
+                    background-repeat: no-repeat;
+                    background-position: 1px 2.75px;
+                    font-size: 12px;
+                }
+            }
+        }
+        opacity: 0;
+        background-color: fade(@color-black, 10%);
+        &.visible {
+            opacity: 1;
+            &.intro {
+                background-color: transparent;
+                ::ng-deep {
+                    .label {
+                        color: @color-text;
+                    }
+                }    
+            }
+        }
+        .transition(opacity background-color);
+    }
+    .chart {
+        flex: 1 1 100%;
+        height: 100%;
+        position: relative;
+        ::ng-deep {
+            .bar {
+                position: absolute;
+            }
+        }
+        .grid {
             position: absolute;
-            border: 1px solid black;
-            .transition(width height top left);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            position: absolute;
+            background-repeat: repeat;
+            background-position: 0 0;
+            border-left: fade(@color-white, 25) 1px solid;
+        }
+
+        &.intro {
+            .grid {
+                border-left: fade(@color-text, 25) 1px solid;
+            }
         }
     }
 }

@@ -18,13 +18,22 @@
         scroll-snap-align: start;
         width: 100%;
         max-width: 600px;
-        border: 1px solid red;
+        &.darken {
+            color: @color-text;
+        }
 
         ::ng-deep {
             strong {
                 .font-bold;
             }
         }
+    }
+
+    .footer {
+        scroll-snap-align: start;
+        padding: 16px;
+        width: 100%;
+        max-width: 600px;
     }
 
     .chart-container {
@@ -39,7 +48,6 @@
         align-items: flex-end;
         .chart {
             width: 100%;
-            max-width: 720px;
             height: 100vh;
             position: sticky;
             top: 0;
