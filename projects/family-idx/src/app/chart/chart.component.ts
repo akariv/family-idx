@@ -169,8 +169,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   backgroundImage(d: SeriesPoint<Datum>, i: number, expandPhoto: string | null) {
     if (i === this.slide.expand_country && expandPhoto && d[0] !== d[1]) {
-      console.log('expandPhoto', expandPhoto);
-      return this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(expandPhoto));
+      return expandPhoto;
     } else {
       return null;
     }
