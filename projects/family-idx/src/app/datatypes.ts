@@ -48,8 +48,11 @@ export type Slide = {
     show_average: boolean;
     show_countries: boolean;
     show_value: boolean;
+    start_from_zero: boolean;
     specific_countries: Country[] | null;
     highlight_countries: Country[] | null;
+    expand_country: number | null;
+    expand_country_photo: string | null;
     resolution: string;
     section: Section;
     data: Data;

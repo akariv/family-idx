@@ -31,9 +31,8 @@
                     justify-content: center;
                     width: 16px;
                     height: 16px;
-                    background-image: url(../../assets/flag-bg.svg);
+                    .background-image('assets/flag-bg.svg');
                     background-size: 14px 10px;
-                    background-repeat: no-repeat;
                     background-position: 1px 2.75px;
                     font-size: 12px;
                 }
@@ -61,6 +60,9 @@
         ::ng-deep {
             .bar {
                 position: absolute;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
             }
         }
         .grid {
@@ -74,10 +76,51 @@
             border-left: fade(@color-white, 25) 1px solid;
         }
 
+        .average {
+            position: absolute;
+            top: 0;
+            left: 100px;
+            width: 0;
+            height: 100%;
+            border: none;
+            border-right: 1px dashed @color-white;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            z-index: 1;
+            .transition(left opacity);
+            opacity: 0;
+            transition-duration: calc(@transition-duration / 5);
+            &.visible {
+                opacity: 1;
+                transition-duration: @transition-duration;
+            }
+
+            span {
+                transform: rotate(-90deg);
+                .font-rag-sans;
+                color: @color-white;
+                font-size: 13px;
+                font-weight: 300;
+                padding: 2px;
+                padding-top: 3px;
+                .transition(text-shadow);
+            }
+        }
+
         &.intro {
             .grid {
                 border-left: fade(@color-text, 25) 1px solid;
             }
+            .average {
+                border-color: @color-text;
+                span {
+                    color: @color-text;
+                }
+            }
         }
+
     }
 }

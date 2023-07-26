@@ -3,5 +3,8 @@
 </div>
 <div class='chart' [class.intro]='slide.section.role === "intro"' #chart>
     <div class='grid' [style.backgroundImage]='gridImage'></div>
-    <div class='average' [class.visible]='slide.show_average' #average></div>
+    <div class='average' [class.visible]='avgVisible' #average [style.left]='avgPos + "px"'>
+        <span [style.textShadow]='avgTextShadow()'>ממוצע</span>
+        <span [style.textShadow]='avgTextShadow()'>ממוצע</span>
+    </div>
 </div>
