@@ -13,6 +13,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   
   observer: IntersectionObserver;
   currentSlide: Slide;
+  highlightedIndicator: string | null = null;
 
   bgColor: string = 'white';
 

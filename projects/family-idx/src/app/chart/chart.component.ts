@@ -18,6 +18,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() slide: Slide;
   @Input() indicators: Indicators;
+  @Input() highlightIndicator: string | null = null;
 
   @ViewChild('chart') chart: ElementRef;
   @ViewChild('countries') countries: ElementRef;
@@ -32,16 +33,21 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   gridImage: SafeResourceUrl;
   avgPos = 0;
   avgVisible = false;
+  startFromZero = false;
+  moving = false;
 
   constructor(private sanitizer: DomSanitizer) {}
   
-  ngOnChanges(): void {
+  ngOnChanges(changes?: SimpleChanges): void {
     if (this.ready) {
       console.log('CURRENT SLIDE DATA', this.slide.data);
       const data = this.slide.data || {};
       const indicators = data?.indicators || [];
       const non_indicators = data?.non_indicators || [];
       const countries = data?.countries || [];
+      this.startFromZero = this.slide.start_from_zero && !!changes && !!changes['slide'] && changes['slide'].currentValue !== changes['slide'].previousValue;
+      console.log('START FROM ZERO', this.startFromZero, this.slide.start_from_zero, changes);
+
       const layout = stack<any, Datum, string>()
         .keys([...non_indicators, ...indicators])
         .value((d, key) => {
@@ -101,7 +107,12 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       }
       const t = transition()
         .duration(1000)
-        .ease(easeLinear);
+        .ease(easeLinear)
+        .on('end', () => {
+          console.log('TRANSITION END');
+          this.moving = false;
+        });
+      this.moving = true;
       this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto);
       this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px');
 
@@ -157,10 +168,16 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           ret = this.slide.data.indicator_info[d.key].color;
         }
       } else {
-        ret = 'rgba(255, 255, 255, 0.3)';
+        if (d.key === this.highlightIndicator) {
+          ret = 'rgba(255, 255, 255, 0.5)';
+        } else {
+          ret = 'rgba(255, 255, 255, 0.3)';
+        }
       }
     } else {
-
+      if (d.key === this.highlightIndicator) {
+        ret = 'rgba(255, 255, 255, 0.3)';
+      }
     } if (this.slide.section.role === 'footer') {
       ret = 'rgba(255, 255, 255, 0.05)';
     }
@@ -218,7 +235,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         ,
         (update) => update
           .call((update) => {
-            if (!this.slide.start_from_zero) {
+            if (!this.startFromZero) {
               return update.transition(t)
                 .style('top', (d) => expandedY(d.data.country_name) + 'px')
                 .style('left', (d: any) => this.barPositionX(x, d))
@@ -278,7 +295,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           )
         ,
         (update) => {
-          if (this.slide.start_from_zero) {
+          if (this.startFromZero) {
             return update
               .transition(t)
                 .style('opacity', 0)

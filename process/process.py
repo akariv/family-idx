@@ -39,7 +39,7 @@ def load_table(table, map=None, keep=None):
 
 if __name__ == '__main__':
     countries = load_table('Countries', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'flag'])
-    sections = load_table('Sections', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'color', 'role'])
+    sections = load_table('Sections', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'color', 'role', 'Dimensions'])
     data_types = load_table('DataTypes', map=DFA.AIRTABLE_ID_FIELD, keep=['name'])
     indicators = load_table('Indicators', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'dimension'])
     dimensions = load_table('Dimensions', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'indicators', 'section'])
@@ -48,11 +48,14 @@ if __name__ == '__main__':
     ])
     for dimension in dimensions.values():
         dimension['indicators'] = [indicators[i] for i in dimension['indicators']]
+    section_dimensions = dict(
+        (s['name'], s.pop('Dimensions')) for s in sections.values()
+    )
     slides = load_table('Slides', keep=[
         'section', 'data_type', 'specific_indicator', 'specific_dimension',
         'ascending_order', 'show_average', 'show_countries', 'show_value', 'start_from_zero',
         'specific_countries', 'highlight_countries', 'expand_country', 'expand_country_photo',
-        'content', 'resolution', 
+        'content', 'resolution', 'dimension_list'
     ])
     for slide_idx, slide in enumerate(slides):
         assert len(slide['section']) == 1, 'Slide {0} requires a section'.format(slide['id'])
@@ -175,6 +178,14 @@ if __name__ == '__main__':
                     )
                     indicator_info.append(item)
         indicator_info = dict((i['name'], i) for i in indicator_info)
+
+        if slide['dimension_list']:
+            slide['dimension_list'] = [
+                i['name'] for i in 
+                dimensions[section_dimensions[slide['section']['name']][0]]['indicators']
+            ]
+            assert '<רשימה>' in slide['content']
+        slide['content'] = [x.strip() for x in slide['content'].split('<רשימה>')]
 
         slide['data'] = dict(
             indicators=indicators_,

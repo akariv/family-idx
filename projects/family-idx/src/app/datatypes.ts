@@ -42,7 +42,7 @@ export type Data = {
 };
 
 export type Slide = {
-    content: string;
+    content: string[];
     data_type: DataType;
     ascending_order: boolean;
     show_average: boolean;
@@ -53,6 +53,7 @@ export type Slide = {
     highlight_countries: Country[] | null;
     expand_country: number | null;
     expand_country_photo: string | null;
+    dimension_list: string[] | null;
     resolution: string;
     section: Section;
     data: Data;

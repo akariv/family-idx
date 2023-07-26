@@ -24,9 +24,45 @@
             color: @color-text;
         }
 
-        ::ng-deep {
-            strong {
-                .font-bold;
+        .text {
+            ::ng-deep {
+                p {
+                    margin: 1em 0;
+                }
+                strong {
+                    .font-bold;
+                }
+            }    
+        }
+
+        ul.dimension_list {
+            // display: list-item;
+            flex-flow: column;
+            // gap: 8px;
+            margin: 0;
+            li {
+                .indicator-container {
+                    display: flex;
+                    flex-flow: row;
+                    align-items: center;
+                    gap: 8px;
+                    .indicator {
+                        text-decoration: underline dashed;
+                        cursor: help;
+                    }
+                    .indicator-arrow {
+                        .background-image('assets/img/icon-arrow-white.svg');
+                        width: 24px;
+                        height: 24px;
+                    }    
+                    border-radius: 4px;
+                    padding-right: 40px;
+                    margin-right: -40px;
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.10);
+                    }
+                }
+                width: max-content;
             }
         }
     }
