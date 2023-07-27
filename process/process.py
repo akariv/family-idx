@@ -55,7 +55,7 @@ if __name__ == '__main__':
         'section', 'data_type', 'specific_indicator', 'specific_dimension',
         'ascending_order', 'show_average', 'show_countries', 'show_value', 'start_from_zero',
         'specific_countries', 'highlight_countries', 'expand_country', 'expand_country_photo',
-        'content', 'resolution', 'dimension_list'
+        'content', 'resolution'
     ])
     for slide_idx, slide in enumerate(slides):
         assert len(slide['section']) == 1, 'Slide {0} requires a section'.format(slide['id'])
@@ -179,13 +179,16 @@ if __name__ == '__main__':
                     indicator_info.append(item)
         indicator_info = dict((i['name'], i) for i in indicator_info)
 
-        if slide['dimension_list']:
+        if '<רשימה>' in slide['content']:
             slide['dimension_list'] = [
                 i['name'] for i in 
                 dimensions[section_dimensions[slide['section']['name']][0]]['indicators']
             ]
-            assert '<רשימה>' in slide['content']
-        slide['content'] = [x.strip() for x in slide['content'].split('<רשימה>')]
+            slide['content'] = [x.strip() for x in slide['content'].split('<רשימה>')]
+        elif '<משקלות>' in slide['content']:
+            slide['exploration'] = True
+            slide['content'] = ''
+        slide['content'] = [slide['content']]
 
         slide['data'] = dict(
             indicators=indicators_,
