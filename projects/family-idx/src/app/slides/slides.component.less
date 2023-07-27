@@ -1,14 +1,23 @@
 @import '../../common.less';
 
-@slide-width: 600px;
+@desktop-slide-width: 600px;
+@mobile-slide-width: 300px;
 
 .slides {
     position: relative;
     
     .slide {
         .font-light;
-        font-size: 32px;
-        line-height: 42px;
+        .desktop({
+            font-size: 32px;
+            line-height: 42px;    
+            max-width: @desktop-slide-width;
+        });
+        .mobile({
+            font-size: 20px;
+            line-height: 31px;    
+            max-width: @mobile-slide-width;
+        });
         color: @color-white;
         z-index: 1;
         height: 100vh;
@@ -19,7 +28,6 @@
         padding: 16px;
         scroll-snap-align: start;
         width: 100%;
-        max-width: @slide-width;
         &.darken {
             color: @color-text;
         }
@@ -71,7 +79,12 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: @slide-width;
+        .desktop({
+            width: @desktop-slide-width;
+        });
+        .mobile({
+            width: @mobile-slide-width;
+        });
         height: 100vh;
         pointer-events: none;
         display: flex;

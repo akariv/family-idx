@@ -15,7 +15,7 @@
             <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
             <ul class='dimension_list' *ngIf='slide.dimension_list'>
                 <li *ngFor='let indicator of slide.dimension_list'>
-                    <div class='indicator-container' (mouseover)='highlightedIndicator = indicator' (mouseleave)='highlightedIndicator = null'>
+                    <div class='indicator-container' (mouseover)='highlightedIndicator = indicator' (mouseleave)='highlightedIndicator = null' (touchstart)='highlightedIndicator = indicator'>
                         <span class='indicator'>{{indicator}}</span>
                         <span class='indicator-arrow'></span>    
                     </div>

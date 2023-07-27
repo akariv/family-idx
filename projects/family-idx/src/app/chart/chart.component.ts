@@ -46,8 +46,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const non_indicators = data?.non_indicators || [];
       const countries = data?.countries || [];
       this.startFromZero = this.slide.start_from_zero && !!changes && !!changes['slide'] && changes['slide'].currentValue !== changes['slide'].previousValue;
-      console.log('START FROM ZERO', this.startFromZero, this.slide.start_from_zero, changes);
 
+      const estimated: any = {};
       const layout = stack<any, Datum, string>()
         .keys([...non_indicators, ...indicators])
         .value((d, key) => {
@@ -55,18 +55,38 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           if (idx === -1) {
             return 0;
           }
+          if (d.values[idx].estimated) {
+            estimated[`${key}-${d.country_name}`] = true;
+          }
           return d.values[idx].value + data.average / 50;
         })(countries);
       console.log('CURRENT SLIDE LAYOUT', layout);
+      
       layout.forEach((ind) => {
         ind.forEach((d: any) => {
           d.key = ind.key;
         });
       });
-      
+      let maxSlide = -1;
+      const highlightSlide: {[key: string]: number} = {};
+      if (this.highlightIndicator !== null) {
+        layout.filter((ind) => ind.key === this.highlightIndicator)[0].forEach((d) => {
+          if (maxSlide === -1) {
+            maxSlide = d[0];
+          } else {
+            maxSlide = Math.max(maxSlide, d[0]);
+          }
+        });
+        if (maxSlide > 0) {
+          layout.filter((ind) => ind.key === this.highlightIndicator)[0].forEach((d) => {
+            highlightSlide[d.data.country_name] = maxSlide - d[0];
+          });  
+        }
+      }
+
       const maxX = Math.max(...countries.map(x => x.sum));
       const x = scaleLinear().domain([0, maxX+0.0001]).range([this.leftPadding, this.width]);
-      console.log('X', maxX, this.width, x(maxX), x(0));
+
       let expandWidth = 0;
       if (this.slide.expand_country !== null) {
         expandWidth = x(countries[this.slide.expand_country].sum) - this.leftPadding;
@@ -98,7 +118,6 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           countries, this.slide.expand_country, y, expandedYPre, expandedYPost
         );
         barHeight = expandedYPre.bandwidth();
-        console.log(expandedYPost(countryNext), this.padding + expandWidth);
         expandWidth = ((expandedYPost(countryNext) || 0) - (expandedYPre(country) || 0)) || expandWidth;
         expandWidth -= barHeight*0.2;
         if (this.slide.expand_country_photo) {
@@ -109,11 +128,10 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         .duration(1000)
         .ease(easeLinear)
         .on('end', () => {
-          console.log('TRANSITION END');
           this.moving = false;
         });
       this.moving = true;
-      this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto);
+      this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, highlightSlide);
       this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px');
 
       // A single path on the right border of the image
@@ -129,10 +147,10 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.avgPos = x(data.average) || this.avgPos;
       if (!this.avgVisible && this.slide.show_average) {
         timer(1000).subscribe(() => {
-          this.avgVisible = this.slide.show_average;
+          this.avgVisible = this.slide.show_average && !this.highlightIndicator;
         });
       } else {
-        this.avgVisible = this.slide.show_average;
+        this.avgVisible = this.slide.show_average && !this.highlightIndicator;
       }
     }
   }
@@ -169,17 +187,25 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         }
       } else {
         if (d.key === this.highlightIndicator) {
-          ret = 'rgba(255, 255, 255, 0.5)';
+          ret = 'rgba(255, 255, 255, 0.6)';
         } else {
           ret = 'rgba(255, 255, 255, 0.3)';
         }
       }
     } else {
       if (d.key === this.highlightIndicator) {
-        ret = 'rgba(255, 255, 255, 0.3)';
+        ret = 'rgba(255, 255, 255, 0.2)';
       }
     } if (this.slide.section.role === 'footer') {
       ret = 'rgba(255, 255, 255, 0.05)';
+    }
+    return ret;
+  }
+
+  labelClasses(d: any) {
+    let ret = 'label';
+    if ((this.slide.highlight_countries || []).map(x => x.name).indexOf(d.country_name) >= 0) {
+      ret += ' highlight';
     }
     return ret;
   }
@@ -192,14 +218,15 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     }
   }
 
-  barPositionX(x: ScaleLinear<number, number, number>, d: any) {
-    // console.log('DDDD2', d, this.slide.data.indicator_info);
+  barPositionX(x: ScaleLinear<number, number, number>, d: any, highlightSlide: {[key: string]: number}) {
+    const slide = highlightSlide[d.data.country_name] || 0;
     const skip = this.slide.data.indicator_info[d.key]?.skip || 0;
-    return (x(d[0]) + skip) + 'px';
+    return (x(d[0] + slide) + skip) + 'px';
   }
  
   updateBars(layout: Series<Datum, string>[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
-             expandedY: (d: string) => number | undefined, expandWidth: string, barHeight: string, expandPhoto: string | null) {
+             expandedY: (d: string) => number | undefined, expandWidth: string, barHeight: string, expandPhoto: string | null,
+             estimated: {[key: string]: boolean}, highlightSlide: {[key: string]: number}) {
     const canvas = select(this.chart.nativeElement);
     // Bars
     canvas.selectAll('.series')
@@ -226,10 +253,11 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('width', '0px')
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
+          .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
             .transition(t)
-            .style('left', (d: any) => this.barPositionX(x, d))
+            .style('left', (d: any) => this.barPositionX(x, d, highlightSlide))
             .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
           )
         ,
@@ -238,11 +266,12 @@ export class ChartComponent implements OnChanges, AfterViewInit {
             if (!this.startFromZero) {
               return update.transition(t)
                 .style('top', (d) => expandedY(d.data.country_name) + 'px')
-                .style('left', (d: any) => this.barPositionX(x, d))
+                .style('left', (d: any) => this.barPositionX(x, d, highlightSlide))
                 .style('height', (d, i) => i === this.slide.expand_country ? expandWidth : barHeight)
                 .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
+                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
                 // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
               }
             return update
@@ -252,6 +281,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('width', '0px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
+                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
                 // i === this.slide.expand_country ? expandPhoto : null)
                 .call((update) => update
                 .transition()
@@ -262,7 +292,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                   .delay(500)
                   .duration(1000)
                   .ease(easeLinear)
-                  .style('left', (d: any) => this.barPositionX(x, d))
+                  .style('left', (d: any) => this.barPositionX(x, d, highlightSlide))
                   .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
               );
           })
@@ -285,10 +315,11 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       .data(data || [], (d: any) => (d as Datum).country_name)
       .join(
         (enter) => enter.append('div').attr('class', 'label')
-          .html((d: any) => `<span class='flag'>${d.flag}</span>&nbsp;${d.country_name}`)
+          .html((d: any) => `<span class='flag'>${d.flag}</span>&nbsp;<span class='name'>${d.country_name}</name>`)
           .style('top', (d) => expandedY(d.country_name) + 'px')
           .style('height', barHeight)
           .style('opacity', 0)
+          .attr('class', (d: any) => this.labelClasses(d))
           .call((enter) => enter
             .transition(t)
             .style('opacity', visible ? 1 : 0)
@@ -300,6 +331,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
               .transition(t)
                 .style('opacity', 0)
                 .style('height', barHeight)
+                .attr('class', (d: any) => this.labelClasses(d))
               .call((update) => update
                 .transition()
                   .duration(1)
@@ -310,13 +342,15 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                   .delay(500)
                   .duration(1000)
                   .style('opacity', visible ? 1 : 0)
-              );
+                );
           } else {
             return update
               .transition(t)
                 .style('top', (d) => expandedY(d.country_name) + 'px')
                 .style('opacity', visible ? 1 : 0)
-                .style('height', barHeight);
+                .style('height', barHeight)
+                .attr('class', (d: any) => this.labelClasses(d))
+              ;
           }
         },
         (exit) => exit

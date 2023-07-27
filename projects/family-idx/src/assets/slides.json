@@ -3,8 +3,8 @@
     {
       "specific_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "content": [
@@ -24,8 +24,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data": {
@@ -35,7 +35,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -79,8 +79,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -91,7 +91,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -125,8 +125,8 @@
             "color": "#A23067",
             "skip": 0
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -382,8 +382,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -394,7 +394,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -428,8 +428,8 @@
             "color": "#A23067",
             "skip": 0
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -1870,140 +1870,140 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇱🇺",
-          "name": "לוקסמבורג"
+          "name": "לוקסמבורג",
+          "flag": "🇱🇺"
         },
         {
-          "flag": "🇩🇪",
-          "name": "גרמניה"
+          "name": "גרמניה",
+          "flag": "🇩🇪"
         },
         {
-          "flag": "🇩🇰",
-          "name": "דנמרק"
+          "name": "דנמרק",
+          "flag": "🇩🇰"
         },
         {
-          "flag": "🇸🇪",
-          "name": "שבדיה"
+          "name": "שבדיה",
+          "flag": "🇸🇪"
         },
         {
-          "flag": "🇪🇪",
-          "name": "אסטוניה"
+          "name": "אסטוניה",
+          "flag": "🇪🇪"
         },
         {
-          "flag": "🇫🇮",
-          "name": "פינלנד"
+          "name": "פינלנד",
+          "flag": "🇫🇮"
         },
         {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
+          "name": "אוסטריה",
+          "flag": "🇦🇹"
         },
         {
-          "flag": "🇸🇮",
-          "name": "סלובניה"
+          "name": "סלובניה",
+          "flag": "🇸🇮"
         },
         {
-          "flag": "🇫🇷",
-          "name": "צרפת"
+          "name": "צרפת",
+          "flag": "🇫🇷"
         },
         {
-          "flag": "🇳🇴",
-          "name": "נורבגיה"
+          "name": "נורבגיה",
+          "flag": "🇳🇴"
         },
         {
-          "flag": "🇵🇱",
-          "name": "פולין"
+          "name": "פולין",
+          "flag": "🇵🇱"
         },
         {
-          "flag": "🇨🇱",
-          "name": "צ'ילה"
+          "name": "צ'ילה",
+          "flag": "🇨🇱"
         },
         {
-          "flag": "🇧🇪",
-          "name": "בלגיה"
+          "name": "בלגיה",
+          "flag": "🇧🇪"
         },
         {
-          "flag": "🇭🇺",
-          "name": "הונגריה"
+          "name": "הונגריה",
+          "flag": "🇭🇺"
         },
         {
-          "flag": "🇮🇹",
-          "name": "איטליה"
+          "name": "איטליה",
+          "flag": "🇮🇹"
         },
         {
-          "flag": "🇱🇻",
-          "name": "לטביה"
+          "name": "לטביה",
+          "flag": "🇱🇻"
         },
         {
-          "flag": "🇪🇸",
-          "name": "ספרד"
+          "name": "ספרד",
+          "flag": "🇪🇸"
         },
         {
-          "flag": "🇸🇰",
-          "name": "סלובקיה"
+          "name": "סלובקיה",
+          "flag": "🇸🇰"
         },
         {
-          "flag": "🇵🇹",
-          "name": "פורטוגל"
+          "name": "פורטוגל",
+          "flag": "🇵🇹"
         },
         {
-          "flag": "🇱🇹",
-          "name": "ליטואניה"
+          "name": "ליטואניה",
+          "flag": "🇱🇹"
         },
         {
-          "flag": "🇳🇱",
-          "name": "הולנד"
+          "name": "הולנד",
+          "flag": "🇳🇱"
         },
         {
-          "flag": "🇮🇪",
-          "name": "אירלנד"
+          "name": "אירלנד",
+          "flag": "🇮🇪"
         },
         {
-          "flag": "🇨🇭",
-          "name": "שוויץ"
+          "name": "שוויץ",
+          "flag": "🇨🇭"
         },
         {
-          "flag": "🇨🇿",
-          "name": "צ'כיה"
+          "name": "צ'כיה",
+          "flag": "🇨🇿"
         },
         {
-          "flag": "🇬🇷",
-          "name": "יוון"
+          "name": "יוון",
+          "flag": "🇬🇷"
         },
         {
-          "flag": "🇬🇧",
-          "name": "בריטניה"
+          "name": "בריטניה",
+          "flag": "🇬🇧"
         },
         {
-          "flag": "🇳🇿",
-          "name": "ניו זילנד"
+          "name": "ניו זילנד",
+          "flag": "🇳🇿"
         },
         {
-          "flag": "🇯🇵",
-          "name": "יפן"
+          "name": "יפן",
+          "flag": "🇯🇵"
         },
         {
-          "flag": "🇦🇺",
-          "name": "אוסטרליה"
+          "name": "אוסטרליה",
+          "flag": "🇦🇺"
         },
         {
-          "flag": "🇺🇸",
-          "name": "ארה\"ב"
+          "name": "ארה\"ב",
+          "flag": "🇺🇸"
         },
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         },
         {
-          "flag": "🇲🇽",
-          "name": "מקסיקו"
+          "name": "מקסיקו",
+          "flag": "🇲🇽"
         },
         {
-          "flag": "🇰🇷",
-          "name": "קוריאה"
+          "name": "קוריאה",
+          "flag": "🇰🇷"
         },
         {
-          "flag": "🇮🇸",
-          "name": "איסלנד"
+          "name": "איסלנד",
+          "flag": "🇮🇸"
         }
       ],
       "resolution": "dimension",
@@ -2159,8 +2159,8 @@
       "expand_country_photo": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -2171,7 +2171,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -2205,8 +2205,8 @@
             "color": "#A23067",
             "skip": 0
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -3647,140 +3647,140 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇱🇺",
-          "name": "לוקסמבורג"
+          "name": "לוקסמבורג",
+          "flag": "🇱🇺"
         },
         {
-          "flag": "🇩🇪",
-          "name": "גרמניה"
+          "name": "גרמניה",
+          "flag": "🇩🇪"
         },
         {
-          "flag": "🇩🇰",
-          "name": "דנמרק"
+          "name": "דנמרק",
+          "flag": "🇩🇰"
         },
         {
-          "flag": "🇸🇪",
-          "name": "שבדיה"
+          "name": "שבדיה",
+          "flag": "🇸🇪"
         },
         {
-          "flag": "🇪🇪",
-          "name": "אסטוניה"
+          "name": "אסטוניה",
+          "flag": "🇪🇪"
         },
         {
-          "flag": "🇫🇮",
-          "name": "פינלנד"
+          "name": "פינלנד",
+          "flag": "🇫🇮"
         },
         {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
+          "name": "אוסטריה",
+          "flag": "🇦🇹"
         },
         {
-          "flag": "🇸🇮",
-          "name": "סלובניה"
+          "name": "סלובניה",
+          "flag": "🇸🇮"
         },
         {
-          "flag": "🇫🇷",
-          "name": "צרפת"
+          "name": "צרפת",
+          "flag": "🇫🇷"
         },
         {
-          "flag": "🇳🇴",
-          "name": "נורבגיה"
+          "name": "נורבגיה",
+          "flag": "🇳🇴"
         },
         {
-          "flag": "🇵🇱",
-          "name": "פולין"
+          "name": "פולין",
+          "flag": "🇵🇱"
         },
         {
-          "flag": "🇨🇱",
-          "name": "צ'ילה"
+          "name": "צ'ילה",
+          "flag": "🇨🇱"
         },
         {
-          "flag": "🇧🇪",
-          "name": "בלגיה"
+          "name": "בלגיה",
+          "flag": "🇧🇪"
         },
         {
-          "flag": "🇭🇺",
-          "name": "הונגריה"
+          "name": "הונגריה",
+          "flag": "🇭🇺"
         },
         {
-          "flag": "🇮🇹",
-          "name": "איטליה"
+          "name": "איטליה",
+          "flag": "🇮🇹"
         },
         {
-          "flag": "🇱🇻",
-          "name": "לטביה"
+          "name": "לטביה",
+          "flag": "🇱🇻"
         },
         {
-          "flag": "🇪🇸",
-          "name": "ספרד"
+          "name": "ספרד",
+          "flag": "🇪🇸"
         },
         {
-          "flag": "🇸🇰",
-          "name": "סלובקיה"
+          "name": "סלובקיה",
+          "flag": "🇸🇰"
         },
         {
-          "flag": "🇵🇹",
-          "name": "פורטוגל"
+          "name": "פורטוגל",
+          "flag": "🇵🇹"
         },
         {
-          "flag": "🇱🇹",
-          "name": "ליטואניה"
+          "name": "ליטואניה",
+          "flag": "🇱🇹"
         },
         {
-          "flag": "🇳🇱",
-          "name": "הולנד"
+          "name": "הולנד",
+          "flag": "🇳🇱"
         },
         {
-          "flag": "🇮🇪",
-          "name": "אירלנד"
+          "name": "אירלנד",
+          "flag": "🇮🇪"
         },
         {
-          "flag": "🇨🇭",
-          "name": "שוויץ"
+          "name": "שוויץ",
+          "flag": "🇨🇭"
         },
         {
-          "flag": "🇨🇿",
-          "name": "צ'כיה"
+          "name": "צ'כיה",
+          "flag": "🇨🇿"
         },
         {
-          "flag": "🇬🇷",
-          "name": "יוון"
+          "name": "יוון",
+          "flag": "🇬🇷"
         },
         {
-          "flag": "🇬🇧",
-          "name": "בריטניה"
+          "name": "בריטניה",
+          "flag": "🇬🇧"
         },
         {
-          "flag": "🇳🇿",
-          "name": "ניו זילנד"
+          "name": "ניו זילנד",
+          "flag": "🇳🇿"
         },
         {
-          "flag": "🇯🇵",
-          "name": "יפן"
+          "name": "יפן",
+          "flag": "🇯🇵"
         },
         {
-          "flag": "🇦🇺",
-          "name": "אוסטרליה"
+          "name": "אוסטרליה",
+          "flag": "🇦🇺"
         },
         {
-          "flag": "🇺🇸",
-          "name": "ארה\"ב"
+          "name": "ארה\"ב",
+          "flag": "🇺🇸"
         },
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         },
         {
-          "flag": "🇲🇽",
-          "name": "מקסיקו"
+          "name": "מקסיקו",
+          "flag": "🇲🇽"
         },
         {
-          "flag": "🇰🇷",
-          "name": "קוריאה"
+          "name": "קוריאה",
+          "flag": "🇰🇷"
         },
         {
-          "flag": "🇮🇸",
-          "name": "איסלנד"
+          "name": "איסלנד",
+          "flag": "🇮🇸"
         }
       ],
       "resolution": "indicator",
@@ -3936,8 +3936,8 @@
       "expand_country_photo": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -3948,7 +3948,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -3982,8 +3982,8 @@
             "color": "#A23067",
             "skip": 2
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -5424,8 +5424,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "resolution": "indicator",
@@ -5581,8 +5581,8 @@
       "expand_country_photo": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -5593,7 +5593,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -5627,8 +5627,8 @@
             "color": "#A23067",
             "skip": 2
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -7069,8 +7069,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "resolution": "indicator",
@@ -7229,8 +7229,8 @@
       "expand_country_photo": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data_type": {
@@ -7244,7 +7244,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -7755,8 +7755,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#e8eae6",
         "name": "מהו המדד?",
+        "color": "#e8eae6",
         "role": "intro"
       },
       "data": {
@@ -7766,7 +7766,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -7988,8 +7988,8 @@
     {
       "specific_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "content": [
@@ -8009,8 +8009,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data": {
@@ -8020,7 +8020,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -8044,8 +8044,8 @@
     {
       "specific_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_countries": true,
@@ -8065,8 +8065,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data": {
@@ -8076,7 +8076,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -8100,8 +8100,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -8111,10 +8111,10 @@
         "**אבות בישראל לא זכאים כלל לחופשת לידה בתשלום.** הם יכולים רק לממש מעט ימי מחלה וחופשה שנתית או לקחת ימים על חשבון חופשת האם."
       ],
       "specific_indicator": {
+        "name": "הפוגת אבות (סך שבועות משולמים היטב)",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "הפוגת אבות (סך שבועות משולמים היטב)"
+        ]
       },
       "specific_dimension": null,
       "ascending_order": false,
@@ -8262,8 +8262,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -8278,7 +8278,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
           "פער כניסה למסגרות",
@@ -8644,12 +8644,12 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         },
         {
-          "flag": "🇳🇴",
-          "name": "נורבגיה"
+          "name": "נורבגיה",
+          "flag": "🇳🇴"
         }
       ],
       "expand_country": 9,
@@ -8660,10 +8660,10 @@
         "ישראל יכולה ללמוד **מנורבגיה**. הורים נורבגיים זכאים לחופשת לידה ארוכה במימון מלא: 18 שבועות לאם, 15 לאב, ו-16 שבועות נוספים לחלוקה ביניהם."
       ],
       "specific_indicator": {
+        "name": "הפוגת אבות (סך שבועות משולמים היטב)",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "הפוגת אבות (סך שבועות משולמים היטב)"
+        ]
       },
       "specific_dimension": null,
       "ascending_order": false,
@@ -8810,8 +8810,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -8826,7 +8826,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
           "פער כניסה למסגרות",
@@ -9192,8 +9192,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -9204,10 +9204,10 @@
         "נמשיך. חופשת לידה לאמהות בישראל אורכת 3 חודשים. בסופה הורים נאלצים למצוא מסגרת פרטית ויקרה למשך 33 חודשים עד הכניסה למסגרת במימון ציבורי בגיל 3. **ישראל קרובה** **לממוצע הודות להחלת חינוך חובה מגיל 3 ב-2015.**"
       ],
       "specific_indicator": {
+        "name": "פער כניסה למסגרות",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "פער כניסה למסגרות"
+        ]
       },
       "specific_dimension": null,
       "start_from_zero": false,
@@ -9354,8 +9354,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -9370,7 +9370,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -9736,8 +9736,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -9748,10 +9748,10 @@
         "לפני החלת חוק חינוך חובה חינם מגיל 3 ב-2015, **פרק הזמן היה 45 חודשים**."
       ],
       "specific_indicator": {
+        "name": "פער כניסה למסגרות",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "פער כניסה למסגרות"
+        ]
       },
       "specific_dimension": null,
       "start_from_zero": false,
@@ -9898,8 +9898,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -9914,7 +9914,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -10280,8 +10280,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -10292,10 +10292,10 @@
         "אם נחיל חוק חינוך חובה מסוף תקופת הלידה נגיע לראש הרשימה לצד פינלנד ושבדיה."
       ],
       "specific_indicator": {
+        "name": "פער כניסה למסגרות",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "פער כניסה למסגרות"
+        ]
       },
       "specific_dimension": null,
       "start_from_zero": false,
@@ -10442,8 +10442,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -10458,7 +10458,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -10824,8 +10824,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -10836,10 +10836,10 @@
         "כעת נמיר את הנתונים לציונים כדי שנוכל להשוות אותם אחד לשני. במקרה של הפער בין חופשת לידה למסגרת ציבורית, **ככל שהפער קטן יותר הציון גבוה יותר.**"
       ],
       "specific_indicator": {
+        "name": "פער כניסה למסגרות",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "פער כניסה למסגרות"
+        ]
       },
       "specific_dimension": null,
       "start_from_zero": false,
@@ -10986,8 +10986,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -11002,7 +11002,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -11368,8 +11368,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -11378,10 +11378,10 @@
         "ככה זה נראה: הציון מתבטא **באורך העמודה**. כשזה נוגע לחישוב הציון באופן כללי, ככל שהעמודה ארוכה יותר המצב טוב יותר."
       ],
       "specific_indicator": {
+        "name": "פער כניסה למסגרות",
         "dimension": [
           "rech638IiLKnDhuu1"
-        ],
-        "name": "פער כניסה למסגרות"
+        ]
       },
       "specific_dimension": null,
       "ascending_order": false,
@@ -11530,8 +11530,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -11546,7 +11546,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -11912,8 +11912,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "resolution": "indicator",
@@ -11931,34 +11931,34 @@
       "specific_dimension": {
         "indicators": [
           {
+            "name": "שביעות רצון מחינוך",
             "dimension": [
               "rech638IiLKnDhuu1"
-            ],
-            "name": "שביעות רצון מחינוך"
+            ]
           },
           {
+            "name": "הפוגת אבות (סך שבועות משולמים היטב)",
             "dimension": [
               "rech638IiLKnDhuu1"
-            ],
-            "name": "הפוגת אבות (סך שבועות משולמים היטב)"
+            ]
           },
           {
+            "name": "הפוגת אמהות (סך שבועות משולמים היטב)",
             "dimension": [
               "rech638IiLKnDhuu1"
-            ],
-            "name": "הפוגת אמהות (סך שבועות משולמים היטב)"
+            ]
           },
           {
+            "name": "פער כניסה למסגרות",
             "dimension": [
               "rech638IiLKnDhuu1"
-            ],
-            "name": "פער כניסה למסגרות"
+            ]
           }
         ],
-        "name": "חינוך וטיפול",
         "section": [
           "recvFES3huuncNLpO"
-        ]
+        ],
+        "name": "חינוך וטיפול"
       },
       "specific_indicator": null,
       "ascending_order": false,
@@ -12106,8 +12106,8 @@
       "expand_country": null,
       "expand_country_photo": null,
       "section": {
-        "color": "#61589C",
         "name": "חינוך וטיפול",
+        "color": "#61589C",
         "role": null
       },
       "data_type": {
@@ -12125,7 +12125,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "הכנסה פנויה למשפחה עם ילדים",
           "שיעור הטבות וקצבאות למשפחה מהכנסה",
           "הוצאה לדורש עבודה"
@@ -12972,8 +12972,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#A23067",
         "name": "זמן משותף",
+        "color": "#A23067",
         "role": null
       },
       "data": {
@@ -12983,7 +12983,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -13205,8 +13205,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -13217,10 +13217,10 @@
         "למשל, בישראל מספר **ימי החופשה של ילדים בהם ההורים עובדים גבוה.** ההורים נאלצים למצוא פתרון לילדים, ונהנים מפחות זמן משותף איתם."
       ],
       "specific_indicator": {
+        "name": "ימי חופשה לעובדים",
         "dimension": [
           "recHzEPMKfuwt7EHG"
-        ],
-        "name": "ימי חופשה לעובדים"
+        ]
       },
       "specific_dimension": null,
       "start_from_zero": false,
@@ -13367,8 +13367,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#A23067",
         "name": "זמן משותף",
+        "color": "#A23067",
         "role": null
       },
       "data_type": {
@@ -13382,7 +13382,7 @@
           "השקעה במו\"פ כשיעור מהתמ\"ג",
           "פנאי",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -13748,17 +13748,18 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "resolution": "indicator",
       "show_average": true,
+      "start_from_zero": true,
       "dimension_list": [
         "פנאי",
         "ימי חופשה לעובדים",
         "זמן בדרכים",
-        "שעות  שבועיות למשרה מלאה"
+        "שעות שבועיות למשרה מלאה"
       ],
       "show_countries": true,
       "content": [
@@ -13768,36 +13769,35 @@
       "specific_dimension": {
         "indicators": [
           {
+            "name": "פנאי",
             "dimension": [
               "recHzEPMKfuwt7EHG"
-            ],
-            "name": "פנאי"
+            ]
           },
           {
+            "name": "ימי חופשה לעובדים",
             "dimension": [
               "recHzEPMKfuwt7EHG"
-            ],
-            "name": "ימי חופשה לעובדים"
+            ]
           },
           {
+            "name": "זמן בדרכים",
             "dimension": [
               "recHzEPMKfuwt7EHG"
-            ],
-            "name": "זמן בדרכים"
+            ]
           },
           {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": [
               "recHzEPMKfuwt7EHG"
-            ],
-            "name": "שעות  שבועיות למשרה מלאה"
+            ]
           }
         ],
-        "name": "זמן משותף",
         "section": [
           "recKKvXivLystpm8B"
-        ]
+        ],
+        "name": "זמן משותף"
       },
-      "start_from_zero": true,
       "specific_indicator": null,
       "ascending_order": false,
       "show_value": false,
@@ -13942,8 +13942,8 @@
       "expand_country": null,
       "expand_country_photo": null,
       "section": {
-        "color": "#A23067",
         "name": "זמן משותף",
+        "color": "#A23067",
         "role": null
       },
       "data_type": {
@@ -13954,7 +13954,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה"
+          "שעות שבועיות למשרה מלאה"
         ],
         "non_indicators": [
           "השקעה במו\"פ כשיעור מהתמ\"ג",
@@ -13988,8 +13988,8 @@
             "color": "#A23067",
             "skip": 2
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -14814,8 +14814,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#9E3409",
         "name": "רווחה כלכלית",
+        "color": "#9E3409",
         "role": null
       },
       "data": {
@@ -14825,7 +14825,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -15047,8 +15047,8 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "show_average": true,
@@ -15058,10 +15058,10 @@
         "רכיב לדוגמא: **הכנסה פנויה למשפחה**. לכתוב פסקה בעלת ערך לקורא על הכנסה פנויה / רכיב אחר. אולי לציין שהמדינה משפיעה על הכנסה פנויה באמצעות מדיניות המיסוי וההעברות?"
       ],
       "specific_indicator": {
+        "name": "הכנסה פנויה למשפחה עם ילדים",
         "dimension": [
           "recfa4QkqAp6AXl2Q"
-        ],
-        "name": "הכנסה פנויה למשפחה עם ילדים"
+        ]
       },
       "specific_dimension": null,
       "ascending_order": false,
@@ -15209,8 +15209,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#9E3409",
         "name": "רווחה כלכלית",
+        "color": "#9E3409",
         "role": null
       },
       "data_type": {
@@ -15225,7 +15225,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -15591,12 +15591,13 @@
     {
       "highlight_countries": [
         {
-          "flag": "🇮🇱",
-          "name": "ישראל"
+          "name": "ישראל",
+          "flag": "🇮🇱"
         }
       ],
       "resolution": "indicator",
       "show_average": true,
+      "start_from_zero": true,
       "dimension_list": [
         "הכנסה פנויה למשפחה עם ילדים",
         "שיעור הטבות וקצבאות למשפחה מהכנסה",
@@ -15610,33 +15611,32 @@
       "specific_dimension": {
         "indicators": [
           {
+            "name": "הכנסה פנויה למשפחה עם ילדים",
             "dimension": [
               "recfa4QkqAp6AXl2Q"
-            ],
-            "name": "הכנסה פנויה למשפחה עם ילדים"
+            ]
           },
           {
+            "name": "שיעור הטבות וקצבאות למשפחה מהכנסה",
             "dimension": [
               "recfa4QkqAp6AXl2Q"
-            ],
-            "name": "שיעור הטבות וקצבאות למשפחה מהכנסה"
+            ]
           },
           {
+            "name": "הוצאה לדורש עבודה",
             "dimension": [
               "recfa4QkqAp6AXl2Q"
-            ],
-            "name": "הוצאה לדורש עבודה"
+            ]
           }
         ],
-        "name": "רווחה כלכלית",
         "section": [
           "recCtRGgMMVaFBNsz"
-        ]
+        ],
+        "name": "רווחה כלכלית"
       },
       "specific_indicator": null,
       "ascending_order": false,
       "show_value": false,
-      "start_from_zero": false,
       "specific_countries": [
         {
           "name": "לוקסמבורג",
@@ -15778,8 +15778,8 @@
       "expand_country": null,
       "expand_country_photo": null,
       "section": {
-        "color": "#9E3409",
         "name": "רווחה כלכלית",
+        "color": "#9E3409",
         "role": null
       },
       "data_type": {
@@ -15796,7 +15796,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -16530,8 +16530,8 @@
       "expand_country_photo": null,
       "dimension_list": null,
       "section": {
-        "color": "#243856",
         "name": "גשו הישר למדד",
+        "color": "#243856",
         "role": "outro"
       },
       "data_type": {
@@ -16542,7 +16542,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -16576,8 +16576,8 @@
             "color": "#A23067",
             "skip": 2
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",
@@ -18170,8 +18170,8 @@
       "resolution": null,
       "dimension_list": null,
       "section": {
-        "color": "#243856",
         "name": "אודות, נתונים וקרדיטים",
+        "color": "#243856",
         "role": "footer"
       },
       "data_type": {
@@ -18182,7 +18182,7 @@
           "פנאי",
           "ימי חופשה לעובדים",
           "זמן בדרכים",
-          "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה",
           "שביעות רצון מחינוך",
           "הפוגת אבות (סך שבועות משולמים היטב)",
           "הפוגת אמהות (סך שבועות משולמים היטב)",
@@ -18216,8 +18216,8 @@
             "color": "#A23067",
             "skip": 0
           },
-          "שעות  שבועיות למשרה מלאה": {
-            "name": "שעות  שבועיות למשרה מלאה",
+          "שעות שבועיות למשרה מלאה": {
+            "name": "שעות שבועיות למשרה מלאה",
             "dimension": "זמן משותף",
             "section": "זמן משותף",
             "color": "#A23067",

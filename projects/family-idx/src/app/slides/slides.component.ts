@@ -48,6 +48,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   handleSlide(slide: Slide) {
     this.currentSlide = slide;
     this.bgColor = slide.section.color;
+    this.highlightedIndicator = null;
   }
 
 }
