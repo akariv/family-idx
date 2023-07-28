@@ -8,6 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { ChartComponent } from './chart/chart.component';
 import { FooterComponent } from './footer/footer.component';
+import { WeightsComponent } from './weights/weights.component';
+import { WeightsDimensionComponent } from './weights-dimension/weights-dimension.component';
+import { WeightsSliderComponent } from './weights-slider/weights-slider.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import { FooterComponent } from './footer/footer.component';
     SlidesComponent,
     MainComponent,
     ChartComponent,
-    FooterComponent
+    FooterComponent,
+    WeightsComponent,
+    WeightsDimensionComponent,
+    WeightsSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

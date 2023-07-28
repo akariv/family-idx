@@ -13,13 +13,16 @@ export type DataType = {
     name: string;
 };
 
+export type Value = {
+    value: number;
+    estimated?: boolean;
+    origValue?: number;
+};
+
 export type Datum = {
     country_name: string;
     flag: string;
-    values: {
-        value: number;
-        estimated?: boolean;
-    }[];
+    values: Value[];
     sum: number;
 };
 
@@ -54,6 +57,7 @@ export type Slide = {
     expand_country: number | null;
     expand_country_photo: string | null;
     dimension_list: string[] | null;
+    exploration: boolean;
     resolution: string;
     section: Section;
     data: Data;

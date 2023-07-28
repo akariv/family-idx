@@ -1,0 +1,35 @@
+@import '../../common.less';
+
+:host {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 32px;
+    width: 100%;
+
+    .selector {
+        flex: 0 0 auto;
+        .button-image('assets/img/icon-state=show.svg');
+        width: 24px;
+        height: 24px;
+        background-size: 24px;
+    }
+
+    .title {
+        flex: 0 0 320px;
+        color: @color-white;
+        .font-regular;
+        font-size: 20px;
+        line-height: 20px;
+    
+        &.bold {
+            .font-bold;
+        }
+    }
+
+    input {
+        flex: 0 0 250;
+    }
+}

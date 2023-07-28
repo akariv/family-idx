@@ -1,21 +1,28 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
-import { Indicators, Slide } from '../datatypes';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Data, Indicators, Slide } from '../datatypes';
 import { timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
+import { ChartComponent } from '../chart/chart.component';
 
 @Component({
   selector: 'app-slides',
   templateUrl: './slides.component.html',
-  styleUrls: ['./slides.component.less']
+  styleUrls: ['./slides.component.less'],
+  host: {
+    '[class.snapping]': 'snapping',
+  }
 })
 export class SlidesComponent implements AfterViewInit, OnInit {
   @Input() slides: Slide[] = [];
+  @ViewChild('chart') chart: ChartComponent;
   
   observer: IntersectionObserver;
   currentSlide: Slide;
   highlightedIndicator: string | null = null;
+  highlightedIndicators: string[] | null = null;
 
   bgColor: string = 'white';
+  snapping: boolean = true;
 
   constructor(private el: ElementRef, public md: MarkdownService) { }
 
@@ -49,6 +56,23 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.currentSlide = slide;
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
+    this.snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration';
   }
 
+  updateData(slide: Slide, data: Data) {
+    slide.data = data;
+    if (this.currentSlide === slide) {
+      this.chart.ngOnChanges();
+    }
+  }
+
+  highlightIndicators(indicators: string[]) {
+    if (indicators.length === 0) {
+      this.highlightedIndicators = null;
+      this.highlightedIndicator = null;
+    } else {
+      this.highlightedIndicators = indicators;
+      this.highlightedIndicator = indicators[0];
+    }
+  }
 }

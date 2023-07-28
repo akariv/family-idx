@@ -1,0 +1,8 @@
+<app-weights-slider [title]='dimension' [bold]='true'
+    (updating)='updateWeight(indicators, $event, false); updateHighlight(indicators)'
+    (updated)='updateWeight(indicators, $event, true); updateHighlight([])'
+></app-weights-slider>
+
+<app-weights-slider *ngFor='let indicator of indicators' [title]='indicator' [bold]='false' [weight]='indicatorWeights[indicator]'
+    (updating)='updateWeight([indicator], $event, false); updateHighlight([indicator])'   (updated)='updateWeight([indicator], $event, true); updateHighlight([])'
+></app-weights-slider>

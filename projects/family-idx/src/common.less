@@ -109,3 +109,12 @@
   background-size: contain;
   background-image: url(@url);
 }
+
+.button-image(@url) {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  .background-image(@url);
+}

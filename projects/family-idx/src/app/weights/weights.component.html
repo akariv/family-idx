@@ -1,0 +1,7 @@
+<app-weights-dimension *ngFor='let dimension of dimensions' 
+                      [dimension]='dimension'
+                      [indicators]='dimensionIndicators[dimension]'
+                      [indicatorWeights]='indicatorWeights'
+                      (highlight)='highlightIndicator.next($event)'
+                      (weight)='updateIndicatorWeight($event.indicators, $event.weight, $event.sort)'
+></app-weights-dimension>

@@ -19,6 +19,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() slide: Slide;
   @Input() indicators: Indicators;
   @Input() highlightIndicator: string | null = null;
+  @Input() highlightIndicators: string[] | null = null;
 
   @ViewChild('chart') chart: ElementRef;
   @ViewChild('countries') countries: ElementRef;
@@ -186,14 +187,14 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           ret = this.slide.data.indicator_info[d.key].color;
         }
       } else {
-        if (d.key === this.highlightIndicator) {
+        if (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0) {
           ret = 'rgba(255, 255, 255, 0.6)';
         } else {
           ret = 'rgba(255, 255, 255, 0.3)';
         }
       }
     } else {
-      if (d.key === this.highlightIndicator) {
+      if (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0) {
         ret = 'rgba(255, 255, 255, 0.2)';
       }
     } if (this.slide.section.role === 'footer') {

@@ -1,7 +1,10 @@
 <div class='slides'>
     <div class='chart-container' [style.background-color]='bgColor'>
         <div class='chart'>
-            <app-chart [slide]='currentSlide' *ngIf='currentSlide' [highlightIndicator]='highlightedIndicator'></app-chart>
+            <app-chart [slide]='currentSlide' *ngIf='currentSlide' 
+                       [highlightIndicator]='highlightedIndicator'
+                       [highlightIndicators]='highlightedIndicators'
+                       #chart></app-chart>
         </div>
     </div>
     <div class='slide1overlay'>
@@ -9,19 +12,26 @@
         <div class='scroll-down'></div>
     </div>
     <ng-container *ngFor='let slide of slides; let i = index'>
-        <div class='slide' *ngIf='slide.section.role !== "footer"'
+        <div class='slide' *ngIf='slide.section.role !== "footer" && !slide.exploration'
             [class.darken]='slide.section.role === "intro"'
             [attr.data-slide]='i'>
             <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
             <ul class='dimension_list' *ngIf='slide.dimension_list'>
                 <li *ngFor='let indicator of slide.dimension_list'>
-                    <div class='indicator-container' (mouseover)='highlightedIndicator = indicator' (mouseleave)='highlightedIndicator = null' (touchstart)='highlightedIndicator = indicator'>
+                    <div class='indicator-container' (mouseover)='highlightIndicators([indicator])' (mouseleave)='highlightIndicators([])'
+                        (touchstart)='highlightIndicators([indicator])' (touchend)='highlightIndicators([])'>
                         <span class='indicator'>{{indicator}}</span>
                         <span class='indicator-arrow'></span>    
                     </div>
                 </li>
             </ul>
             <div class='text' *ngIf='slide.content.length > 1' [innerHTML]='md._(slide.content[1])'></div>
+        </div>
+        <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'  [attr.data-slide]='i'>
+            <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
+            <app-weights [slide]='slide'
+                         (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
+            ></app-weights>
         </div>
         <app-footer class='footer' [footer]='slide.content[0]' *ngIf='slide.section.role === "footer"' [attr.data-slide]='i'></app-footer>
     </ng-container>

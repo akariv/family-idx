@@ -187,7 +187,7 @@ if __name__ == '__main__':
             slide['content'] = [x.strip() for x in slide['content'].split('<רשימה>')]
         elif '<משקלות>' in slide['content']:
             slide['exploration'] = True
-            slide['content'] = ''
+            slide['content'] = [x.strip() for x in slide['content'].split('<משקלות>')]
         slide['content'] = [slide['content']]
 
         slide['data'] = dict(

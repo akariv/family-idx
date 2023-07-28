@@ -3,6 +3,16 @@
 @desktop-slide-width: 600px;
 @mobile-slide-width: 300px;
 
+:host {
+    .overflow-scroll;
+    height: 100%;
+    width: 100%;
+    &.snapping {
+        scroll-snap-type: y mandatory;
+        scroll-snap-stop: normal;    
+    }
+}
+
 .slides {
     position: relative;
     
@@ -109,8 +119,16 @@
             pointer-events: all;
         }
     }
+
+    .exploration {
+        scroll-snap-align: none;
+        justify-content: flex-start;
+        padding: 16px;
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+    }
     .footer {
-        scroll-snap-align: start;
         padding: 16px;
         width: 100%;
         max-width: 600px;
