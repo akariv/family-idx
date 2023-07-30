@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { timer } from 'rxjs';
 
 @Component({
@@ -7,17 +8,29 @@ import { timer } from 'rxjs';
   styleUrls: ['./weights-slider.component.less']
 })
 export class WeightsSliderComponent implements OnChanges {
+
+  @Input() state = 'show';
   @Input() title: string;
   @Input() bold: boolean;
   @Input() weight: number;
+  @Input() cancel = false;
+  @Input() color = '#fff';
 
   @Output() updating = new EventEmitter<number>();
   @Output() updated = new EventEmitter<number>();
+  @Output() show = new EventEmitter<void>();
+  @Output() hide = new EventEmitter<void>();
+  @Output() spotlight = new EventEmitter<void>();
 
   weight_: number = 1; 
+  gradient: SafeStyle;
+  
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges(): void {
-    this.weight_ = this.weight;
+    this.weight_ = this.state !== 'hide' ? this.weight : 0;
+    const pct = this.weight_ * 20;
+    this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(270deg, ${this.color} 0%, ${this.color} ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`);
   }
 
   set value(value: number) {
@@ -38,5 +51,15 @@ export class WeightsSliderComponent implements OnChanges {
       });
     }
     return true;
+  }
+
+  toggle() {
+    if (this.state === 'show') {
+      this.hide.next();
+    } else if (this.state === 'hide') {
+      this.spotlight.next();
+    } else if (this.state === 'spotlight') {
+      this.show.next();
+    }
   }
 }

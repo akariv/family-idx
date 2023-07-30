@@ -23,6 +23,7 @@ export type Datum = {
     country_name: string;
     flag: string;
     values: Value[];
+    origValues: Value[];
     sum: number;
 };
 

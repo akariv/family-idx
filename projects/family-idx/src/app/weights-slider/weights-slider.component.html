@@ -1,5 +1,11 @@
-<button class='selector'></button>
-<span class='title' [class.bold]='bold'>{{title}}</span>
-<input type='range' min='1' max='5' step='1' [(ngModel)]='value'
-        (mousedown)='setMoving(true)' (mouseup)='setMoving(false)' 
+<button [class]='"selector " + state' (click)='toggle()'></button>
+<span class='title'>
+        <span class='title-text' [class.bold]='bold' [class.hide]='state === "hide"'>{{title}}</span>
+        <span class='weight' *ngIf='weight_ > 1'> × {{weight_}}</span>
+</span>
+<input type='range' min='0' max='5' step='1' [(ngModel)]='value'
+        (mousedown)='setMoving(true)' (mouseup)='setMoving(false)'
+        [class.bold]='bold'
+        [class.cancel]='cancel'
+        [style.background-image]='gradient'
 >

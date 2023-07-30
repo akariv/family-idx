@@ -188,6 +188,13 @@ if __name__ == '__main__':
         elif '<משקלות>' in slide['content']:
             slide['exploration'] = True
             slide['content'] = [x.strip() for x in slide['content'].split('<משקלות>')]
+
+            for country_rec in country_values:
+                raw_values = []
+                for indicator, value_rec in zip(indicators_, country_rec['values']):
+                    val = data.get((country_rec['country_name'], 'גולמי', indicator)) or 0
+                    value_rec['raw'] = float(val['value'])
+
         slide['content'] = [slide['content']]
 
         slide['data'] = dict(

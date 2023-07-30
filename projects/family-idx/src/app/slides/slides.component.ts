@@ -71,7 +71,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.highlightedIndicators = null;
       this.highlightedIndicator = null;
     } else {
-      this.highlightedIndicators = indicators;
+      this.highlightedIndicators = indicators;//.slice();
       this.highlightedIndicator = indicators[0];
     }
   }

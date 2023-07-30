@@ -1,6 +1,6 @@
 @import '../../common.less';
 
-@desktop-slide-width: 600px;
+@desktop-slide-width: 624px;
 @mobile-slide-width: 300px;
 
 :host {
@@ -125,13 +125,26 @@
         justify-content: flex-start;
         padding: 16px;
         width: 100%;
+        max-width: none;
         height: auto;
-        max-width: 600px;
+        .text {
+            .desktop({
+                max-width: @desktop-slide-width;
+            });
+            .mobile({
+                max-width: @mobile-slide-width;
+            });    
+        }
     }
     .footer {
         padding: 16px;
         width: 100%;
-        max-width: 600px;
+        .desktop({
+            max-width: @desktop-slide-width;
+        });
+        .mobile({
+            max-width: @mobile-slide-width;
+        });
     }
 
     .chart-container {
