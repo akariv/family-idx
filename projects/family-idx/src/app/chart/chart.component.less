@@ -97,7 +97,7 @@
             border-left: fade(@color-white, 25) 1px solid;
         }
 
-        .average {
+        .average, .result {
             position: absolute;
             top: 0;
             left: 100px;
@@ -128,7 +128,12 @@
                 padding: 2px;
                 padding-top: 3px;
                 .transition(text-shadow);
+                white-space: nowrap;
             }
+        }
+
+        .result {
+            padding: 28px 0;
         }
 
         &.intro {

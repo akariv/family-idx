@@ -20,10 +20,12 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() indicators: Indicators;
   @Input() highlightIndicator: string | null = null;
   @Input() highlightIndicators: string[] | null = null;
+  @Input() sliderResult: number | null = null;
 
   @ViewChild('chart') chart: ElementRef;
   @ViewChild('countries') countries: ElementRef;
   @ViewChild('average') average: ElementRef;
+  @ViewChild('result') result: ElementRef;
 
   ready = false;
   width = 0;
@@ -34,6 +36,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   gridImage: SafeResourceUrl;
   avgPos = 0;
   avgVisible = false;
+  resultPos = 0;
+  resultVisible = false;
   startFromZero = false;
   moving = false;
 
@@ -153,6 +157,16 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       } else {
         this.avgVisible = this.slide.show_average && !this.highlightIndicator;
       }
+
+      this.resultPos = x(this.sliderResult || 0) || this.resultPos;
+      if (!this.resultVisible && !!this.slide.slider_result) {
+        timer(1000).subscribe(() => {
+          this.resultVisible = !!this.slide.slider_result;
+        });
+      } else {
+        this.resultVisible = !!this.slide.slider_result;
+      }
+
     }
   }
 

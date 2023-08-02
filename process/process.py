@@ -57,6 +57,7 @@ if __name__ == '__main__':
         'specific_countries', 'highlight_countries', 'expand_country', 'expand_country_photo',
         'content', 'resolution'
     ])
+    prev_slider = None
     for slide_idx, slide in enumerate(slides):
         assert len(slide['section']) == 1, 'Slide {0} requires a section'.format(slide['id'])
         slide['section'] = sections[slide.pop('section')[0]]
@@ -179,6 +180,10 @@ if __name__ == '__main__':
                     indicator_info.append(item)
         indicator_info = dict((i['name'], i) for i in indicator_info)
 
+        if prev_slider:
+            slide['slider_result'] = prev_slider
+            prev_slider = None
+
         if '<רשימה>' in slide['content']:
             slide['dimension_list'] = [
                 i['name'] for i in 
@@ -195,7 +200,26 @@ if __name__ == '__main__':
                     val = data.get((country_rec['country_name'], 'גולמי', indicator)) or 0
                     value_rec['raw'] = float(val['value'])
 
-        slide['content'] = [slide['content']]
+        elif '<סליידר>' in slide['content']:
+            assert len(country_values) == 1
+            assert len(indicators_) == 1
+
+            slide['slider'] = indicators_[0]
+            prev_slider = slide['slider']
+            slide['content'] = [x.strip() for x in slide['content'].split('<סליידר>')]
+
+            raw_values = [
+                float(data.get((country_rec['name'], 'גולמי', indicators_[0]))['value'])
+                for country_rec in countries.values()
+            ]
+            slide['slider_max'] = max(raw_values)            
+            indicators_ = []
+            non_indicators_ = [i['name'] for i in indicators.values()]
+            country_values[0]['values'] = []
+            country_values[0]['sum'] = 0
+
+        if isinstance(slide['content'], str):
+            slide['content'] = [slide['content']]
 
         slide['data'] = dict(
             indicators=indicators_,

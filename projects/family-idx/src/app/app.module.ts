@@ -12,6 +12,7 @@ import { WeightsComponent } from './weights/weights.component';
 import { WeightsDimensionComponent } from './weights-dimension/weights-dimension.component';
 import { WeightsSliderComponent } from './weights-slider/weights-slider.component';
 import { FormsModule } from '@angular/forms';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     WeightsComponent,
     WeightsDimensionComponent,
-    WeightsSliderComponent
+    WeightsSliderComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

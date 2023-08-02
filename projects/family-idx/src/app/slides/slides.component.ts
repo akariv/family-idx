@@ -20,6 +20,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   currentSlide: Slide;
   highlightedIndicator: string | null = null;
   highlightedIndicators: string[] | null = null;
+  sliderResult: {[key: string]: number} = {};
 
   bgColor: string = 'white';
   snapping: boolean = true;
@@ -73,6 +74,16 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     } else {
       this.highlightedIndicators = indicators;//.slice();
       this.highlightedIndicator = indicators[0];
+    }
+  }
+
+  slideContent(i: number) {
+    return this.md._("(" + i + ") " + this.slides[i].content[0])
+  }
+
+  updateSliderResult(slide: Slide, result: number) {
+    if (slide.slider !== null) {
+      this.sliderResult[slide.slider] = result;
     }
   }
 }

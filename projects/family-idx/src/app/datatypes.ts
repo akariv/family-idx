@@ -59,6 +59,9 @@ export type Slide = {
     expand_country_photo: string | null;
     dimension_list: string[] | null;
     exploration: boolean;
+    slider: string | null;
+    slider_max: number | null;
+    slider_result: string | null;
     resolution: string;
     section: Section;
     data: Data;

@@ -1,0 +1,55 @@
+@import '../../common.less';
+
+:host {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    position: relative;
+    
+    .container {
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        .arrow {
+            position: absolute;
+            right: 16px;
+            a {
+                margin: 0;
+            }
+        }
+
+        input {
+            direction: ltr;
+            .mobile({
+                width: calc(100% ~'-' 20px);
+            });
+            .desktop({
+                width: calc(75%);
+            });
+
+            -webkit-appearance: none;
+            appearance: none;
+            height: 16px;
+            background: transparent;
+    
+            .slider-track({
+                background-color: transparent;
+            });
+
+            .slider-thumb({
+                width: 40px;
+                height: 40px;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                .background-image('assets/img/slider-handle.svg');
+            });
+
+        }
+    }
+}

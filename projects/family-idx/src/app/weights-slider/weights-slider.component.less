@@ -1,39 +1,5 @@
 @import '../../common.less';
 
-.slider-thumb(@rules) {
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        @rules();
-    }
-
-    &::-moz-range-thumb {
-        appearance: none;
-        @rules();
-    }
-
-    &::-ms-thumb {
-        appearance: none;
-        background: transparent;
-        @rules();
-    }
-}
-
-.slider-track(@rules) {
-    &::-webkit-slider-runnable-track {
-        -webkit-appearance: none;
-        @rules();
-    }
-
-    &::-moz-range-track {
-        @rules();
-    }
-
-    &::-ms-track {
-        @rules();
-    }
-}
-
 :host {
     display: flex;
     flex-flow: row wrap;

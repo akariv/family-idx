@@ -16,7 +16,7 @@ export class AppComponent {
     renderer.link = (href: string, title: string, text: string) => {
       const localLink = (href || '').startsWith(`${location.protocol}//${location.hostname}`);
       const html = linkRenderer.call(renderer, href, title, text);
-      let ret = localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
+      let ret = localLink ? html : html.replace(new RegExp('^<a '), `<a target="_blank" rel="noreferrer noopener nofollow" `);
       if (text.endsWith('←')) {
         ret = `<div class="arrow">${ret}</div>`;
       }

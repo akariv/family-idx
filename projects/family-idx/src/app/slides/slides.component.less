@@ -43,6 +43,12 @@
         }
 
         .text {
+            .desktop({
+                max-width: @desktop-slide-width;
+            });
+            .mobile({
+                max-width: @mobile-slide-width;
+            });    
             ::ng-deep {
                 p {
                     margin: 1em 0;
@@ -81,6 +87,32 @@
                     }
                 }
                 width: max-content;
+            }
+        }
+
+        &.slider {
+            width: 100%;
+            max-width: none;
+            position: relative;
+            justify-content: center;
+            
+            .text {
+                transform: translateY(-50%)translateY(-16px);
+            }
+
+            app-slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                .desktop({
+                    padding-left: 120px;
+                });
+                .mobile({
+                    padding-left: 30px;
+                });
             }
         }
     }
