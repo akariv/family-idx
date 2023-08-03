@@ -18,19 +18,19 @@
         .arrow {
             position: absolute;
             right: 16px;
+            transform: translateY(48px);
             a {
                 margin: 0;
+                .mobile({
+                    font-size: 20px;
+                });
             }
         }
 
         input {
             direction: ltr;
-            .mobile({
-                width: calc(100% ~'-' 20px);
-            });
-            .desktop({
-                width: calc(75%);
-            });
+            width: calc(100% ~'-' 20px);
+            max-width: 720px;
 
             -webkit-appearance: none;
             appearance: none;

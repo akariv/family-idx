@@ -64,20 +64,26 @@
             flex-flow: column;
             // gap: 8px;
             margin: 0;
+            width: 100%;
             li {
                 .indicator-container {
-                    display: flex;
-                    flex-flow: row;
+                    // display: flex;
+                    // flex-flow: row;
+                    display: inline;
                     align-items: center;
-                    gap: 8px;
+                    // gap: 8px;
                     .indicator {
                         text-decoration: underline dashed;
                         cursor: help;
                     }
                     .indicator-arrow {
+                        display: inline-block;
+                        vertical-align: middle;
                         .background-image('assets/img/icon-arrow-white.svg');
                         width: 24px;
                         height: 24px;
+                        margin-right: 4px;
+                        margin-bottom: 2px;
                     }    
                     border-radius: 4px;
                     padding-right: 40px;
@@ -86,7 +92,8 @@
                         background: rgba(255, 255, 255, 0.10);
                     }
                 }
-                width: max-content;
+                width: fit-content;
+                max-width: 100%;
             }
         }
 
