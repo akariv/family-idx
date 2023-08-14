@@ -11,5 +11,10 @@
         <span [style.textShadow]='avgTextShadow()'>הניחוש שלך</span>
         <span [style.textShadow]='avgTextShadow()'>הניחוש שלך</span>
     </div>
-    
+    <div class='chart-title' [class.visible]='!!slide.chart_title' [class.intro]='slide.section.role === "intro"'>
+        <span class='icon-pre layout-desktop'></span>
+        <span class='title'>{{slide.chart_title}}</span>
+        <span class='icon-post layout-mobile'></span>
+        <span class='title layout-desktop'>←</span>
+    </div>
 </div>

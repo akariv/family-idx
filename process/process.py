@@ -55,7 +55,7 @@ if __name__ == '__main__':
         'section', 'data_type', 'specific_indicator', 'specific_dimension',
         'ascending_order', 'show_average', 'show_countries', 'show_value', 'start_from_zero',
         'specific_countries', 'highlight_countries', 'expand_country', 'expand_country_photo',
-        'content', 'resolution'
+        'content', 'resolution', 'chart_title'
     ])
     prev_slider = None
     for slide_idx, slide in enumerate(slides):

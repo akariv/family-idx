@@ -32,6 +32,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   height = 0;
   padding = 32;
   leftPadding = 0;
+  hPadding = 0;
   i=0;
   gridImage: SafeResourceUrl;
   avgPos = 0;
@@ -89,8 +90,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         }
       }
 
-      const maxX = Math.max(...countries.map(x => x.sum));
-      const x = scaleLinear().domain([0, maxX+0.0001]).range([this.leftPadding, this.width]);
+      const maxX = Math.max(...countries.map(x => x.sum)) + data.average / 50 * indicators.length;
+      const x = scaleLinear().domain([0, maxX+0.0001]).range([this.leftPadding, this.width - 16]);
 
       let expandWidth = 0;
       if (this.slide.expand_country !== null) {
@@ -100,7 +101,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const paddingOuter = maxHeight > this.height ? 0 : (this.height - maxHeight) / 80;
       const y = scaleBand()
         .domain(countries.map((d) => d.country_name))
-        .range([this.padding, this.height - this.padding])
+        .range([this.hPadding, this.height - this.hPadding])
         .paddingOuter(paddingOuter)
         .paddingInner(0.2);
       let expandedY = (d: string) => y(d);
@@ -183,9 +184,15 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   updateDimensions(): void {
     const el = this.chart.nativeElement;
     this.width = el.offsetWidth;
+    if (this.width < 760) {
+      this.hPadding = 24;
+    } else {
+      this.hPadding = 32;
+    }
     if (this.width > 720) {
       this.width = 720;
     }
+    console.log('WWWWW', this.width);
     this.height = el.offsetHeight;
   }
 

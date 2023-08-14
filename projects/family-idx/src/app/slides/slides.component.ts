@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Data, Indicators, Slide } from '../datatypes';
+import { Data, Indicators, Section, Slide } from '../datatypes';
 import { timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
@@ -8,9 +8,6 @@ import { ChartComponent } from '../chart/chart.component';
   selector: 'app-slides',
   templateUrl: './slides.component.html',
   styleUrls: ['./slides.component.less'],
-  host: {
-    '[class.snapping]': 'snapping',
-  }
 })
 export class SlidesComponent implements AfterViewInit, OnInit {
   @Input() slides: Slide[] = [];
@@ -25,11 +22,20 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   bgColor: string = 'white';
   snapping: boolean = true;
 
+  sections: Section[] = [];
+
   constructor(private el: ElementRef, public md: MarkdownService) { }
 
   ngOnInit() {
     console.log('SLIDES', this.slides);
-    // this.handleSlide(this.slides[0]);
+    const sectionNames: string[] = [];
+    this.slides.forEach((slide) => {
+      if (sectionNames.indexOf(slide.section.name) === -1) {
+        sectionNames.push(slide.section.name);
+        this.sections.push(slide.section);
+      }
+    });
+    console.log('SECTIONS', this.sections);
   }
 
   ngAfterViewInit(): void {

@@ -63,6 +63,7 @@ export type Slide = {
     slider_max: number | null;
     slider_result: string | null;
     resolution: string;
+    chart_title: string;
     section: Section;
     data: Data;
 };
