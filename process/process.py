@@ -236,7 +236,7 @@ if __name__ == '__main__':
     )
     import json
     with open('projects/family-idx/src/assets/slides.json', 'w') as f:
-        json.dump(out, f, indent=2, ensure_ascii=False)
+        json.dump(out, f, indent=2, ensure_ascii=False, sort_keys=True)
     # print(json.dumps(slides[16], indent=2, ensure_ascii=False))
     # import pprint
     # pprint.pprint(slides[16])
