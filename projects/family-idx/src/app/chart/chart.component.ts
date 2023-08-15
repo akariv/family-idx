@@ -13,7 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.less']
+  styleUrls: ['./chart.component.less'],
 })
 export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() slide: Slide;
@@ -192,7 +192,6 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     if (this.width > 720) {
       this.width = 720;
     }
-    console.log('WWWWW', this.width);
     this.height = el.offsetHeight;
   }
 

@@ -28,7 +28,7 @@
             overflow: auto;
         });
         gap: 2px;
-        background-color: @color-cream;
+        background-color: rgb(232, 234, 230);
         .transition(background-color);
 
         .overlay {
@@ -75,12 +75,18 @@
             color: @color-white;
             .transition(color border-color);
 
+            &, &:hover, &:visited {
+                text-decoration: none;
+                // color: inherit;
+            }
+
             span {
                 .font-rag-sans;
                 font-size: 13px;
                 font-weight: 500;
                 line-height: 13px;
                 .transition(font-size font-weight margin-top);
+
             }
             &.active, &:first-child {
                 span {

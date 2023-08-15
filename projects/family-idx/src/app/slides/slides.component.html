@@ -1,7 +1,7 @@
 <app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'></app-navigation>
-<div class='scrolled' [class.snapping]='snapping'>
+<div class='scrolled' [class.snapping]='snapping' #scrolled>
     <!-- <div class='slides'> -->
-        <div class='chart-container' [style.background-color]='bgColor'>
+        <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
             <div class='chart'>
                 <app-chart [slide]='currentSlide' *ngIf='currentSlide' 
                            [highlightIndicator]='highlightedIndicator'
@@ -17,7 +17,9 @@
         <ng-container *ngFor='let slide of slides; let i = index'>
             <div class='slide' *ngIf='slide.section.role !== "footer" && !slide.exploration && !slide.slider'
                 [class.darken]='slide.section.role === "intro"'
-                [attr.data-slide]='i'>
+                [attr.data-slide]='i'
+                [attr.data-slug]='slide.id'
+            >
                 <div class='text' [innerHTML]='slideContent(i)'></div>
                 <ul class='dimension_list' *ngIf='slide.dimension_list'>
                     <li *ngFor='let indicator of slide.dimension_list'>
@@ -30,18 +32,24 @@
                 </ul>
                 <div class='text' *ngIf='slide.content.length > 1' [innerHTML]='md._(slide.content[1])'></div>
             </div>
-            <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'  [attr.data-slide]='i'>
+            <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'
+                 [attr.data-slide]='i' [attr.data-slug]='slide.id'
+            >
                 <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
                 <app-weights [slide]='slide'
                              (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
                 ></app-weights>
             </div>
-            <div class='slide slider' *ngIf='slide.section.role !== "footer" && slide.slider'  [attr.data-slide]='i'>
+            <div class='slide slider' *ngIf='slide.section.role !== "footer" && slide.slider'
+                 [attr.data-slide]='i' [attr.data-slug]='slide.id'
+            >
                 <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
                 <app-slider [slide]='slide' (updated)='updateSliderResult(slide, $event)'
                 ></app-slider>
                 </div>
-            <app-footer class='footer' [footer]='slide.content[0]' *ngIf='slide.section.role === "footer"' [attr.data-slide]='i'></app-footer>
+            <app-footer class='footer' [footer]='slide.content[0]' *ngIf='slide.section.role === "footer"'
+                        [attr.data-slide]='i' [attr.data-slug]='slide.id'
+            ></app-footer>
         </ng-container>
     <!-- </div>     -->
 </div>

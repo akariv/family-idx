@@ -5,6 +5,7 @@ export type Country = {
 
 export type Section = {
     name: string;
+    slug: string;
     color: string;
     role: string | null;
 };
@@ -66,4 +67,5 @@ export type Slide = {
     chart_title: string;
     section: Section;
     data: Data;
+    id: string;
 };

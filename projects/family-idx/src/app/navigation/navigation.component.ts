@@ -23,7 +23,7 @@ export class NavigationComponent implements OnChanges, AfterViewInit {
   }
 
   updateSelector() {
-    const container = this.containerEl.nativeElement as HTMLElement;
+    const container = this.containerEl?.nativeElement as HTMLElement;
     timer(10).subscribe(() => {
       const el: HTMLElement | null = container?.querySelector('.active');
       if (!!el) {
