@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, SecurityContext, SimpleChanges, ViewChild } from '@angular/core';
-import { Data, Datum, Indicators, Slide } from '../datatypes';
+import { Country, Data, Datum, Indicators, Slide } from '../datatypes';
 
 import { Series, SeriesPoint, stack } from 'd3-shape';
 import { scaleLinear, scaleBand, ScaleLinear, ScaleBand } from 'd3-scale';
@@ -139,6 +139,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.moving = true;
       this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, highlightSlide);
       this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px');
+      this.updateHighlightLabels(layout, this.slide.highlight_countries, x, expandedY, barHeight, t, highlightSlide);
 
       // A single path on the right border of the image
       const gridColor = this.slide.section.role === 'intro' ? '#243856' : '#fff';
@@ -223,12 +224,37 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     return ret;
   }
 
+  labelBgColor() {
+    if (this.slide.section.role === 'intro') {      
+      return '#243856';
+    } else {
+      return '#fff';
+    }
+  }
+
+  labelFgColor() {
+    if (this.slide.section.role === 'intro') {      
+      return '#fff';
+    } else {
+      return this.slide.section.color;
+    }
+  }
+    
+
   labelClasses(d: any) {
     let ret = 'label';
     if ((this.slide.highlight_countries || []).map(x => x.name).indexOf(d.country_name) >= 0) {
       ret += ' highlight';
     }
     return ret;
+  }
+  
+  labelContent(d: any, rawVal: string) {
+    if (this.slide.data_type.name.indexOf('גולמי') == 0) {
+      return rawVal;
+    } else {
+      return d.name;
+    }
   }
 
   backgroundImage(d: SeriesPoint<Datum>, i: number, expandPhoto: string | null) {
@@ -242,7 +268,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   barPositionX(x: ScaleLinear<number, number, number>, d: any, highlightSlide: {[key: string]: number}) {
     const slide = highlightSlide[d.data.country_name] || 0;
     const skip = this.slide.data.indicator_info[d.key]?.skip || 0;
-    return (x(d[0] + slide) + skip) + 'px';
+    const barPos = x(d[0] + slide) + skip;
+    return barPos + 'px';
   }
  
   updateBars(layout: Series<Datum, string>[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
@@ -379,6 +406,61 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('opacity', 0)
           .remove()
       );
+  }
+
+  updateHighlightLabels(layout: Series<Datum, string>[], countries: Country[] | null, x: ScaleLinear<number, number, number>, expandedY: (d: string) => number | undefined, 
+                        barHeight: number, t: Transition<BaseType, any, any, any>, highlightSlide: {[key: string]: number}) {
+    const canvas = select(this.chart.nativeElement);
+    const last = layout[layout.length - 1];
+
+    const countrySums = countries ? countries.map((d) => {
+      const country_last = last.filter(dd => dd.data.country_name === d.name)[0];
+      const slide = highlightSlide[d.name] || 0;
+      const skip = this.slide.data.indicator_info[last.key]?.skip || 0;
+      return x(country_last[1] + slide) + skip;
+    }) : [];
+    const countryVals = countries ? countries.map((d) => {
+      const country_last = last.filter(dd => dd.data.country_name === d.name)[0];
+      return country_last.data.values[0]?.value.toLocaleString();
+    }) : [];
+    // Bars
+    canvas.selectAll('.country-hl')
+      .data(countries || [], (d) => (d as Country).name)
+      .join(
+        (enter) => enter.append('div')
+          .attr('class', 'country-hl')
+          .attr('data-series', (d: any) => d.key)
+          .style('transform', 'translateY(-50%)')
+          .style('background-color', this.labelBgColor())
+          .style('color', this.labelFgColor())
+          .style('top', (d) => ((expandedY(d.name) || 0) + barHeight/2)+ 'px')
+          .style('left', (d, i) => (8 + countrySums[i]) + 'px')
+          .style('opacity', 0)
+          .call((x) => x.append('span').attr('class', 'text').html((d: any, i: number) => this.labelContent(d, countryVals[i])))
+          .call((x) => x.append('span').attr('class', 'tag').style('background-color', this.labelBgColor()))
+          .call((enter) => enter
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            .style('opacity', 1)
+          )
+        ,
+        (update) => update
+          .call((x) => x.select('.text').html((d: any, i: number) => this.labelContent(d, countryVals[i])))
+          .transition(t)
+          .style('top', (d) => ((expandedY(d.name) || 0) + barHeight/2)+ 'px')
+          .style('left', (d, i) => (8 + countrySums[i]) + 'px')
+          .style('background-color', this.labelBgColor())
+          .style('color', this.labelFgColor())
+          .style('opacity', 1)
+          .call((x) => x.select('.tag').style('background-color', this.labelBgColor()))
+        ,
+        (exit) => exit
+          .transition(t)
+          .style('opacity', 0)
+          .remove()
+      )
+    
   }
 
   countriesVisible() {

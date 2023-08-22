@@ -23,6 +23,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
 
   bgColor: string = 'rgb(232, 234, 230)';
   snapping: boolean = true;
+  lastSlideNum = 0;
 
   sections: Section[] = [];
   height: any = 100;
@@ -34,11 +35,14 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     console.log('SLIDES', this.slides);
     const sectionNames: string[] = [];
     this.sections = [];
-    this.slides.forEach((slide) => {
+    this.slides.forEach((slide, index) => {
       if (sectionNames.indexOf(slide.section.name) === -1) {
         sectionNames.push(slide.section.name);
         this.sections.push(slide.section);
         slide.id = slide.section.slug;
+      }
+      if (slide.section.role !== 'footer' && slide.section.role !== 'exploration') {
+        this.lastSlideNum = index;
       }
     });
     this.currentSlide = this.slides[0];
@@ -58,11 +62,12 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !handled) {
           const el = entry.target as HTMLElement;
-          const slideNum = el.getAttribute('data-slide'); 
-          if (slideNum !== null) {
-            console.log('SLIDE NUM', slideNum);
-            const slide = this.slides[parseInt(slideNum)];
-            this.handleSlide(slide);
+          const slideNumS = el.getAttribute('data-slide'); 
+          if (slideNumS !== null) {
+            console.log('SLIDE NUM', slideNumS);
+            const slideNum = parseInt(slideNumS);
+            const slide = this.slides[slideNum];
+            this.handleSlide(slide, slideNum === this.lastSlideNum);
             handled = true;
           }
         }
@@ -83,11 +88,26 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.height = window.innerHeight;
   }
 
-  handleSlide(slide: Slide) {
+  handleSlide(slide: Slide, last=false) {
+    if (this.currentSlide === slide) {
+      return;
+    }
     this.currentSlide = slide;
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
-    this.snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration';
+    const snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration' && (!last || !this.snapping);
+    if (snapping !== this.snapping) {
+      if (snapping) {
+        timer(3000).subscribe(() => {
+          this.snapping = true;
+        });
+      } else {
+        this.snapping = false;
+      }
+    }
+    // timer(500).subscribe(() => {
+    //   this.snapping = false;
+    // });
   }
 
   updateData(slide: Slide, data: Data) {
