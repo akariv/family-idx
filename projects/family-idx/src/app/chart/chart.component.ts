@@ -140,8 +140,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         });
       this.moving = true;
       this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, highlightSlide);
-      this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px');
-      this.updateHighlightLabels(layout, this.slide.highlight_countries, x, expandedY, barHeight, t, highlightSlide);
+      this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px', (expandWidth - barHeight) / 2);
+      this.updateHighlightLabels(layout, this.slide.highlight_countries, x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
 
       // A single path on the right border of the image
       const gridColor = this.slide.section.role === 'intro' ? '#243856' : '#fff';
@@ -357,7 +357,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   }
 
   updateLabels(data: Datum[], t: Transition<BaseType, any, any, any>, visible: boolean, expandedY: (d: string) => number | undefined,
-               barHeight: string) {
+               barHeight: string, expandOffset: number) {
     const countries = select(this.countries.nativeElement);
 
     // Labels
@@ -366,7 +366,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       .join(
         (enter) => enter.append('div').attr('class', 'label')
           .html((d: any) => `<span class='flag'>${d.flag}</span>&nbsp;<span class='name'>${d.country_name}</name>`)
-          .style('top', (d) => expandedY(d.country_name) + 'px')
+          // .style('top', (d) => expandedY(d.country_name) + 'px')
+          .style('top', (d, i) => (i === this.slide.expand_country ? expandOffset : 0) + (expandedY(d.country_name) || 0) + 'px')
+
           .style('height', barHeight)
           .style('opacity', 0)
           .attr('class', (d: any) => this.labelClasses(d))
@@ -385,8 +387,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
               .call((update) => update
                 .transition()
                   .duration(1)
-                  .style('top', (d) => expandedY(d.country_name) + 'px')
-              )
+                  .style('top', (d, i) => (i === this.slide.expand_country ? expandOffset : 0) + (expandedY(d.country_name) || 0) + 'px')
+                  )
               .call((update) => update
                 .transition()
                   .delay(this.DURATION/2)
@@ -396,7 +398,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           } else {
             return update
               .transition(t)
-                .style('top', (d) => expandedY(d.country_name) + 'px')
+                .style('top', (d, i) => (i === this.slide.expand_country ? expandOffset : 0) + (expandedY(d.country_name) || 0) + 'px')
                 .style('opacity', visible ? 1 : 0)
                 .style('height', barHeight)
                 .attr('class', (d: any) => this.labelClasses(d))
@@ -411,7 +413,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   }
 
   updateHighlightLabels(layout: Series<Datum, string>[], countries: Country[] | null, x: ScaleLinear<number, number, number>, expandedY: (d: string) => number | undefined, 
-                        barHeight: number, t: Transition<BaseType, any, any, any>, highlightSlide: {[key: string]: number}) {
+                        barHeight: number, t: Transition<BaseType, any, any, any>, highlightSlide: {[key: string]: number}, expandOffset: number = 0) {
     const canvas = select(this.chart.nativeElement);
     const last = layout[layout.length - 1];
 
@@ -425,6 +427,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const country_last = last.filter(dd => dd.data.country_name === d.name)[0];
       return country_last.data.values[0]?.value.toLocaleString();
     }) : [];
+    const expand_country = this.slide.expand_country !== null ? this.slide.data.countries[this.slide.expand_country].country_name : null;
     // Bars
     canvas.selectAll('.country-hl')
       .data(countries || [], (d) => (d as Country).name)
@@ -435,7 +438,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('transform', 'translateY(-50%)')
           .style('background-color', this.labelBgColor())
           .style('color', this.labelFgColor())
-          .style('top', (d) => ((expandedY(d.name) || 0) + barHeight/2)+ 'px')
+          .style('top', (d) => (d.name === expand_country ? expandOffset : barHeight/2) + (expandedY(d.name) || 0) + 'px')
           .style('left', (d, i) => (8 + countrySums[i]) + 'px')
           .style('opacity', 0)
           .call((x) => x.append('span').attr('class', 'text').html((d: any, i: number) => this.labelContent(d, countryVals[i])))
@@ -450,7 +453,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         (update) => update
           .call((x) => x.select('.text').html((d: any, i: number) => this.labelContent(d, countryVals[i])))
           .transition(t)
-          .style('top', (d) => ((expandedY(d.name) || 0) + barHeight/2)+ 'px')
+          .style('top', (d) => (d.name === expand_country ? expandOffset : barHeight/2) + (expandedY(d.name) || 0) + 'px')
           .style('left', (d, i) => (8 + countrySums[i]) + 'px')
           .style('background-color', this.labelBgColor())
           .style('color', this.labelFgColor())
