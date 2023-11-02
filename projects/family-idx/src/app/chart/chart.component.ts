@@ -197,7 +197,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.hPadding = 32;
     }
     if (this.width > 720) {
-      this.width = 720;
+      // this.width = 720;
     }
     this.height = el.offsetHeight;
   }
