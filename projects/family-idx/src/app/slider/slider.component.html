@@ -1,7 +1,7 @@
 <div class='container'>
+    <input #slider type='range' [min]='min' [max]='max' [(ngModel)]='guess' [style.background-image]='gradient'>
     <div class='arrow' (click)='scrollAway()'>
         <a *ngIf='!guessed'>נחשו ע״י גרירה של הידית</a>
         <a *ngIf='guessed'>הניחוש שלי: {{guess}}</a>
     </div>
-    <input #slider type='range' [min]='min' [max]='max' [(ngModel)]='guess' [style.background-image]='gradient'>
 </div>

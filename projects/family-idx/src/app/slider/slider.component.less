@@ -7,23 +7,32 @@
     gap: 40px;
     width: 100%;
     position: relative;
+    padding-top: 64px;
     
     .container {
         width: 100%;
         display: flex;
-        flex-flow: row;
+        flex-flow: column;
         justify-content: flex-end;
         align-items: center;
+        gap: 32px;
 
         .arrow {
-            position: absolute;
-            right: 16px;
-            transform: translateY(48px);
+            // position: absolute;
+            align-self: flex-start;
+            margin-right: 16px;
+            // transform: translateY(48px);
             a {
                 margin: 0;
                 .mobile({
                     font-size: 20px;
                 });
+                &:hover {
+                    background-color: white;
+                    // mix-blend-mode: screen; /* This makes the cutout text possible */
+                    color: #61589c !important;        
+                    text-shadow: none !important;
+                }
             }
             cursor: pointer;
         }
