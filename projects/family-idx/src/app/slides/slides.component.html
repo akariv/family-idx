@@ -19,6 +19,7 @@
                 [class.darken]='slide.section.role === "intro"'
                 [attr.data-slide]='i'
                 [attr.data-slug]='slide.id'
+                [style.text-shadow]='textShadow'
             >
                 <div class='text' [innerHTML]='slideContent(i)'></div>
                 <ul class='dimension_list' *ngIf='slide.dimension_list'>
@@ -42,6 +43,7 @@
             </div>
             <div class='slide slider' *ngIf='slide.section.role !== "footer" && slide.slider'
                  [attr.data-slide]='i' [attr.data-slug]='slide.id'
+                 [style.text-shadow]='textShadow'
             >
                 <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
                 <app-slider [slide]='slide' (updated)='updateSliderResult(slide, $event)'

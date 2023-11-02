@@ -4,6 +4,7 @@ import { delay, filter, fromEvent, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-slides',
@@ -27,8 +28,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
 
   sections: Section[] = [];
   height: any = 100;
+  textShadow: SafeStyle | null = null;
 
-  constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute) {
+  constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -46,6 +48,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       }
     });
     this.currentSlide = this.slides[0];
+    this.setTextShadow(this.currentSlide);
     this.route.fragment.pipe(
       filter(fragment => !!fragment),
       tap(() => { this.snapping = false; }),
@@ -95,6 +98,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.currentSlide = slide;
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
+    this.setTextShadow(slide); 
     const snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration' && (!last || !this.snapping);
     if (snapping !== this.snapping) {
       if (snapping) {
@@ -135,5 +139,15 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     if (slide.slider !== null) {
       this.sliderResult[slide.slider] = result;
     }
+  }
+
+  setTextShadow(slide: Slide) {
+    const color = slide.section.color;
+    this.textShadow = this.sanitizer.bypassSecurityTrustStyle(`
+      2px 2px 0 ${color},
+      -2px 2px 0 ${color},
+      -2px -2px 0 ${color},
+      2px -2px 0 ${color}
+    `);
   }
 }

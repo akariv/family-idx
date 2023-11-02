@@ -67,6 +67,13 @@
         padding: 16px;
         scroll-snap-align: start;
         width: 100%;
+
+        pointer-events: none;
+
+        & > * {
+            pointer-events: all;
+        }
+
         &.darken {
             color: @color-text;
         }
@@ -170,12 +177,12 @@
 
         .logo {
             position: absolute;
-            top: calc(8.333%);
+            top: ~'calc((100% - 10px) / 12)';
             transform: translateY(-50%);
             right: -4px;
             .background-image('assets/img/logo.png');
             width: 115px;
-            height: 115px;
+            height: 97px;
             max-height: 16%;
         }
         .scroll-down {
@@ -190,7 +197,7 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             position: fixed;
-            
+
             &.visible {
                 opacity: 1;
             }
@@ -231,7 +238,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 0;
         flex-flow: column;
         align-items: flex-end;
         .chart {
