@@ -2,6 +2,6 @@
     <div class='overlay'></div>
     <div class='selector' #selector></div>
     <a class='section' *ngFor='let section of sections' [class.active]='slide.section.name === section.name' [href]='"#" + section.slug'>
-        <span class='label' [class.first]='section.role === "intro" && slide.section === section'>{{ section.name }}</span>
+        <span class='label' [class.first]='section.role === "intro" && slide.section === section' [innerHTML]='section.name'></span>
     </a>
 </div>
