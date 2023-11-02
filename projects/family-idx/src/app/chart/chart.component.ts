@@ -141,7 +141,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.moving = true;
       this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, highlightSlide);
       this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px', (expandWidth - barHeight) / 2);
-      this.updateHighlightLabels(layout, this.slide.highlight_countries, x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
+      this.updateHighlightLabels(layout, 
+        this.slide.hide_country_labels ? [] : this.slide.highlight_countries,
+        x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
 
       // A single path on the right border of the image
       const gridColor = this.slide.section.role === 'intro' ? '#243856' : '#fff';
@@ -303,7 +305,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('width', '0px')
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-          .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
+          .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
             .transition(t)
@@ -321,7 +323,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
+                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
                 // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
               }
             return update
@@ -331,7 +333,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('width', '0px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated' : 'bar')
+                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
                 // i === this.slide.expand_country ? expandPhoto : null)
                 .call((update) => update
                 .transition()
