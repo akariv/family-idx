@@ -208,7 +208,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       ret = '#d7d6cc';
     }
     if ((this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0) {
-      if (this.slide.section.role === 'intro') {
+      if (this.slide.section.role === 'intro' || this.slide.section.role === 'exploration') {
         ret = '#243856'
         if (this.slide.data.indicator_info[d.key]) {
           ret = this.slide.data.indicator_info[d.key].color;
