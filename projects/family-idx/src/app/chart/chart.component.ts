@@ -27,6 +27,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   @ViewChild('average') average: ElementRef;
   @ViewChild('result') result: ElementRef;
 
+  DURATION = 500;
+
   ready = false;
   width = 0;
   height = 0;
@@ -131,7 +133,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         }
       }
       const t = transition()
-        .duration(1000)
+        .duration(this.DURATION)
         .ease(easeLinear)
         .on('end', () => {
           this.moving = false;
@@ -337,8 +339,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                   .style('top', (d) => expandedY(d.data.country_name) + 'px'))
               .call((update) => update
                 .transition()
-                  .delay(500)
-                  .duration(1000)
+                  .delay(this.DURATION/2)
+                  .duration(this.DURATION)
                   .ease(easeLinear)
                   .style('left', (d: any) => this.barPositionX(x, d, highlightSlide))
                   .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
@@ -387,8 +389,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
               )
               .call((update) => update
                 .transition()
-                  .delay(500)
-                  .duration(1000)
+                  .delay(this.DURATION/2)
+                  .duration(this.DURATION)
                   .style('opacity', visible ? 1 : 0)
                 );
           } else {
@@ -440,8 +442,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .call((x) => x.append('span').attr('class', 'tag').style('background-color', this.labelBgColor()))
           .call((enter) => enter
             .transition()
-            .duration(1000)
-            .delay(1000)
+            .duration(this.DURATION)
+            .delay(this.DURATION)
             .style('opacity', 1)
           )
         ,
