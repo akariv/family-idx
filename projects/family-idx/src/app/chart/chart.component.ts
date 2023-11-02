@@ -177,18 +177,20 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.updateDimensions();
-    this.ready = true;
-    this.ngOnChanges();
-    fromEvent(window, 'resize').subscribe(() => {
+    timer(100).subscribe(() => {
       this.updateDimensions();
+      this.ready = true;
       this.ngOnChanges();
+      fromEvent(window, 'resize').subscribe(() => {
+        this.updateDimensions();
+        this.ngOnChanges();
+      });
     });
   }
 
   updateDimensions(): void {
     const el = this.chart.nativeElement;
-    this.width = el.offsetWidth;
+    this.width = el.offsetWidth - 32;
     if (this.width < 760) {
       this.hPadding = 24;
     } else {

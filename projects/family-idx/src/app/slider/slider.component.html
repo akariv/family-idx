@@ -1,6 +1,6 @@
 <div class='container'>
     <div class='arrow'>
-        <a *ngIf='!guessed'>נחשו ע״י גרירה של הידית שמאלה או ימינה</a>
+        <a *ngIf='!guessed'>נחשו ע״י גרירה של הידית</a>
         <a *ngIf='guessed'>הניחוש שלי: {{guess}}</a>
     </div>
     <input #slider type='range' [min]='min' [max]='max' [(ngModel)]='guess' [style.background-image]='gradient'>
