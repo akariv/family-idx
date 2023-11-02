@@ -170,11 +170,13 @@
 
         .logo {
             position: absolute;
-            top: 4px;
+            top: calc(8.333%);
+            transform: translateY(-50%);
             right: -4px;
             .background-image('assets/img/logo.png');
             width: 115px;
             height: 115px;
+            max-height: 16%;
         }
         .scroll-down {
             .background-image('assets/img/scrolldown.svg');
@@ -185,6 +187,12 @@
             bottom: 32px;
             right: calc(50% ~'-' 16px);
             pointer-events: all;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            
+            &.visible {
+                opacity: 1;
+            }
         }
     }
 

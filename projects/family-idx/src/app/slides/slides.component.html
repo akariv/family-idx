@@ -12,7 +12,7 @@
         </div>
         <div class='slide1overlay'>
             <div class='logo'></div>
-            <div class='scroll-down'></div>
+            <div class='scroll-down' [class.visible]='currentSlide === slides[0]'></div>
         </div>
         <ng-container *ngFor='let slide of slides; let i = index'>
             <div class='slide' *ngIf='slide.section.role !== "footer" && !slide.exploration && !slide.slider'
