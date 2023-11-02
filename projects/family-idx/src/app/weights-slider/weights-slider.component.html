@@ -1,6 +1,6 @@
 <button [class]='"selector " + state' (click)='toggle()'></button>
 <span class='title'>
-        <span class='title-text' [class.bold]='bold' [class.hide]='state === "hide"'>{{title}}</span>
+        <span class='title-text' [class.bold]='bold || this.weight_ > 1' [class.hide]='state === "hide"'>{{title}}</span>
         <span class='weight' *ngIf='weight_ > 1'> × {{weight_}}</span>
 </span>
 <input type='range' min='0' max='5' step='1' [(ngModel)]='value'

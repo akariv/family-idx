@@ -21,7 +21,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   gradient: SafeStyle;
   x: ScaleLinear<number, number>;
   
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
     this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(90deg, #fff 0%, #fff 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%)`);
   }
 
@@ -47,4 +47,9 @@ export class SliderComponent implements OnInit, AfterViewInit {
   get guess() {
     return this.guess_;
   }
+
+  scrollAway() {
+    const el = this.el.nativeElement as HTMLElement;
+    el.parentElement?.parentElement?.scrollBy({top: 200, behavior: 'smooth'});
+  }    
 }

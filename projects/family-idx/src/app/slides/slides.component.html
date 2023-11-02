@@ -35,6 +35,7 @@
             </div>
             <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'
                  [attr.data-slide]='i' [attr.data-slug]='slide.id'
+                 [style.text-shadow]='textShadow'
             >
                 <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
                 <app-weights [slide]='slide'

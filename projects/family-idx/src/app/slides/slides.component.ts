@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Data, Indicators, Section, Slide } from '../datatypes';
-import { delay, filter, fromEvent, tap, timer } from 'rxjs';
+import { Subscription, delay, filter, fromEvent, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
 import { ActivatedRoute } from '@angular/router';
@@ -24,6 +24,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
 
   bgColor: string = 'rgb(232, 234, 230)';
   snapping: boolean = true;
+  snapper: Subscription | null = null;
   lastSlideNum = 0;
 
   sections: Section[] = [];
@@ -60,27 +61,31 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.observer = new IntersectionObserver((entries) => {
-      let handled = false;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !handled) {
-          const el = entry.target as HTMLElement;
-          const slideNumS = el.getAttribute('data-slide'); 
-          if (slideNumS !== null) {
-            console.log('SLIDE NUM', slideNumS);
-            const slideNum = parseInt(slideNumS);
-            const slide = this.slides[slideNum];
-            this.handleSlide(slide, slideNum === this.lastSlideNum);
-            handled = true;
-          }
-        }
-      });
-    }, {threshold: 0.25});
-    for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
-      this.observer.observe(el);
-    }
-    timer(0).subscribe(() => {
+    timer(100).subscribe(() => {
       this.updateDimensions();
+      this.observer = new IntersectionObserver((entries) => {
+        let handled = false;
+        let slideNum : number | null = null;
+        console.log('ENTRIES', entries);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const slideNumS = el.getAttribute('data-slide'); 
+            slideNum = parseInt(slideNumS || '');
+            if (slideNumS !== null) {
+              console.log('SLIDE NUM', slideNumS);
+              handled = true;
+            }
+          }
+        });
+        if (handled && slideNum !== null) {
+          const slide = this.slides[slideNum];
+          this.handleSlide(slide, slideNum === this.lastSlideNum);
+        }
+      }, {threshold: 0.25});
+      for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
+        this.observer.observe(el);
+      }
     });
     fromEvent(window, 'resize').subscribe(() => {
       this.updateDimensions();
@@ -102,8 +107,10 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     const snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration' && (!last || !this.snapping);
     if (snapping !== this.snapping) {
       if (snapping) {
-        timer(3000).subscribe(() => {
+        this.snapper?.unsubscribe();
+        this.snapper = timer(600).subscribe(() => {
           this.snapping = true;
+          this.snapper = null;
         });
       } else {
         this.snapping = false;

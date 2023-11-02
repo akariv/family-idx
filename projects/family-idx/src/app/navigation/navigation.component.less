@@ -73,11 +73,19 @@
             padding: 12px 8px;
             z-index: 1;
             color: @color-white;
-            .transition(color border-color);
+            // .transition(color border-color);
 
             &, &:hover, &:visited {
                 text-decoration: none;
                 // color: inherit;
+            }
+            &:not(.active):hover {
+                background: rgba(0, 0, 0, 0.20);
+                border-width: 6px;
+                padding-right: 4px;
+                span {
+                    font-weight: 700;
+                }
             }
 
             span {
