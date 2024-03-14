@@ -16,7 +16,10 @@ export class NavigationComponent implements OnChanges, AfterViewInit {
 
   ngOnChanges(): void {
     this.updateSelector();
-    this.sections[0].name = this.sections[0].name.split(' ').join('<br/>');
+    this.sections.forEach(section => {
+      section.display = section.name;
+    });
+    this.sections[0].display = this.sections[0].name.split(' ').join('<br/>');
   }
 
   ngAfterViewInit(): void {

@@ -8,6 +8,7 @@ export type Section = {
     slug: string;
     color: string;
     role: string | null;
+    display?: string;
 };
 
 export type DataType = {

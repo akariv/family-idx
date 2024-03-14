@@ -1,7 +1,7 @@
 <div class='container' [class.intro]='slide.section.role === "intro"' [style.background-color]='slide.section.color' #container>
     <div class='overlay'></div>
     <div class='selector' #selector></div>
-    <a class='section' *ngFor='let section of sections' [class.active]='slide.section.name === section.name' [href]='"#" + section.slug'>
-        <span class='label' [class.first]='section.role === "intro" && slide.section === section' [innerHTML]='section.name'></span>
+    <a class='section' *ngFor='let section of sections;' [class.active]='slide.section.name === section.name' [href]='"#" + section.slug'>
+        <span class='label' [class.first]='section.role === "intro" && slide.section === section' [innerHTML]='section.display'></span>
     </a>
 </div>
