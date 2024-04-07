@@ -49,7 +49,7 @@ if __name__ == '__main__':
     for dimension in dimensions.values():
         dimension['indicators'] = [indicators[i] for i in dimension['indicators']]
     for section in sections.values():
-        section['slug'] = section['name'].lower().replace(' ', '_').replace(',', '')
+        section['slug'] = section['name'].lower().replace(' ', '_').replace(',', '').replace('?', '')
     section_dimensions = dict(
         (s['name'], s.pop('Dimensions')) for s in sections.values()
     )
