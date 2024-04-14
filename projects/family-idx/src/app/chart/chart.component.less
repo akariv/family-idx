@@ -177,6 +177,15 @@
             padding: 28px 0;
         }
 
+        .mobile({
+            .average {
+                padding-top: 32px;
+            }
+            .result {
+                padding-top: 44px;
+            }
+        });
+
         &.intro {
             .grid {
                 border-left: fade(@color-text, 25) 1px solid;
@@ -197,9 +206,12 @@
                 gap: 4px;
             });
             .mobile({
-                top: 4px;
+                top: 0px;
                 left: -18px;
                 gap: 12px;
+                backdrop-filter: blur(1px);
+                padding-top: 4px;
+                z-index: 2;
             });
             display: flex;
             flex-flow: row;
