@@ -3,6 +3,7 @@
     [state]='state'
     [cancel]='cancel'
     [color]='color'
+    [open]='open'
     (updating)='updateWeight(indicators, $event, false); updateHighlight(indicators); ownWeight = $event'
     (updated)='updateWeight(indicators, $event, true); updateHighlight([]); ownWeight = $event'
     (show)='show.next(indicators)'

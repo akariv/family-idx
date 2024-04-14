@@ -21,7 +21,7 @@
                 [attr.data-slug]='slide.id'
                 [style.text-shadow]='textShadow'
             >
-                <div class='text' [innerHTML]='slideContent(i)'></div>
+                <div class='text' [innerHTML]='slideContent(slide, 0)'></div>
                 <ul class='dimension_list' *ngIf='slide.dimension_list'>
                     <li *ngFor='let indicator of slide.dimension_list'>
                         <div class='indicator-container' (mouseover)='highlightIndicators([indicator])' (mouseleave)='highlightIndicators([])'
@@ -31,13 +31,13 @@
                         </div>
                     </li>
                 </ul>
-                <div class='text' *ngIf='slide.content.length > 1' [innerHTML]='md._(slide.content[1])'></div>
+                <div class='text' *ngIf='slide.content.length > 1' [innerHTML]='slideContent(slide, 1)'></div>
             </div>
             <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'
                  [attr.data-slide]='i' [attr.data-slug]='slide.id'
                  [style.text-shadow]='textShadow'
             >
-                <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
+                <div class='text' [innerHTML]='slideContent(slide, 0)'></div>
                 <app-weights [slide]='slide'
                              (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
                 ></app-weights>
@@ -46,11 +46,11 @@
                  [attr.data-slide]='i' [attr.data-slug]='slide.id'
                  [style.text-shadow]='textShadow'
             >
-                <div class='text' [innerHTML]='md._("(" + i + ") " + slide.content[0])'></div>
+                <div class='text' [innerHTML]='slideContent(slide, 0)'></div>
                 <app-slider [slide]='slide' (updated)='updateSliderResult(slide, $event)'
                 ></app-slider>
                 </div>
-            <app-footer class='footer' [footer]='slide.content[0]' *ngIf='slide.section.role === "footer"'
+            <app-footer class='footer' [footer]='slideContent(slide, 0)' *ngIf='slide.section.role === "footer"'
                         [attr.data-slide]='i' [attr.data-slug]='slide.id'
             ></app-footer>
         </ng-container>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MarkdownService } from '../markdown.service';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { MarkdownService } from '../markdown.service';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent {
-  @Input() footer = '';
+  @Input() footer: SafeHtml;
 
-  constructor(public md: MarkdownService) { }
+  constructor() { }
 }

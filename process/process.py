@@ -223,6 +223,7 @@ if __name__ == '__main__':
 
         if isinstance(slide['content'], str):
             slide['content'] = [slide['content']]
+        slide['html'] = [None for x in slide['content']]
 
         slide['data'] = dict(
             indicators=indicators_,

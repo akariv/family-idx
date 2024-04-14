@@ -63,15 +63,15 @@
             }
         }
 
-        .toggle {
+        .toggle-open {
             margin-right: auto;
             flex: 0 0 auto;
-            width: 24px;
+            width: 16px;
             height: 24px;
-            background-size: 24px;
+            background-size: 16px 24px;
             transition: transform 0.3s;
     
-            .button-image('assets/img/icon-state=spotlight.svg');
+            .button-image('assets/img/icon-open-toggle.svg');
 
             &.open {
                 transform: rotate(180deg);
@@ -82,6 +82,7 @@
     input[type="range"] {
         flex: 0 0 auto;
         width: 100%;
+        max-width: 250px;
 
         // -webkit-appearance: none;  /* Override default CSS styles */
         // appearance: none;

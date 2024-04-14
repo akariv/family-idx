@@ -138,8 +138,11 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     }
   }
 
-  slideContent(i: number) {
-    return this.md._("(" + i + ") " + this.slides[i].content[0])
+  slideContent(slide: Slide, part: number = 0) {
+    if (!slide.html[part]) {
+      slide.html[part] = this.md._(slide.content[part]);
+    }
+    return slide.html[part];
   }
 
   updateSliderResult(slide: Slide, result: number) {

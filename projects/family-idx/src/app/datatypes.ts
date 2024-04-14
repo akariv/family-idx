@@ -1,3 +1,5 @@
+import { SafeHtml } from "@angular/platform-browser";
+
 export type Country = {
     name: string;
     flag: string;
@@ -49,6 +51,7 @@ export type Data = {
 
 export type Slide = {
     content: string[];
+    html: SafeHtml[];
     data_type: DataType;
     ascending_order: boolean;
     show_average: boolean;
