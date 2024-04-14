@@ -22,6 +22,7 @@ export class WeightsComponent implements OnInit {
   spotlightIndicators: string[] = [];
   indicators: string[];
   non_indicators: string[];
+  openDimension = '';
 
   ngOnInit() {
     this.currentData = this.slide.data;

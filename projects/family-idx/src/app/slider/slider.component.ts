@@ -20,6 +20,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   guessed = false;
   gradient: SafeStyle;
   x: ScaleLinear<number, number>;
+  guessPosition = 0;
   
   constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
     this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(90deg, #fff 0%, #fff 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%)`);
@@ -42,6 +43,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
     const pct = this.x(value);
     this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(90deg, #fff 0%, #fff ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`);
     this.updated.emit(value);
+    this.guessPosition = this.slider.nativeElement.offsetWidth * pct / 100;
   }
 
   get guess() {

@@ -9,7 +9,7 @@
     (show)='show.next(indicators)'
     (hide)='hide.next(indicators)'
     (spotlight)='spotlight.next(indicators)'
-    (openToggle)='open = $event'
+    (openToggle)='openToggle.emit($event)'
 ></app-weights-slider>
 
 @if (open) {

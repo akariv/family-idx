@@ -11,18 +11,19 @@ export class WeightsDimensionComponent implements OnChanges {
   @Input() indicatorWeights: {[key: string]: number};
   @Input() states: {[key: string]: string};
   @Input() color: string;
+  @Input() open = false;
 
   @Output() weight = new EventEmitter<{indicators: string[], weight: number, sort: boolean}>();
   @Output() highlight = new EventEmitter<string[]>();
   @Output() show = new EventEmitter<string[]>();
   @Output() hide = new EventEmitter<string[]>();
   @Output() spotlight = new EventEmitter<string[]>();
+  @Output() openToggle = new EventEmitter<boolean>();
 
   state = 'show';
   ownWeight = 1;
   cancel = false;
-  open = false;
-
+  
   ngOnChanges() {
     console.log('DIMENSION CHANGES', this.dimension);
     if (this.indicators.every((indicator: string) => this.states[indicator] === 'spotlight')) {

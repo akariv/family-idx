@@ -24,8 +24,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
 
   bgColor: string = 'rgb(232, 234, 230)';
   snapping: boolean = true;
-  snapper: Subscription | null = null;
-  lastSlideNum = 0;
 
   sections: Section[] = [];
   height: any = 100;
@@ -43,9 +41,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         sectionNames.push(slide.section.name);
         this.sections.push(slide.section);
         slide.id = slide.section.slug;
-      }
-      if (slide.section.role !== 'footer' && slide.section.role !== 'exploration') {
-        this.lastSlideNum = index;
       }
     });
     this.currentSlide = this.slides[0];
@@ -80,9 +75,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         });
         if (handled && slideNum !== null) {
           const slide = this.slides[slideNum];
-          this.handleSlide(slide, slideNum === this.lastSlideNum);
+          this.handleSlide(slide);
         }
-      }, {threshold: 0.25});
+      }, {threshold: 0.1});
       for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
         this.observer.observe(el);
       }
@@ -96,7 +91,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.height = window.innerHeight;
   }
 
-  handleSlide(slide: Slide, last=false) {
+  handleSlide(slide: Slide) {
     if (this.currentSlide === slide) {
       return;
     }
@@ -104,22 +99,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
     this.setTextShadow(slide); 
-    const snapping = slide.section.role !== 'footer' && slide.section.role !== 'exploration' && (!last || !this.snapping);
-    if (snapping !== this.snapping) {
-      if (snapping) {
-        this.snapper?.unsubscribe();
-        this.snapper = timer(600).subscribe(() => {
-          this.snapping = true;
-          this.snapper = null;
-          window.location.hash =  '';
-        });
-      } else {
-        this.snapping = false;
-      }
-    }
-    // timer(500).subscribe(() => {
-    //   this.snapping = false;
-    // });
+    this.snapping = slide.section.role !== 'footer';
   }
 
   updateData(slide: Slide, data: Data) {
