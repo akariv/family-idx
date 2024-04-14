@@ -111,6 +111,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         this.snapper = timer(600).subscribe(() => {
           this.snapping = true;
           this.snapper = null;
+          window.location.hash =  '';
         });
       } else {
         this.snapping = false;
