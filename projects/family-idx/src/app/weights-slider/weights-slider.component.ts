@@ -15,12 +15,14 @@ export class WeightsSliderComponent implements OnChanges {
   @Input() weight: number;
   @Input() cancel = false;
   @Input() color = '#fff';
+  @Input() open = false;
 
   @Output() updating = new EventEmitter<number>();
   @Output() updated = new EventEmitter<number>();
   @Output() show = new EventEmitter<void>();
   @Output() hide = new EventEmitter<void>();
   @Output() spotlight = new EventEmitter<void>();
+  @Output() openToggle = new EventEmitter<boolean>();
 
   weight_: number = 1; 
   gradient: SafeStyle;
@@ -55,11 +57,11 @@ export class WeightsSliderComponent implements OnChanges {
 
   toggle() {
     if (this.state === 'show') {
-      this.hide.next();
-    } else if (this.state === 'hide') {
       this.spotlight.next();
-    } else if (this.state === 'spotlight') {
+    } else if (this.state === 'hide') {
       this.show.next();
+    } else if (this.state === 'spotlight') {
+      this.hide.next();
     }
   }
 }

@@ -8,14 +8,17 @@
     (show)='show.next(indicators)'
     (hide)='hide.next(indicators)'
     (spotlight)='spotlight.next(indicators)'
+    (openToggle)='open = $event'
 ></app-weights-slider>
 
-<app-weights-slider *ngFor='let indicator of indicators'
-    [title]='indicator' [bold]='false' [weight]='indicatorWeights[indicator]' [state]='states[indicator]'
-    [color]='color'
-    (updating)='updateWeight([indicator], $event, false); updateHighlight([indicator])'
-    (updated)='updateWeight([indicator], $event, true); updateHighlight([])'
-    (show)='show.next([indicator])'
-    (hide)='hide.next([indicator])'
-    (spotlight)='spotlight.next([indicator])'
-></app-weights-slider>
+@if (open) {
+    <app-weights-slider *ngFor='let indicator of indicators'
+        [title]='indicator' [bold]='false' [weight]='indicatorWeights[indicator]' [state]='states[indicator]'
+        [color]='color'
+        (updating)='updateWeight([indicator], $event, false); updateHighlight([indicator])'
+        (updated)='updateWeight([indicator], $event, true); updateHighlight([])'
+        (show)='show.next([indicator])'
+        (hide)='hide.next([indicator])'
+        (spotlight)='spotlight.next([indicator])'
+    ></app-weights-slider>
+}

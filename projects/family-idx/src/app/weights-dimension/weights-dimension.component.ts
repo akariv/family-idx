@@ -21,6 +21,7 @@ export class WeightsDimensionComponent implements OnChanges {
   state = 'show';
   ownWeight = 1;
   cancel = false;
+  open = false;
 
   ngOnChanges() {
     console.log('DIMENSION CHANGES', this.dimension);
