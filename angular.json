@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "family-idx:build:production"
+              "buildTarget": "family-idx:build:production"
             },
             "development": {
-              "browserTarget": "family-idx:build:development"
+              "buildTarget": "family-idx:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "family-idx:build"
+            "buildTarget": "family-idx:build"
           }
         },
         "test": {
