@@ -122,13 +122,45 @@
         }
 
         .slider-thumb({
-            width: 32px;
+            width: 24px;
             height: 32px;
             border: none;
-            border-radius: 16px;
+            border-radius: 8px;
             cursor: pointer;
-            .background-image('assets/img/slider-handle.svg');
+            .background-image('assets/img/icon-handle-type=default-state=default.svg');
+            &:hover {
+                .background-image('assets/img/icon-handle-type=default-state=hover.svg');
+            }
         });
+
+        &.bold {
+            .slider-thumb({
+                .background-image('assets/img/icon-handle-type=group-state=default.svg');
+                &:hover {
+                    .background-image('assets/img/icon-handle-type=group-state=hover.svg');
+                }
+            });
+        }
+        &.active {
+            .slider-thumb({
+                .background-image('assets/img/icon-handle-type=default-state=active.svg');
+                background-color: #243856;
+                &:hover {
+                    .background-image('assets/img/icon-handle-type=default-state=hover.svg');
+                    background-color: white;
+                }
+            });
+        }
+        &.bold.active {
+            .slider-thumb({
+                .background-image('assets/img/icon-handle-type=group-state=active.svg');
+                background-color: #243856;
+                &:hover {
+                    .background-image('assets/img/icon-handle-type=group-state=hover.svg');
+                    background-color: white;
+                }
+            });
+        }
 
         &.bold {
             &::-webkit-slider-thumb {
@@ -142,7 +174,14 @@
         }
         &.cancel {
             .slider-thumb({
-                .background-image('assets/img/slider-handle-cancel.svg');
+                width: 32px;
+                height: 32px;
+                border-radius: 16px;
+                .background-image('assets/img/slider-handle-cancel.svg') !important;
+                &:hover {
+                    .background-image('assets/img/slider-handle-cancel-hover.svg') !important;
+                    background-color: #243856 !important;
+                }
             });
         }
 
