@@ -12,7 +12,7 @@
     (openToggle)='openToggle.emit($event)'
 ></app-weights-slider>
 
-@if (open) {
+<div class='indicators' [class.open]='open' [style.max-height.px]='open ? 100 * indicators.length : 0'>
     <app-weights-slider *ngFor='let indicator of indicators'
         [title]='indicator' [bold]='false' [weight]='indicatorWeights[indicator]' [state]='states[indicator]'
         [color]='color'
@@ -22,4 +22,4 @@
         (hide)='hide.next([indicator])'
         (spotlight)='spotlight.next([indicator])'
     ></app-weights-slider>
-}
+</div>

@@ -1,7 +1,7 @@
 <div class='selector-title'>
         <button [class]='"selector " + state' (click)='toggle()'></button>
         <span class='title'>
-                <span class='title-text' [class.bold]='bold || this.weight_ > 1' [class.hide]='state === "hide"'>{{title}}</span>
+                <span class='title-text' [class.bold]='bold' [class.hide]='state === "hide"'>{{title}}</span>
                 <span class='weight' *ngIf='weight_ > 1 && !cancel'> × {{weight_}}</span>
         </span>
         <span *ngIf='bold' class='toggle-open' [class.open]='open' (click)='openToggle.emit(!open)'></span>
