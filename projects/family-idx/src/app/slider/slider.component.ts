@@ -54,6 +54,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
 
   scrollAway() {
     const el = this.el.nativeElement as HTMLElement;
-    el.parentElement?.parentElement?.scrollBy({top: 200, behavior: 'smooth'});
+    const parent = el.parentElement;
+    parent?.parentElement?.scrollBy({top: parent?.offsetHeight || 400, behavior: 'smooth'});
   }    
 }

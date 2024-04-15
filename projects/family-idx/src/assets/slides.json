@@ -3582,6 +3582,198 @@
             "flag": "🇮🇱",
             "sum": 0,
             "values": []
+          },
+          {
+            "country_name": "קוריאה",
+            "flag": "🇰🇷",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "ארה\"ב",
+            "flag": "🇺🇸",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "שבדיה",
+            "flag": "🇸🇪",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "יפן",
+            "flag": "🇯🇵",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "בלגיה",
+            "flag": "🇧🇪",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "שוויץ",
+            "flag": "🇨🇭",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "גרמניה",
+            "flag": "🇩🇪",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "פינלנד",
+            "flag": "🇫🇮",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "בריטניה",
+            "flag": "🇬🇧",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "דנמרק",
+            "flag": "🇩🇰",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "איסלנד",
+            "flag": "🇮🇸",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "הולנד",
+            "flag": "🇳🇱",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "צרפת",
+            "flag": "🇫🇷",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "סלובניה",
+            "flag": "🇸🇮",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "צ'כיה",
+            "flag": "🇨🇿",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "נורבגיה",
+            "flag": "🇳🇴",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "אסטוניה",
+            "flag": "🇪🇪",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "אוסטרליה",
+            "flag": "🇦🇺",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "פורטוגל",
+            "flag": "🇵🇹",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "הונגריה",
+            "flag": "🇭🇺",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "יוון",
+            "flag": "🇬🇷",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "איטליה",
+            "flag": "🇮🇹",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "פולין",
+            "flag": "🇵🇱",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "ספרד",
+            "flag": "🇪🇸",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "ניו זילנד",
+            "flag": "🇳🇿",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "ליטא",
+            "flag": "🇱🇹",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "אירלנד",
+            "flag": "🇮🇪",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "לוקסמבורג",
+            "flag": "🇱🇺",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "סלובקיה",
+            "flag": "🇸🇰",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "לטביה",
+            "flag": "🇱🇻",
+            "sum": 0,
+            "values": []
+          },
+          {
+            "country_name": "צ'ילה",
+            "flag": "🇨🇱",
+            "sum": 0,
+            "values": []
           }
         ],
         "indicator_info": {},
@@ -3623,6 +3815,134 @@
         {
           "flag": "🇮🇱",
           "name": "ישראל"
+        },
+        {
+          "flag": "🇰🇷",
+          "name": "קוריאה"
+        },
+        {
+          "flag": "🇺🇸",
+          "name": "ארה\"ב"
+        },
+        {
+          "flag": "🇸🇪",
+          "name": "שבדיה"
+        },
+        {
+          "flag": "🇯🇵",
+          "name": "יפן"
+        },
+        {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
+          "flag": "🇧🇪",
+          "name": "בלגיה"
+        },
+        {
+          "flag": "🇨🇭",
+          "name": "שוויץ"
+        },
+        {
+          "flag": "🇩🇪",
+          "name": "גרמניה"
+        },
+        {
+          "flag": "🇫🇮",
+          "name": "פינלנד"
+        },
+        {
+          "flag": "🇬🇧",
+          "name": "בריטניה"
+        },
+        {
+          "flag": "🇩🇰",
+          "name": "דנמרק"
+        },
+        {
+          "flag": "🇮🇸",
+          "name": "איסלנד"
+        },
+        {
+          "flag": "🇳🇱",
+          "name": "הולנד"
+        },
+        {
+          "flag": "🇫🇷",
+          "name": "צרפת"
+        },
+        {
+          "flag": "🇸🇮",
+          "name": "סלובניה"
+        },
+        {
+          "flag": "🇨🇿",
+          "name": "צ'כיה"
+        },
+        {
+          "flag": "🇳🇴",
+          "name": "נורבגיה"
+        },
+        {
+          "flag": "🇪🇪",
+          "name": "אסטוניה"
+        },
+        {
+          "flag": "🇦🇺",
+          "name": "אוסטרליה"
+        },
+        {
+          "flag": "🇵🇹",
+          "name": "פורטוגל"
+        },
+        {
+          "flag": "🇭🇺",
+          "name": "הונגריה"
+        },
+        {
+          "flag": "🇬🇷",
+          "name": "יוון"
+        },
+        {
+          "flag": "🇮🇹",
+          "name": "איטליה"
+        },
+        {
+          "flag": "🇵🇱",
+          "name": "פולין"
+        },
+        {
+          "flag": "🇪🇸",
+          "name": "ספרד"
+        },
+        {
+          "flag": "🇳🇿",
+          "name": "ניו זילנד"
+        },
+        {
+          "flag": "🇱🇹",
+          "name": "ליטא"
+        },
+        {
+          "flag": "🇮🇪",
+          "name": "אירלנד"
+        },
+        {
+          "flag": "🇱🇺",
+          "name": "לוקסמבורג"
+        },
+        {
+          "flag": "🇸🇰",
+          "name": "סלובקיה"
+        },
+        {
+          "flag": "🇱🇻",
+          "name": "לטביה"
+        },
+        {
+          "flag": "🇨🇱",
+          "name": "צ'ילה"
         }
       ],
       "specific_dimension": null,
@@ -3633,7 +3953,7 @@
       "ascending_order": false,
       "chart_title": null,
       "content": [
-        "בואו נסתכל על **חופשת לידה בתשלום לאבות**. בממוצע בינלאומי אבות זכאים לכ-11.5 שבועות, **וכמה בישראל?**",
+        "בואו נסתכל על **חופשת לידה בתשלום לאבות**. בממוצע בינלאומי אבות זכאים לכ-11.5 שבועות, **וכמה בישראל? נחשו על ידי גרירה של הידית ימינה או שמאלה ולחצו לאישור.**",
         ""
       ],
       "data": {

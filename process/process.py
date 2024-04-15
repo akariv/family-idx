@@ -61,6 +61,7 @@ if __name__ == '__main__':
     ])
     prev_slider = None
     for slide_idx, slide in enumerate(slides):
+        print(f'#{slide_idx} {slide["content"][:10]}...')
         assert len(slide['section']) == 1, 'Slide {0} requires a section'.format(slide['id'])
         slide['section'] = sections[slide.pop('section')[0]]
         if slide['data_type']:
