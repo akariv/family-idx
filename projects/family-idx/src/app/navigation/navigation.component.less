@@ -57,10 +57,12 @@
             z-index: 0;
         }
         .section {
+            padding: 12px 8px;
             .desktop({
                 flex: 1 1 100%;
                 align-items: center;
                 border-right: 2px solid @color-white;
+                padding-right: 12px;
             });
             .mobile({
                 flex: 0 0 80px;
@@ -70,7 +72,6 @@
             display: flex;
             flex-flow: row;
             justify-content: flex-start;
-            padding: 12px 8px;
             z-index: 1;
             color: @color-white;
             // .transition(color border-color);
@@ -82,7 +83,12 @@
             &:not(.active):hover {
                 background: rgba(0, 0, 0, 0.20);
                 border-width: 6px;
-                padding-right: 4px;
+                .desktop({
+                    padding-right: 8px;
+                });
+                .mobile({
+                    padding-top: 8px;
+                });
                 span {
                     font-weight: 700;
                 }
