@@ -77,7 +77,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
           const slide = this.slides[slideNum];
           this.handleSlide(slide);
         }
-      }, {threshold: 0.1});
+      }, {threshold: 0.25});
       for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
         this.observer.observe(el);
       }
