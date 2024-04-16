@@ -482,10 +482,14 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   avgTextShadow() {
     const color = this.slide.section.color;
     return `
-      0 2px 0px ${color},
-      0 -2px 0px ${color},
-      2px 0 0px ${color},
-      -2px 0 0px ${color}
+      1px 1px 0px ${color},
+      1px -1px 0px ${color},
+      -1px -1px 0px ${color},
+      -1px 1px 0px ${color},
+      2px 2px 0px ${color},
+      2px -2px 0px ${color},
+      -2px -2px 0px ${color},
+      -2px 2px 0px ${color}
     `;
   }
 
