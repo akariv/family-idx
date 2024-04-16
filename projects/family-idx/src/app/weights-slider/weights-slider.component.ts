@@ -61,7 +61,7 @@ export class WeightsSliderComponent implements OnChanges {
     } else if (this.state === 'hide') {
       this.show.next();
     } else if (this.state === 'spotlight') {
-      this.hide.next();
+      this.show.next();
     }
   }
 }
