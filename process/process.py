@@ -184,10 +184,6 @@ if __name__ == '__main__':
                     indicator_info.append(item)
         indicator_info = dict((i['name'], i) for i in indicator_info)
 
-        if prev_slider:
-            slide['slider_result'] = prev_slider
-            prev_slider = None
-
         if '<רשימה>' in slide['content']:
             slide['dimension_list'] = [
                 i['name'] for i in 
@@ -209,14 +205,15 @@ if __name__ == '__main__':
             assert len(indicators_) == 1
 
             slide['slider'] = indicators_[0]
-            prev_slider = slide['slider']
+            prev_slider = slide
+            slide['slider_result'] = slide['slider']
             slide['content'] = [x.strip() for x in slide['content'].split('<סליידר>')]
 
             raw_values = [
                 float(data.get((country_rec['name'], 'גולמי', indicators_[0]))['value'])
                 for country_rec in countries.values()
             ]
-            slide['slider_max'] = max(raw_values)            
+            slide['slider_max'] = int(max(raw_values))
             indicators_ = []
             non_indicators_ = [i['name'] for i in indicators.values()]
             country_values[0]['values'] = []
@@ -232,7 +229,15 @@ if __name__ == '__main__':
             indicator_info=indicator_info,
             countries=country_values,
             average=sum(c['sum'] for c in country_values) / len(country_values),
+            max=max(c['sum'] for c in country_values),
         )
+
+        if prev_slider and prev_slider != slide:
+            slide['slider_result'] = prev_slider['slider']
+            prev_slider['data']['average'] = slide['data']['average']
+            prev_slider['data']['max'] = slide['data']['max']
+            prev_slider = None
+
 
     out = dict(
         slides=slides,

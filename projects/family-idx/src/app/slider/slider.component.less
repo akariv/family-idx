@@ -4,6 +4,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: flex-end;
     gap: 40px;
     width: 100%;
     position: relative;
@@ -76,13 +77,15 @@
                     border-radius: 8px;
                     cursor: pointer;
                     .background-image('assets/img/icon-handle-type=group-state=default.svg');
-                });
-    
-                &.guessed {
-                    .slider-thumb({
+
+                    &:hover {
+                        .background-image('assets/img/icon-handle-type=group-state=hover.svg');
+                    }
+
+                    &:active {
                         .background-image('assets/img/icon-handle-type=group-state=active.svg');
-                    });
-                }
+                    }
+                });
             }    
         }
     }

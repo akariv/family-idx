@@ -131,6 +131,9 @@
             &:hover {
                 .background-image('assets/img/icon-handle-type=default-state=hover.svg');
             }
+            &:active {
+                .background-image('assets/img/icon-handle-type=default-state=active.svg');
+            }
         });
 
         &.bold {
@@ -139,28 +142,32 @@
                 &:hover {
                     .background-image('assets/img/icon-handle-type=group-state=hover.svg');
                 }
-            });
-        }
-        &.active {
-            .slider-thumb({
-                .background-image('assets/img/icon-handle-type=default-state=active.svg');
-                background-color: #243856;
-                &:hover {
-                    .background-image('assets/img/icon-handle-type=default-state=hover.svg');
-                    background-color: white;
+                &:active {
+                    .background-image('assets/img/icon-handle-type=group-state=active.svg');
+                    background-color: #243856;
                 }
             });
         }
-        &.bold.active {
-            .slider-thumb({
-                .background-image('assets/img/icon-handle-type=group-state=active.svg');
-                background-color: #243856;
-                &:hover {
-                    .background-image('assets/img/icon-handle-type=group-state=hover.svg');
-                    background-color: white;
-                }
-            });
-        }
+        // &.active {
+        //     .slider-thumb({
+        //         .background-image('assets/img/icon-handle-type=default-state=active.svg');
+        //         background-color: #243856;
+        //         &:hover {
+        //             .background-image('assets/img/icon-handle-type=default-state=hover.svg');
+        //             background-color: white;
+        //         }
+        //     });
+        // }
+        // &.bold.active {
+        //     .slider-thumb({
+        //         .background-image('assets/img/icon-handle-type=group-state=active.svg');
+        //         background-color: #243856;
+        //         &:hover {
+        //             .background-image('assets/img/icon-handle-type=group-state=hover.svg');
+        //             background-color: white;
+        //         }
+        //     });
+        // }
 
         &.bold {
             &::-webkit-slider-thumb {

@@ -6,7 +6,7 @@
                 <app-chart [slide]='currentSlide' *ngIf='currentSlide' 
                            [highlightIndicator]='highlightedIndicator'
                            [highlightIndicators]='highlightedIndicators'
-                           [sliderResult]='currentSlide.slider_result ? (sliderResult[currentSlide.slider_result] || null) : null'
+                           [sliderResult]='currentSlide.slider_result ? (sliderResult[currentSlide.slider_result] > -1 ? sliderResult[currentSlide.slider_result] : null ) : null'
                            #chart></app-chart>
             </div>
         </div>

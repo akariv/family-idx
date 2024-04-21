@@ -47,6 +47,7 @@ export type Data = {
     indicator_info: Indicators;
     countries: Datum[];
     average: number;
+    max: number;
 };
 
 export type Slide = {

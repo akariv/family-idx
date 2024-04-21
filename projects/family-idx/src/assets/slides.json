@@ -18,6 +18,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -79,6 +80,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -275,6 +277,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 2.7840000000000003,
         "non_indicators": [
           "מו\"פ"
         ]
@@ -462,6 +465,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 2.7840000000000003,
         "non_indicators": [
           "מו\"פ"
         ]
@@ -654,6 +658,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 2.7840000000000003,
         "non_indicators": [
           "מו\"פ"
         ]
@@ -700,7 +705,7 @@
         "כפי שאפשר לראות המצב **בישראל **לא כל-כך טוב, הרבה מתחת לממוצע המדינות המפותחות.\n\n"
       ],
       "data": {
-        "average": 5.199,
+        "average": 5.204151515151515,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -1164,7 +1169,7 @@
           {
             "country_name": "אוסטריה",
             "flag": "🇦🇹",
-            "sum": 6.061,
+            "sum": 6.231,
             "values": [
               {
                 "raw": 40.6,
@@ -1187,16 +1192,16 @@
                 "value": 0.82
               },
               {
-                "raw": 0.0,
-                "value": 0.0
+                "raw": 8.6,
+                "value": 0.14
               },
               {
                 "raw": 68.0,
                 "value": 0.63
               },
               {
-                "raw": 46.0,
-                "value": 0.36
+                "raw": 44.0,
+                "value": 0.39
               },
               {
                 "raw": 13.0,
@@ -2496,6 +2501,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 7.566,
         "non_indicators": [
           "מו\"פ"
         ]
@@ -3007,6 +3013,7 @@
         "indicators": [
           "מו\"פ"
         ],
+        "max": 5.6,
         "non_indicators": [
           "שעות עבודה שבועיות",
           "פערי חופשות",
@@ -3397,6 +3404,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -3778,6 +3786,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -3957,7 +3966,7 @@
         ""
       ],
       "data": {
-        "average": 0.0,
+        "average": 8.381818181818183,
         "countries": [
           {
             "country_name": "ישראל",
@@ -3976,6 +3985,7 @@
           }
         },
         "indicators": [],
+        "max": 60.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -4009,11 +4019,12 @@
         "role": null,
         "slug": "חינוך_וטיפול"
       },
-      "show_average": false,
+      "show_average": true,
       "show_countries": true,
-      "show_value": false,
+      "show_value": true,
       "slider": "חל\"ד אבות",
-      "slider_max": 60.0,
+      "slider_max": 60,
+      "slider_result": "חל\"ד אבות",
       "specific_countries": [
         {
           "flag": "🇮🇱",
@@ -4036,7 +4047,7 @@
         "**אבות בישראל לא זכאים כלל לחופשת לידה בתשלום.** הם יכולים רק לממש מעט ימי מחלה וחופשה שנתית או לקחת ימים על חשבון חופשת האם.\n"
       ],
       "data": {
-        "average": 8.121212121212121,
+        "average": 8.381818181818183,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -4145,6 +4156,16 @@
             "values": [
               {
                 "value": 9.0
+              }
+            ]
+          },
+          {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 8.6,
+            "values": [
+              {
+                "value": 8.6
               }
             ]
           },
@@ -4289,16 +4310,6 @@
             ]
           },
           {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 0.0,
-            "values": [
-              {
-                "value": 0.0
-              }
-            ]
-          },
-          {
             "country_name": "אוסטרליה",
             "flag": "🇦🇺",
             "sum": 0.0,
@@ -4381,6 +4392,7 @@
         "indicators": [
           "חל\"ד אבות"
         ],
+        "max": 60.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -4467,6 +4479,10 @@
           "name": "יפן"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇵🇹",
           "name": "פורטוגל"
         },
@@ -4523,10 +4539,6 @@
           "name": "לטביה"
         },
         {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
-        },
-        {
           "flag": "🇦🇺",
           "name": "אוסטרליה"
         },
@@ -4571,7 +4583,7 @@
         "ישראל יכולה ללמוד **מנורבגיה**. הורים נורבגיים זכאים לחופשת לידה ארוכה במימון מלא: 18 שבועות לאם, 15 לאב, ו-16 שבועות נוספים לחלוקה ביניהם.\n\n"
       ],
       "data": {
-        "average": 8.121212121212121,
+        "average": 8.381818181818183,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -4680,6 +4692,16 @@
             "values": [
               {
                 "value": 9.0
+              }
+            ]
+          },
+          {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 8.6,
+            "values": [
+              {
+                "value": 8.6
               }
             ]
           },
@@ -4824,16 +4846,6 @@
             ]
           },
           {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 0.0,
-            "values": [
-              {
-                "value": 0.0
-              }
-            ]
-          },
-          {
             "country_name": "אוסטרליה",
             "flag": "🇦🇺",
             "sum": 0.0,
@@ -4916,6 +4928,7 @@
         "indicators": [
           "חל\"ד אבות"
         ],
+        "max": 60.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -5005,6 +5018,10 @@
           "name": "יפן"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇵🇹",
           "name": "פורטוגל"
         },
@@ -5061,10 +5078,6 @@
           "name": "לטביה"
         },
         {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
-        },
-        {
           "flag": "🇦🇺",
           "name": "אוסטרליה"
         },
@@ -5109,7 +5122,7 @@
         "נמשיך. חופשת לידה לאמהות בישראל אורכת 3 חודשים. בסופה הורים נאלצים למצוא מסגרת פרטית ויקרה למשך 32.5 חודשים עד הכניסה למסגרת במימון ציבורי בגיל 3. **ישראל קרובה** **לממוצע הודות להחלת חינוך חובה מגיל 3 ב-2015.**\n\n"
       ],
       "data": {
-        "average": 29.8969696969697,
+        "average": 29.836363636363636,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -5342,6 +5355,16 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 44.0,
+            "values": [
+              {
+                "value": 44.0
+              }
+            ]
+          },
+          {
             "country_name": "הולנד",
             "flag": "🇳🇱",
             "sum": 44.0,
@@ -5368,16 +5391,6 @@
             "values": [
               {
                 "value": 45.6
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 46.0,
-            "values": [
-              {
-                "value": 46.0
               }
             ]
           },
@@ -5454,6 +5467,7 @@
         "indicators": [
           "פער בין חל\"ד לגן"
         ],
+        "max": 72.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -5587,6 +5601,10 @@
           "name": "יוון"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇳🇱",
           "name": "הולנד"
         },
@@ -5597,10 +5615,6 @@
         {
           "flag": "🇸🇰",
           "name": "סלובקיה"
-        },
-        {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
         },
         {
           "flag": "🇮🇸",
@@ -5643,7 +5657,7 @@
         "לפני החלת חוק חינוך חובה חינם מגיל 3 ב-2015, **פרק הזמן היה 45 חודשים**.\n"
       ],
       "data": {
-        "average": 30.275757575757577,
+        "average": 30.215151515151515,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -5866,6 +5880,16 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 44.0,
+            "values": [
+              {
+                "value": 44.0
+              }
+            ]
+          },
+          {
             "country_name": "הולנד",
             "flag": "🇳🇱",
             "sum": 44.0,
@@ -5902,16 +5926,6 @@
             "values": [
               {
                 "value": 45.6
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 46.0,
-            "values": [
-              {
-                "value": 46.0
               }
             ]
           },
@@ -5988,6 +6002,7 @@
         "indicators": [
           "פער בין חל\"ד לגן"
         ],
+        "max": 72.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -6117,6 +6132,10 @@
           "name": "יוון"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇳🇱",
           "name": "הולנד"
         },
@@ -6131,10 +6150,6 @@
         {
           "flag": "🇸🇰",
           "name": "סלובקיה"
-        },
-        {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
         },
         {
           "flag": "🇮🇸",
@@ -6177,7 +6192,7 @@
         "אם נחיל חוק חינוך חובה מסוף תקופת הלידה נגיע לראש הרשימה לצד פינלנד ושבדיה.\n"
       ],
       "data": {
-        "average": 28.912121212121214,
+        "average": 28.85151515151515,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -6410,6 +6425,16 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 44.0,
+            "values": [
+              {
+                "value": 44.0
+              }
+            ]
+          },
+          {
             "country_name": "הולנד",
             "flag": "🇳🇱",
             "sum": 44.0,
@@ -6436,16 +6461,6 @@
             "values": [
               {
                 "value": 45.6
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 46.0,
-            "values": [
-              {
-                "value": 46.0
               }
             ]
           },
@@ -6522,6 +6537,7 @@
         "indicators": [
           "פער בין חל\"ד לגן"
         ],
+        "max": 72.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -6655,6 +6671,10 @@
           "name": "יוון"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇳🇱",
           "name": "הולנד"
         },
@@ -6665,10 +6685,6 @@
         {
           "flag": "🇸🇰",
           "name": "סלובקיה"
-        },
-        {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
         },
         {
           "flag": "🇮🇸",
@@ -6711,7 +6727,7 @@
         "כעת נמיר את הנתונים לציונים כדי שנוכל להשוות אותם אחד לשני. במקרה של הפער בין חופשת לידה למסגרת ציבורית, **ככל שהפער קטן יותר הציון גבוה יותר.**\n\n"
       ],
       "data": {
-        "average": 29.8969696969697,
+        "average": 29.836363636363636,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -6944,6 +6960,16 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 44.0,
+            "values": [
+              {
+                "value": 44.0
+              }
+            ]
+          },
+          {
             "country_name": "הולנד",
             "flag": "🇳🇱",
             "sum": 44.0,
@@ -6970,16 +6996,6 @@
             "values": [
               {
                 "value": 45.6
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 46.0,
-            "values": [
-              {
-                "value": 46.0
               }
             ]
           },
@@ -7056,6 +7072,7 @@
         "indicators": [
           "פער בין חל\"ד לגן"
         ],
+        "max": 72.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -7189,6 +7206,10 @@
           "name": "יוון"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇳🇱",
           "name": "הולנד"
         },
@@ -7199,10 +7220,6 @@
         {
           "flag": "🇸🇰",
           "name": "סלובקיה"
-        },
-        {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
         },
         {
           "flag": "🇮🇸",
@@ -7245,7 +7262,7 @@
         "ככה זה נראה: הציון מתבטא **באורך העמודה**. כשזה נוגע לחישוב הציון באופן כללי, ככל שהעמודה ארוכה יותר המצב טוב יותר.\n"
       ],
       "data": {
-        "average": 0.5848484848484848,
+        "average": 0.5857575757575757,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -7501,6 +7518,17 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 0.39,
+            "values": [
+              {
+                "raw": 44.0,
+                "value": 0.39
+              }
+            ]
+          },
+          {
             "country_name": "הולנד",
             "flag": "🇳🇱",
             "sum": 0.39,
@@ -7530,17 +7558,6 @@
               {
                 "raw": 45.6,
                 "value": 0.37
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 0.36,
-            "values": [
-              {
-                "raw": 46.0,
-                "value": 0.36
               }
             ]
           },
@@ -7623,6 +7640,7 @@
         "indicators": [
           "פער בין חל\"ד לגן"
         ],
+        "max": 1.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -7756,6 +7774,10 @@
           "name": "יוון"
         },
         {
+          "flag": "🇦🇹",
+          "name": "אוסטריה"
+        },
+        {
           "flag": "🇳🇱",
           "name": "הולנד"
         },
@@ -7766,10 +7788,6 @@
         {
           "flag": "🇸🇰",
           "name": "סלובקיה"
-        },
-        {
-          "flag": "🇦🇹",
-          "name": "אוסטריה"
         },
         {
           "flag": "🇮🇸",
@@ -7813,7 +7831,7 @@
         ""
       ],
       "data": {
-        "average": 1.99030303030303,
+        "average": 1.9954545454545454,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -8140,6 +8158,33 @@
             ]
           },
           {
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
+            "sum": 2.2,
+            "values": [
+              {
+                "raw": 3.6,
+                "value": 0.82
+              },
+              {
+                "raw": 8.6,
+                "value": 0.14
+              },
+              {
+                "raw": 68.0,
+                "value": 0.63
+              },
+              {
+                "raw": 44.0,
+                "value": 0.39
+              },
+              {
+                "raw": 5400.0,
+                "value": 0.22
+              }
+            ]
+          },
+          {
             "country_name": "קוריאה",
             "flag": "🇰🇷",
             "sum": 2.18,
@@ -8163,33 +8208,6 @@
               {
                 "raw": 8600.0,
                 "value": 0.43
-              }
-            ]
-          },
-          {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
-            "sum": 2.03,
-            "values": [
-              {
-                "raw": 3.6,
-                "value": 0.82
-              },
-              {
-                "raw": 0.0,
-                "value": 0.0
-              },
-              {
-                "raw": 68.0,
-                "value": 0.63
-              },
-              {
-                "raw": 46.0,
-                "value": 0.36
-              },
-              {
-                "raw": 5400.0,
-                "value": 0.22
               }
             ]
           },
@@ -8754,6 +8772,7 @@
           "פער בין חל\"ד לגן",
           "הוצאה לחינוך גיל 0-5"
         ],
+        "max": 3.57,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -8847,12 +8866,12 @@
           "name": "סלובניה"
         },
         {
-          "flag": "🇰🇷",
-          "name": "קוריאה"
-        },
-        {
           "flag": "🇦🇹",
           "name": "אוסטריה"
+        },
+        {
+          "flag": "🇰🇷",
+          "name": "קוריאה"
         },
         {
           "flag": "🇧🇪",
@@ -9054,14 +9073,14 @@
             "values": []
           },
           {
-            "country_name": "קוריאה",
-            "flag": "🇰🇷",
+            "country_name": "אוסטריה",
+            "flag": "🇦🇹",
             "sum": 0,
             "values": []
           },
           {
-            "country_name": "אוסטריה",
-            "flag": "🇦🇹",
+            "country_name": "קוריאה",
+            "flag": "🇰🇷",
             "sum": 0,
             "values": []
           },
@@ -9182,6 +9201,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -9265,12 +9285,12 @@
           "name": "סלובניה"
         },
         {
-          "flag": "🇰🇷",
-          "name": "קוריאה"
-        },
-        {
           "flag": "🇦🇹",
           "name": "אוסטריה"
+        },
+        {
+          "flag": "🇰🇷",
+          "name": "קוריאה"
         },
         {
           "flag": "🇧🇪",
@@ -9707,6 +9727,7 @@
         "indicators": [
           "פערי חופשות"
         ],
+        "max": 68.0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -10564,6 +10585,7 @@
           "פערי חופשות",
           "זמן בדרכים"
         ],
+        "max": 2.35,
         "non_indicators": [
           "מו\"פ",
           "הוצאה לחינוך גיל 0-5",
@@ -10980,6 +11002,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -11503,6 +11526,7 @@
         "indicators": [
           "שיעור עוני ילדים"
         ],
+        "max": 22.2,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -12357,6 +12381,7 @@
           "קושי לעמוד בהוצאות",
           "שיעור עוני ילדים"
         ],
+        "max": 2.456,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -12773,6 +12798,7 @@
         ],
         "indicator_info": {},
         "indicators": [],
+        "max": 0,
         "non_indicators": [
           "מו\"פ",
           "שעות עבודה שבועיות",
@@ -12952,7 +12978,7 @@
         ""
       ],
       "data": {
-        "average": 5.199,
+        "average": 5.204151515151515,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -13416,7 +13442,7 @@
           {
             "country_name": "אוסטריה",
             "flag": "🇦🇹",
-            "sum": 6.061,
+            "sum": 6.231,
             "values": [
               {
                 "raw": 40.6,
@@ -13439,16 +13465,16 @@
                 "value": 0.82
               },
               {
-                "raw": 0.0,
-                "value": 0.0
+                "raw": 8.6,
+                "value": 0.14
               },
               {
                 "raw": 68.0,
                 "value": 0.63
               },
               {
-                "raw": 46.0,
-                "value": 0.36
+                "raw": 44.0,
+                "value": 0.39
               },
               {
                 "raw": 13.0,
@@ -14748,6 +14774,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 7.566,
         "non_indicators": [
           "מו\"פ"
         ]
@@ -15052,7 +15079,7 @@
         "## קישורים נוספים\n[חוברת המדד ←](https://berl.org.il)\n[מתודולוגיה ומקורות ←](https://berl.org.il)\n[מחקרי מדיניות ←](https://berl.org.il)\n[איך לצטט את המדד ←](https://berl.org.il)\n[כתבות ויוזמות ציבוריות ←](https://berl.org.il)\n[נתוני עבר ←](https://berl.org.il)\n## אודות קרן ברל כצנלסון \nקרן ברל כצנלסון פועלת לקידום ערכים של ציונות, צדק חברתי, שלום וחברה משותפת בישראל. זאת, באמצעות חינוך, פיתוח מנהיגות ופעולה בזירה הציבורית. \n\nהקרן פועלת ברוח ערכי תנועת העבודה ולאור חזונו של ברל כצנלסון - מראשי תנועת העבודה וממחדשי היישוב העברי בארץ ישראל. המרכז הרעיוני הוא הזרוע החינוכית והציבורית של הקרן. המרכז מפתח ומפעיל תכניות חינוך מגוונות המכשירות סוכני שינוי בזירה המקומית והארצית, ועוסק בהכשרת חוקרים, משרתי ציבור ופעילים. למרכז הרעיוני שיתופי פעולה רבים עם גופים הפועלים לאור חזון דומה.\n[לאתר הקרן ←](https://berl.org.il)\n## קרדיטים\n**כתיבה ומחקר**: עופר שכנר ויערה מן, קרן ברל כצנלסון. \n\n**אפיון, עיצוב ופיתוח**: מושון זר-אביב ואדם קריב, [While True Industries](https://whiletrue.industries).\n\n**ייעוץ וליווי מקצועי**: \n\nמיכל גרא מרגליות, קרן ברל כצנלסון\n\n אביעד הומינר רוזנבלום, קרן ברל כצנלסון\n\nפרופ' דפנה הקר, אוניברסיטת תל אביב\n\nד\"ר עופר סטי, אוניברסיטת תל אביב\n\nד\"ר עמית קפלן, המכללה האקדמית תל אביב יפו\n\nד\"ר נעמי פרידמן סוקולר, המחלקה לכלכלה, אוניברסיטת בר אילן\n\nעריכה: טל ויינטראוב, קרן ברל כצנלסון\n\nתקשורת והפצה: ענת רוזיליו ורוני צבילינג, קרן ברל כצנלסון\n\nליצירת קשר: ניתן לפנות לעופר שכנר במייל: [ofer@berl-k.org.il](mailto:ofer@berl-k.org.il)\n"
       ],
       "data": {
-        "average": 5.199,
+        "average": 5.204151515151515,
         "countries": [
           {
             "country_name": "גרמניה",
@@ -15516,7 +15543,7 @@
           {
             "country_name": "אוסטריה",
             "flag": "🇦🇹",
-            "sum": 6.061,
+            "sum": 6.231,
             "values": [
               {
                 "raw": 40.6,
@@ -15539,16 +15566,16 @@
                 "value": 0.82
               },
               {
-                "raw": 0.0,
-                "value": 0.0
+                "raw": 8.6,
+                "value": 0.14
               },
               {
                 "raw": 68.0,
                 "value": 0.63
               },
               {
-                "raw": 46.0,
-                "value": 0.36
+                "raw": 44.0,
+                "value": 0.39
               },
               {
                 "raw": 13.0,
@@ -16848,6 +16875,7 @@
           "קצבאות לפי הכנסה",
           "קושי לעמוד בהוצאות"
         ],
+        "max": 7.566,
         "non_indicators": [
           "מו\"פ"
         ]

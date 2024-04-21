@@ -92,7 +92,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         }
       }
 
-      const maxX = Math.max(...countries.map(x => x.sum)) + data.average / 50 * indicators.length;
+      // const maxX = Math.max(...countries.map(x => x.sum)) + data.average / 50 * indicators.length;
+      const maxX = data.max + data.average / 50 * indicators.length;
       const x = scaleLinear().domain([0, maxX+0.0001]).range([this.leftPadding, this.width - 16]);
 
       let expandWidth = 0;
@@ -164,7 +165,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         this.avgVisible = this.slide.show_average && !this.highlightIndicator;
       }
 
-      this.resultPos = x(this.sliderResult || 0) || this.resultPos;
+      this.resultPos = x(this.sliderResult || 0);//|| this.resultPos;
+      // console.log('RRRRR', this.sliderResult, this.resultPos);
       if (!this.resultVisible && !!this.slide.slider_result) {
         timer(1000).subscribe(() => {
           this.resultVisible = !!this.slide.slider_result;

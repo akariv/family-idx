@@ -33,10 +33,13 @@ export class SliderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const slider = this.slider.nativeElement as HTMLInputElement;
-    const width = slider.offsetWidth;
+    let width = slider.offsetWidth;
     const HANDLE_WIDTH = 24;
+    this.max = Math.ceil((this.slide.slider_max || 0) * width / (width + 60 - 16 - HANDLE_WIDTH/2));
+    this.guess_ = Math.floor(this.max / 4);
+    this.updated.emit(this.guess_);
     const RANGE_BUFFER = (HANDLE_WIDTH / 2 * 100) / width;
-    this.x = scaleLinear().domain([0, this.max]).range([RANGE_BUFFER, 100 - RANGE_BUFFER]);
+    this.x = scaleLinear().domain([0, this.max]).range([RANGE_BUFFER, 100 - RANGE_BUFFER]).clamp(false);
   }
 
   set guess(value: number) {

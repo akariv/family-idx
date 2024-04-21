@@ -127,6 +127,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   }
 
   updateSliderResult(slide: Slide, result: number) {
+    // console.log('SLIDER RESULT', slide.slider, result);
     if (slide.slider !== null) {
       this.sliderResult[slide.slider] = result;
     }
