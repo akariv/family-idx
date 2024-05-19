@@ -197,7 +197,8 @@ if __name__ == '__main__':
             for country_rec in country_values:
                 raw_values = []
                 for indicator, value_rec in zip(indicators_, country_rec['values']):
-                    val = data.get((country_rec['country_name'], 'גולמי', indicator)) or 0
+                    val = data.get((country_rec['country_name'], 'גולמי', indicator))
+                    assert val is not None, "Missing raw value for {0} {1}".format(country_rec['country_name'], indicator)
                     value_rec['raw'] = float(val['value'])
 
         elif '<סליידר>' in slide['content']:
