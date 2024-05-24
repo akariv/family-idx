@@ -97,6 +97,8 @@ export class WeightsComponent implements OnInit {
         return ret;
       })
     };
+    newData.average = newData.countries.reduce((acc: number, country: Datum) => acc + country.sum, 0) / newData.countries.length;
+    newData.max = newData.countries.reduce((acc: number, country: Datum) => Math.max(acc, country.sum), 0);
     if (resort) {
       newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
     }
