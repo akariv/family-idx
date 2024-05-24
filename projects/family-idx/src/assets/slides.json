@@ -183,42 +183,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 0
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -246,7 +246,7 @@
             "skip": 0
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -360,42 +360,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 1
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 1
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 0
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 1
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 1
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -423,7 +423,7 @@
             "skip": 2
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -542,42 +542,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 2
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 3
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 1
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 5
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -605,7 +605,7 @@
             "skip": 7
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -2244,42 +2244,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 2
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 3
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 1
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 5
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -2307,7 +2307,7 @@
             "skip": 7
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -3638,7 +3638,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -3803,7 +3803,7 @@
         ],
         "indicator_info": {
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
@@ -3840,7 +3840,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -4208,7 +4208,7 @@
         ],
         "indicator_info": {
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
@@ -4250,7 +4250,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -4744,7 +4744,7 @@
         ],
         "indicator_info": {
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
@@ -4790,7 +4790,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -5283,7 +5283,7 @@
         ],
         "indicator_info": {
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -5325,7 +5325,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -5818,7 +5818,7 @@
         ],
         "indicator_info": {
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -5860,7 +5860,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -6353,7 +6353,7 @@
         ],
         "indicator_info": {
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -6395,7 +6395,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -6888,7 +6888,7 @@
         ],
         "indicator_info": {
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -6930,7 +6930,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -7456,7 +7456,7 @@
         ],
         "indicator_info": {
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -7498,7 +7498,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -8556,35 +8556,35 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 4
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 1
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 2
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -8634,7 +8634,7 @@
       ],
       "resolution": "indicator",
       "section": {
-        "color": "#5ecdaa",
+        "color": "#046f63",
         "name": "חינוך וטיפול",
         "role": null,
         "slug": "חינוך_וטיפול"
@@ -9053,7 +9053,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#293b57",
+        "color": "#06a896",
         "name": "זמן משותף",
         "role": null,
         "slug": "זמן_משותף"
@@ -10448,42 +10448,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 0
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -10511,7 +10511,7 @@
             "skip": 0
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -10553,7 +10553,7 @@
       ],
       "resolution": null,
       "section": {
-        "color": "#293b57",
+        "color": "#06a896",
         "name": "זמן משותף",
         "role": null,
         "slug": "זמן_משותף"
@@ -11214,14 +11214,14 @@
         ],
         "indicator_info": {
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 1
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -11268,7 +11268,7 @@
       ],
       "resolution": "indicator",
       "section": {
-        "color": "#293b57",
+        "color": "#06a896",
         "name": "זמן משותף",
         "role": null,
         "slug": "זמן_משותף"
@@ -15197,42 +15197,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 2
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 3
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 1
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 5
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -15260,7 +15260,7 @@
             "skip": 7
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",
@@ -15291,7 +15291,7 @@
       "expand_country": null,
       "expand_country_photo": null,
       "exploration": true,
-      "hide_country_labels": false,
+      "hide_country_labels": true,
       "highlight_countries": [
         {
           "flag": "🇱🇺",
@@ -17157,42 +17157,42 @@
         ],
         "indicator_info": {
           "הוצאה לחינוך גיל 0-5": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה לחינוך גיל 0-5",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "הוצאה פרטית בחינוך": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "הוצאה פרטית בחינוך",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "זמן בדרכים": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "זמן בדרכים",
             "section": "זמן משותף",
             "skip": 0
           },
           "חל\"ד אבות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אבות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "חל\"ד אמהות": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "חל\"ד אמהות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
           "פער בין חל\"ד לגן": {
-            "color": "#5ecdaa",
+            "color": "#046f63",
             "dimension": "חינוך וטיפול",
             "name": "פער בין חל\"ד לגן",
             "section": "חינוך וטיפול",
@@ -17220,7 +17220,7 @@
             "skip": 0
           },
           "שעות עבודה שבועיות": {
-            "color": "#293b57",
+            "color": "#06a896",
             "dimension": "זמן משותף",
             "name": "שעות עבודה שבועיות",
             "section": "זמן משותף",

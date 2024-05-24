@@ -73,7 +73,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         });
         if (handled && slideNum !== null) {
           const slide = this.slides[slideNum];
-          console.log('HHHH', slideNum);
           this.handleSlide(slide);
         }
       }, {threshold: 0.25});
