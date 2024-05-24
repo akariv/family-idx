@@ -310,7 +310,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
           .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
-          .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'ציון משוערך' : null)
+          .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
             .transition(t)
