@@ -8,6 +8,7 @@
 </div>
 <input type='range' min='0' max='5' step='1' [(ngModel)]='value'
         (mousedown)='setMoving(true)' (mouseup)='setMoving(false)'
+        (touchstart)='setMoving(true)' (touchend)='setMoving(false)'
         [class.bold]='bold'
         [class.active]='weight_ > 1'
         [class.cancel]='cancel'
