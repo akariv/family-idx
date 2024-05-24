@@ -38,10 +38,8 @@
         flex: 1 1 auto;
     });
     .overflow-scroll;
-    &.snapping {
-        scroll-snap-type: y mandatory;
-        scroll-snap-stop: normal;
-    }
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: normal;
     position: relative;
     display: flex;
     flex-flow: column;
@@ -92,6 +90,9 @@
                 }
                 strong {
                     .font-bold;
+                }
+                a {
+                    pointer-events: all;
                 }
             }    
         }

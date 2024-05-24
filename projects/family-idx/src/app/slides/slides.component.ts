@@ -23,7 +23,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   sliderResult: {[key: string]: number} = {};
 
   bgColor: string = 'rgb(232, 234, 230)';
-  snapping: boolean = true;
 
   sections: Section[] = [];
   height: any = 100;
@@ -47,7 +46,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.setTextShadow(this.currentSlide);
     this.route.fragment.pipe(
       filter(fragment => !!fragment),
-      tap(() => { this.snapping = false; }),
       delay(100),
     ).subscribe((fragment) => {
       const target = this.el.nativeElement.querySelector('[data-slug=' + fragment + ']') as HTMLElement;
@@ -99,7 +97,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
     this.setTextShadow(slide); 
-    this.snapping = slide.section.role !== 'footer';
   }
 
   updateData(slide: Slide, data: Data) {

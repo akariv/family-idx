@@ -1,5 +1,5 @@
 <app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'></app-navigation>
-<div class='scrolled' [class.snapping]='snapping' #scrolled>
+<div class='scrolled' #scrolled>
     <!-- <div class='slides'> -->
         <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
             <div class='chart'>
@@ -50,7 +50,7 @@
                 <app-slider [slide]='slide' (updated)='updateSliderResult(slide, $event)'
                 ></app-slider>
                 </div>
-            <app-footer class='footer' [slide]='slide' *ngIf='slide.section.role === "footer"'
+            <app-footer class='slide footer' [slide]='slide' *ngIf='slide.section.role === "footer"'
                         [attr.data-slide]='i' [attr.data-slug]='slide.id'
             ></app-footer>
         </ng-container>

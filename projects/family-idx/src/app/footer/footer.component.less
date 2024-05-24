@@ -4,6 +4,7 @@
     padding: 16px;
     display: flex;
     z-index: 1;
+    overflow: hidden;
 
     .content {
         display: flex;
@@ -15,6 +16,8 @@
         font-size: 24px;
         line-height: 31px;
         color: @color-white;
+        .overflow-scroll;
+        pointer-events: all;
         ::ng-deep {
             strong {
                 .font-bold;
