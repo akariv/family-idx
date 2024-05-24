@@ -73,10 +73,11 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         });
         if (handled && slideNum !== null) {
           const slide = this.slides[slideNum];
+          console.log('HHHH', slideNum);
           this.handleSlide(slide);
         }
       }, {threshold: 0.25});
-      for (const el of this.el.nativeElement.querySelectorAll('.slide, app-footer')) {
+      for (const el of this.el.nativeElement.querySelectorAll('.slide')) {
         this.observer.observe(el);
       }
     });
