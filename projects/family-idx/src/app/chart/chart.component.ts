@@ -43,6 +43,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   resultVisible = false;
   startFromZero = false;
   moving = false;
+  hover = '';
 
   constructor(private sanitizer: DomSanitizer) {}
   
@@ -204,27 +205,51 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     this.height = el.offsetHeight;
   }
 
+  barClass(d: any, estimated: {[key: string]: boolean}) {
+    const classes = ['bar'];
+    const key = `${d.key}-${d.data.country_name}`;
+    if (estimated[key]) {
+      classes.push('estimated');
+      classes.push(`estimated-${this.slide.section.color.slice(1)}`);      
+    }
+    if (this.hover === key) {
+      classes.push('hovering');
+    }
+    return classes.join(' ');
+  }
+
   barColor(d: any) {
     let ret = 'rgba(255, 255, 255, 0.1)';
+    const key = `${d.key}-${d.data.country_name}`;
+    const hover = this.hover === key;
+    const indicatorHighlight = hover || (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0);
+    const countryHighlight = (this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0;
     if (this.slide.section.role === 'intro') {
       ret = '#d7d6cc';
     }
-    if ((this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0) {
+    if (countryHighlight) {
       if (this.slide.section.role === 'intro' || this.slide.section.role === 'exploration') {
         ret = '#243856'
         if (this.slide.data.indicator_info[d.key]) {
           ret = this.slide.data.indicator_info[d.key].color;
         }
+        if (indicatorHighlight) {
+          ret = ret + 'c0';
+        }
       } else {
-        if (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0) {
+        if (indicatorHighlight) {
           ret = 'rgba(255, 255, 255, 0.6)';
         } else {
           ret = 'rgba(255, 255, 255, 0.3)';
         }
       }
     } else {
-      if (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0) {
-        ret = 'rgba(255, 255, 255, 0.2)';
+      if (indicatorHighlight) {
+        if (this.slide.section.role === 'intro') {
+          ret = 'rgba(128, 128, 128, 0.5)';
+        } else {
+          ret = 'rgba(255, 255, 255, 0.2)';
+        }
       }
     } if (this.slide.section.role === 'footer') {
       ret = 'rgba(255, 255, 255, 0.05)';
@@ -302,15 +327,29 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       .selectAll('.bar')
       .data((d) => d || [], (d: any, i, nodes) => d ? d.data.country_name + '-' + d.key : (nodes[i] as HTMLElement).id || i)
       .join(
-        (enter) => enter.append('div').attr('class', 'bar').attr('data-country', (d) => d.data.country_name + '-' + (d as any).key)
+        (enter) => enter.append('div')
+          .attr('class', 'bar')
+          .attr('data-country', (d) => d.data.country_name + '-' + (d as any).key)
           .style('top', (d) => expandedY(d.data.country_name) + 'px')
           .style('height', (d, i) => i === this.slide.expand_country ? expandWidth : barHeight)
           .style('left', '0px')
           .style('width', '0px')
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-          .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
+          .attr('class', (d: any) => this.barClass(d, estimated))
           .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
+          .on('touchstart', (e: Event, d: any) => {
+            this.hover = `${d.key}-${d.data.country_name}`;
+            timer(0).subscribe(() => {
+              this.ngOnChanges();
+            });
+          })
+          .on('touchend', () => {
+            this.hover = '';
+            timer(0).subscribe(() => {
+              this.ngOnChanges();
+            });
+          })
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
             .transition(t)
@@ -328,7 +367,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
+                .attr('class', (d: any) => this.barClass(d, estimated))
                 .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
                 // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
               }
@@ -339,7 +378,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('width', '0px')
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
-                .attr('class', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? 'bar estimated estimated-' + this.slide.section.color.slice(1) : 'bar')
+                .attr('class', (d: any) => this.barClass(d, estimated))
                 .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
                 // i === this.slide.expand_country ? expandPhoto : null)
                 .call((update) => update
@@ -351,6 +390,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                   .delay(this.DURATION/2)
                   .duration(this.DURATION)
                   .ease(easeLinear)
+                  .attr('class', (d: any) => this.barClass(d, estimated))
                   .style('left', (d: any) => this.barPositionX(x, d, highlightSlide))
                   .style('width', (d) => (x(d[1]) - x(d[0])) + 'px')
               );
