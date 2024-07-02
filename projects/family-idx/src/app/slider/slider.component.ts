@@ -37,7 +37,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
     const slider = this.slider.nativeElement as HTMLInputElement;
     let width = slider.offsetWidth;
     const HANDLE_WIDTH = 24;
-    this.max = Math.ceil((this.slide.slider_max || 0) * width / (width + 60 - 16 - HANDLE_WIDTH/2));
+    this.max = this.slide.slider_max || 0;
     this.guess_ = Math.floor(this.max / 4);
     this.updated.emit(this.guess_);
     const RANGE_BUFFER = (HANDLE_WIDTH / 2 * 100) / width;

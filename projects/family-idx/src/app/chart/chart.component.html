@@ -4,12 +4,12 @@
 <div class='chart' [class.intro]='slide.section.role === "intro"' #chart>
     <div class='grid' [style.backgroundImage]='gridImage'></div>
     <div class='average' [class.visible]='avgVisible' #average [style.left.px]='avgPos'>
-        <span [style.textShadow]='avgTextShadow()'>ממוצע</span>
-        <span [style.textShadow]='avgTextShadow()'>ממוצע</span>
+        <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>
+        <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>
     </div>
     <div class='result' [class.visible]='resultVisible' #result [style.left.px]='resultPos'>
-        <span [style.textShadow]='avgTextShadow()'>הניחוש שלך</span>
-        <span [style.textShadow]='avgTextShadow()'>הניחוש שלך</span>
+        <span [style.textShadow]='avgTextShadow()'>הניחוש שלך: {{sliderResult | number: '1.0-1'}}</span>
+        <span [style.textShadow]='avgTextShadow()'>הניחוש שלך: {{sliderResult | number: '1.0-1'}}</span>
     </div>
     <div class='chart-title' [class.visible]='!!slide.chart_title' [class.intro]='slide.section.role === "intro"'>
         <span class='icon-pre layout-desktop'></span>

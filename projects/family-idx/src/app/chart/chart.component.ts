@@ -194,7 +194,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   updateDimensions(): void {
     const el = this.chart.nativeElement;
     this.width = el.offsetWidth - 32;
-    if (this.width < 760) {
+    if (this.width < 768) {
       this.hPadding = 24;
     } else {
       this.hPadding = 32;

@@ -172,9 +172,9 @@
             border-right: 1px dashed @color-white;
             display: flex;
             flex-flow: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            padding: 16px 0;
+            padding: 4px 0;
             z-index: 1;
             .transition(left opacity);
             opacity: 0;
@@ -189,24 +189,27 @@
                 .font-supporting;
                 color: @color-white;
                 font-size: 13px;
+                line-height: 13px;
                 font-weight: 300;
-                padding: 2px;
-                padding-top: 3px;
                 .transition(text-shadow);
                 white-space: nowrap;
+                align-self: flex-end;
+                transform-origin: center left;
+
+                &:first-child {
+                    align-self: flex-start;
+                    transform-origin: center right;
+                }
             }
         }
 
         .result {
-            padding: 28px 0;
+            border-right-style: solid;
         }
 
         .mobile({
-            .average {
-                padding-top: 32px;
-            }
-            .result {
-                padding-top: 44px;
+            .average, .result {
+                padding-top: 20px;
             }
         });
 
@@ -225,7 +228,7 @@
         .chart-title {
             position: absolute;
             .desktop({
-                bottom: 8px;
+                top: 8px;
                 right: 16px;    
                 gap: 4px;
             });
@@ -249,7 +252,7 @@
                 color: @color-white;
                 .font-supporting;
                 .desktop({
-                    font-size: 20px;
+                    font-size: 18px;
                     line-height: 24px;
                 });
                 .mobile({
