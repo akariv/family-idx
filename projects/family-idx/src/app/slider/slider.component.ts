@@ -23,7 +23,9 @@ export class SliderComponent implements OnInit, AfterViewInit {
   guessPosition = 0;
   
   constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
-    this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(90deg, #fff 0%, #fff 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%)`);
+    this.gradient = this.sanitizer.bypassSecurityTrustStyle(
+      `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11px, #fff 12px, #fff 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%)`
+    );
   }
 
   ngOnInit() {
@@ -46,7 +48,9 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this.guess_ = value;
     this.guessed = true;
     const pct = this.x(value);
-    this.gradient = this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(90deg, #fff 0%, #fff ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`);
+    this.gradient = this.sanitizer.bypassSecurityTrustStyle(
+      `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11px, #fff 12px, #fff ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`
+    );
     this.updated.emit(value);
     this.guessPosition = this.slider.nativeElement.offsetWidth * pct / 100;
   }
