@@ -99,8 +99,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.setTextShadow(slide); 
   }
 
-  updateData(slide: Slide, data: Data) {
-    slide.data = data;
+  updateData(slide: Slide, update: {data: Data, title: string}) {
+    slide.data = update.data;
+    slide.chart_title = update.title;
     if (this.currentSlide === slide) {
       this.chart.ngOnChanges();
     }

@@ -16,6 +16,7 @@
     <app-weights-slider *ngFor='let indicator of indicators'
         [title]='indicator' [bold]='false' [weight]='indicatorWeights[indicator]' [state]='states[indicator]'
         [color]='color'
+        [link]='indicatorLinks[indicator] || null'
         (updating)='updateWeight([indicator], $event, false); updateHighlight([indicator])'
         (updated)='updateWeight([indicator], $event, true); updateHighlight([])'
         (show)='show.next([indicator])'

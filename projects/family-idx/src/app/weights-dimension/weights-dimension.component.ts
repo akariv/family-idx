@@ -9,6 +9,7 @@ export class WeightsDimensionComponent implements OnChanges {
   @Input() dimension: string;
   @Input() indicators: string[];
   @Input() indicatorWeights: {[key: string]: number};
+  @Input() indicatorLinks: {[key: string]: string};
   @Input() states: {[key: string]: string};
   @Input() color: string;
   @Input() open = false;

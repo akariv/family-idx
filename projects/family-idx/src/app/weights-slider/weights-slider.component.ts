@@ -16,6 +16,7 @@ export class WeightsSliderComponent implements OnChanges {
   @Input() cancel = false;
   @Input() color = '#fff';
   @Input() open = false;
+  @Input() link: string | null = null;
 
   @Output() updating = new EventEmitter<number>();
   @Output() updated = new EventEmitter<number>();

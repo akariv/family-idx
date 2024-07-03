@@ -157,13 +157,15 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         this.gridImage = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(gridSvg)+')');
       });
       // this.avgVisible = false;
-      this.avgPos = x(data.average) || this.avgPos;
+      if (!!data.average) {
+        this.avgPos = x(data.average) || this.avgPos;        
+      }
       if (!this.avgVisible && this.slide.show_average) {
         timer(1000).subscribe(() => {
-          this.avgVisible = this.slide.show_average && !this.highlightIndicator;
+          this.avgVisible = this.slide.show_average && !this.highlightIndicator && !!data.average;
         });
       } else {
-        this.avgVisible = this.slide.show_average && !this.highlightIndicator;
+        this.avgVisible = this.slide.show_average && !this.highlightIndicator && !!data.average;
       }
 
       this.resultPos = x(this.sliderResult || 0);//|| this.resultPos;

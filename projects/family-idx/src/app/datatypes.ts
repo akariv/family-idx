@@ -19,6 +19,7 @@ export type DataType = {
 
 export type Value = {
     value: number;
+    raw: number;
     estimated?: boolean;
     origValue?: number;
 };
@@ -36,6 +37,9 @@ export type Indicator = {
     dimension: string;
     section: string;
     color: string;
+    link_to_doc: string;
+    chart_title: string;
+    dimension_chart_title: string;
     skip: number;
 };
 
