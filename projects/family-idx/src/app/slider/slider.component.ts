@@ -21,6 +21,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   gradient: SafeStyle;
   x: ScaleLinear<number, number>;
   guessPosition = 0;
+  step = 0.1;
   
   constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
     this.gradient = this.sanitizer.bypassSecurityTrustStyle(
@@ -30,29 +31,32 @@ export class SliderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.max = this.slide.slider_max || 0;
-    this.guess_ = Math.floor(this.max / 4);    
+    this.guess_ = this.slide.data.average || Math.floor(this.max / 4);    
   }
 
   ngAfterViewInit(): void {
     const slider = this.slider.nativeElement as HTMLInputElement;
     let width = slider.offsetWidth;
     const HANDLE_WIDTH = 24;
-    this.max = this.slide.slider_max || 0;
-    this.guess_ = Math.floor(this.max / 4);
-    this.updated.emit(this.guess_);
     const RANGE_BUFFER = (HANDLE_WIDTH / 2 * 100) / width;
     this.x = scaleLinear().domain([0, this.max]).range([RANGE_BUFFER, 100 - RANGE_BUFFER]).clamp(false);
+    this.updateGradient(this.x(this.guess_));
+  }
+
+  updateGradient(pct: number) {
+    this.gradient = this.sanitizer.bypassSecurityTrustStyle(
+      `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11px, #fff 12px, #fff ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`
+    );
   }
 
   set guess(value: number) {
     this.guess_ = value;
     this.guessed = true;
     const pct = this.x(value);
-    this.gradient = this.sanitizer.bypassSecurityTrustStyle(
-      `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11px, #fff 12px, #fff ${pct}%, rgba(0,0,0,0) ${pct}%, rgba(0,0,0,0) 100%)`
-    );
+    this.updateGradient(pct);
     this.updated.emit(value);
     this.guessPosition = this.slider.nativeElement.offsetWidth * pct / 100;
+    this.step = 1;
   }
 
   get guess() {

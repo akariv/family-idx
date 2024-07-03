@@ -1,6 +1,6 @@
 <div class='container'>
     <div class='slider'>
-        <input #slider type='range' [min]='min' [max]='max' step="1" [(ngModel)]='guess' [style.background-image]='gradient' [class.guessed]='guessed'>
+        <input #slider type='range' [min]='min' [max]='max' [step]='step' [(ngModel)]='guess' [style.background-image]='gradient' [class.guessed]='guessed'>
         <span *ngIf='guessed' class='slider-guess' [style.left.px]='guessPosition'>{{guess}}</span>
     </div>
     <div class='arrow' (click)='scrollAway()'>

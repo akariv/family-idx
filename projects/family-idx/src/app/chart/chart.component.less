@@ -176,12 +176,9 @@
             justify-content: space-between;
             padding: 4px 0;
             z-index: 1;
-            .transition(left opacity);
             opacity: 0;
-            transition-duration: calc(@transition-duration / 5);
             &.visible {
                 opacity: 1;
-                transition-duration: @transition-duration;
             }
 
             span {
@@ -200,6 +197,14 @@
                     align-self: flex-start;
                     transform-origin: center right;
                 }
+            }
+        }
+
+        .average {
+            .transition(left opacity);
+            transition-duration: calc(@transition-duration / 5);
+            &.visible {
+                transition-duration: @transition-duration;
             }
         }
 

@@ -47,6 +47,7 @@ export class WeightsComponent implements OnInit {
       this.indicatorWeights[indicator] = 1;
       this.states[indicator] = 'show';
     }
+    this.updateIndicatorWeight([], 1);
   }
 
   updateIndicatorWeight(indicators: string[], weight: number, resort: boolean = true) {
@@ -99,6 +100,7 @@ export class WeightsComponent implements OnInit {
     };
     newData.average = newData.countries.reduce((acc: number, country: Datum) => acc + country.sum, 0) / newData.countries.length;
     newData.max = newData.countries.reduce((acc: number, country: Datum) => Math.max(acc, country.sum), 0);
+    newData.max = newData.max / 0.75;
     if (resort) {
       newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
     }

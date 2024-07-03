@@ -167,13 +167,13 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       }
 
       this.resultPos = x(this.sliderResult || 0);//|| this.resultPos;
-      // console.log('RRRRR', this.sliderResult, this.resultPos);
-      if (!this.resultVisible && !!this.slide.slider_result) {
+      const resultVisible = this.sliderResult !== null && this.slide.slider_result !== undefined;
+      if (!this.resultVisible) {
         timer(1000).subscribe(() => {
-          this.resultVisible = !!this.slide.slider_result;
+          this.resultVisible = resultVisible;
         });
       } else {
-        this.resultVisible = !!this.slide.slider_result;
+        this.resultVisible = resultVisible;
       }
 
     }
