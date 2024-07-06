@@ -8,8 +8,7 @@
     display: flex;
     flex-flow: column;
     align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 26px;
+    margin-bottom: 8px;
 
     width: 100%;
 
@@ -18,7 +17,7 @@
         flex-flow: row;
         align-items: center;
         gap: 8px;
-        min-height: 32px;
+        height: 32px;
         width: 100%;
 
         .selector {
@@ -28,7 +27,10 @@
             background-size: 24px;
     
             &.show {
-                .button-image('assets/img/icon-state=show.svg');
+                .button-image('assets/img/icon-state=sub-show.svg');
+                &.bold {
+                    .button-image('assets/img/icon-state=show.svg');
+                }
             }
             &.hide {
                 .button-image('assets/img/icon-state=hide.svg');
@@ -40,19 +42,19 @@
     
         .title {
             flex: 1 1 auto;
-            .title-text {
-                color: @color-white;
-                .font-regular;
-                font-size: 20px;
-                line-height: 20px;
+            color: @color-white;
+            .font-regular;
+            font-size: 20px;
+            line-height: 20px;
             
+            span {
                 &.bold {
                     .font-bold;
                 }
                 &.hide {
                     text-decoration-line: line-through;
                     opacity: 0.5;
-                } 
+                }    
             }
     
             .weight {
@@ -82,9 +84,9 @@
         .doc-link {
             margin-right: auto;
             flex: 0 0 auto;
-            width: 18px;
-            height: 18px;
-            background-size: 18px;
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
             position: relative;
     
             .button-image('assets/img/icon-external-link.svg');
@@ -127,6 +129,14 @@
         }
     }
 
+    .input-container {
+        flex: 0 0 auto;
+        display: flex;
+        width: 100%;
+        height: 32px;
+        flex-flow: row;
+        align-items: center;
+    }
     input[type="range"] {
         flex: 0 0 auto;
         width: 100%;

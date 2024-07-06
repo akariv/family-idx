@@ -1,7 +1,7 @@
 <div class='selector-title'>
-        <button [class]='"selector " + state' (click)='toggle()'></button>
+        <button [class]='"selector " + state' [class.bold]='bold' (click)='toggle()'></button>
         <span class='title'>
-                <span class='title-text' [class.bold]='bold' [class.hide]='state === "hide"'>{{title}}</span>
+                <span [class.bold]='bold' [class.hide]='state === "hide"'>{{title}}</span>
                 <span class='weight' *ngIf='weight_ > 1 && !cancel'> × {{weight_}}</span>
         </span>
         <span *ngIf='bold' class='toggle-open' [class.open]='open' (click)='openToggle.emit(!open)'></span>
@@ -9,11 +9,13 @@
                 <span class='tooltip'>פרטים נוספים</span>
         </a>
 </div>
-<input type='range' min='0' max='5' step='1' [(ngModel)]='value'
-        (mousedown)='setMoving(true)' (mouseup)='setMoving(false)'
-        (touchstart)='setMoving(true)' (touchend)='setMoving(false)'
-        [class.bold]='bold'
-        [class.active]='weight_ > 1'
-        [class.cancel]='cancel'
-        [style.background-image]='gradient'
->
+<div class='input-container'>
+        <input type='range' min='0' max='5' step='1' [(ngModel)]='value'
+                (mousedown)='setMoving(true)' (mouseup)='setMoving(false)'
+                (touchstart)='setMoving(true)' (touchend)='setMoving(false)'
+                [class.bold]='bold'
+                [class.active]='weight_ > 1'
+                [class.cancel]='cancel'
+                [style.background-image]='gradient'
+        >
+</div>

@@ -109,26 +109,26 @@
                     }
                 }
 
-                &.hovering {
-                    &::after {
-                        content: attr(title);
-                        position: absolute;
-                        top: calc(100% ~'+' 8px);
-                        left: 0;
-                        width: fit-content;
-                        height: fit-content;
-                        white-space: nowrap;
-                        background-color: @color-text;
-                        padding: 8px;
-                        z-index: 1;
-                        color: @color-white;
-                        .font-supporting;
-                        font-size: 16px;
-                        font-weight: 700;
-                        padding: 4px 8px;
-                        border-radius: 4px;    
-                    }
-                }
+                // &.hovering {
+                //     &::after {
+                //         content: attr(title);
+                //         position: absolute;
+                //         top: calc(-32px);
+                //         left: 2px;
+                //         width: fit-content;
+                //         height: fit-content;
+                //         white-space: nowrap;
+                //         background-color: @color-text;
+                //         padding: 8px;
+                //         z-index: 1;
+                //         color: @color-white;
+                //         .font-supporting;
+                //         font-size: 16px;
+                //         font-weight: 700;
+                //         padding: 4px 8px;
+                //         border-radius: 4px;    
+                //     }
+                // }
             }
             .country-hl {
                 color: @color-white;
@@ -234,9 +234,9 @@
         .chart-title {
             position: absolute;
             .desktop({
-                top: 8px;
-                right: 16px;    
-                gap: 4px;
+                top: 4px;
+                left: -20px;
+                gap: 16px;
             });
             .mobile({
                 top: 0px;
@@ -267,7 +267,7 @@
                 });
                 font-weight: 400;
             }
-            .icon-pre, .icon-post {
+            .icon-post {
                 display: inline-block;
                 width: 12px;
                 height: 12px;
@@ -278,7 +278,7 @@
             }
 
             &.intro {
-                .icon-pre, .icon-post {
+                .icon-post {
                     .background-image('assets/img/icon-graph-title-text.svg');
                     background-size: 12px 9px;
                     background-position: top center;
@@ -286,6 +286,7 @@
 
                 span {
                     color: @color-text;
+                    font-weight: 700;
                 }
             }
         }

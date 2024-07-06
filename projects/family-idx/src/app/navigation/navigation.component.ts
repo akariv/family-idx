@@ -1,15 +1,18 @@
 import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { Section, Slide } from '../datatypes';
 import { timer } from 'rxjs';
+import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.less']
+  styleUrls: ['./navigation.component.less'],
 })
 export class NavigationComponent implements OnChanges, AfterViewInit {
   @Input() sections: Section[];
   @Input() slide: Slide;
+  @Input() hidden = false;
+  @Input() gridImage: SafeResourceUrl;
 
   @ViewChild('container') containerEl: any;
   @ViewChild('selector') selectorEl: any;

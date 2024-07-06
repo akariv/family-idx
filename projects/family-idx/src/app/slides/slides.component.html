@@ -1,4 +1,6 @@
-<app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'></app-navigation>
+<app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'
+                [hidden]='currentSlide === slides[0]' [gridImage]='gridImage'
+></app-navigation>
 <div class='scrolled' #scrolled>
     <!-- <div class='slides'> -->
         <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
@@ -7,6 +9,7 @@
                            [highlightIndicator]='highlightedIndicator'
                            [highlightIndicators]='highlightedIndicators'
                            [sliderResult]='currentSlide.slider_result ? (sliderResult[currentSlide.slider_result] > -1 ? sliderResult[currentSlide.slider_result] : null ) : null'
+                           [gridImage]='gridImage'
                            #chart></app-chart>
             </div>
         </div>

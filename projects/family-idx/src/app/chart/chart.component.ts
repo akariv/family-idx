@@ -21,6 +21,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() highlightIndicator: string | null = null;
   @Input() highlightIndicators: string[] | null = null;
   @Input() sliderResult: number | null = null;
+  @Input() gridImage: SafeResourceUrl;
 
   @ViewChild('chart') chart: ElementRef;
   @ViewChild('countries') countries: ElementRef;
@@ -36,14 +37,13 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   leftPadding = 0;
   hPadding = 0;
   i=0;
-  gridImage: SafeResourceUrl;
   avgPos = 0;
   avgVisible = false;
   resultPos = 0;
   resultVisible = false;
   startFromZero = false;
   moving = false;
-  hover = '';
+  hover: any = {};
 
   constructor(private sanitizer: DomSanitizer) {}
   
@@ -147,15 +147,6 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         this.slide.hide_country_labels ? [] : this.slide.highlight_countries,
         x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
 
-      // A single path on the right border of the image
-      const gridColor = this.slide.section.role === 'intro' ? '#243856' : '#fff';
-      const gridOpacity = this.slide.section.role === 'intro' ? 0.25 : 0.1;
-      const gridSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="200">
-        <path d="M0,0 L0,200" stroke="${gridColor}" stroke-width="1" stroke-opacity="${gridOpacity}" />
-      </svg>`;
-      timer(0).subscribe(() => {
-        this.gridImage = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(gridSvg)+')');
-      });
       // this.avgVisible = false;
       if (!!data.average) {
         this.avgPos = x(data.average) || this.avgPos;        
@@ -214,16 +205,12 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       classes.push('estimated');
       classes.push(`estimated-${this.slide.section.color.slice(1)}`);      
     }
-    if (this.hover === key) {
-      classes.push('hovering');
-    }
     return classes.join(' ');
   }
 
   barColor(d: any) {
     let ret = 'rgba(255, 255, 255, 0.1)';
-    const key = `${d.key}-${d.data.country_name}`;
-    const hover = this.hover === key;
+    const hover = this.hover.key === d.key && this.hover.country_name === d.data.country_name;
     const indicatorHighlight = hover || (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0);
     const countryHighlight = (this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0;
     if (this.slide.section.role === 'intro') {
@@ -307,6 +294,29 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     return barPos + 'px';
   }
  
+  doHover(e: Event, d: any, estimated: {[key: string]: boolean}) {
+    const boundingRect = (e.target as HTMLElement).getBoundingClientRect();
+    const _estimated = !!estimated[`${d.key}-${d.data.country_name}`];
+    this.hover = {
+      key: d.key,
+      country_name: d.data.country_name,
+      top: boundingRect.top,
+      left: boundingRect.left,
+      estimated: _estimated
+    };
+    console.log('HOVER', this.hover);
+    timer(0).subscribe(() => {
+      this.ngOnChanges();
+    });
+  }
+
+  dontHover() {
+    this.hover = {};
+    timer(0).subscribe(() => {
+      this.ngOnChanges();
+    });
+  }
+
   updateBars(layout: Series<Datum, string>[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
              expandedY: (d: string) => number | undefined, expandWidth: string, barHeight: string, expandPhoto: string | null,
              estimated: {[key: string]: boolean}, highlightSlide: {[key: string]: number}) {
@@ -339,19 +349,10 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
           .attr('class', (d: any) => this.barClass(d, estimated))
-          .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
-          .on('touchstart', (e: Event, d: any) => {
-            this.hover = `${d.key}-${d.data.country_name}`;
-            timer(0).subscribe(() => {
-              this.ngOnChanges();
-            });
-          })
-          .on('touchend', () => {
-            this.hover = '';
-            timer(0).subscribe(() => {
-              this.ngOnChanges();
-            });
-          })
+          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('touchend', () => this.dontHover())
+          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('mouseleave', () => this.dontHover())
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
             .transition(t)
@@ -360,6 +361,10 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           )
         ,
         (update) => update
+          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('touchend', () => this.dontHover())
+          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('mouseleave', () => this.dontHover())
           .call((update) => {
             if (!this.startFromZero) {
               return update.transition(t)
@@ -370,7 +375,6 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
                 .attr('class', (d: any) => this.barClass(d, estimated))
-                .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
                 // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
               }
             return update
@@ -381,7 +385,6 @@ export class ChartComponent implements OnChanges, AfterViewInit {
                 .style('background-color', (d) => this.barColor(d))
                 .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
                 .attr('class', (d: any) => this.barClass(d, estimated))
-                .attr('title', (d: any) => estimated[`${d.key}-${d.data.country_name}`] ? `${d.key} (ציון דמה)` : `${d.key}`)
                 // i === this.slide.expand_country ? expandPhoto : null)
                 .call((update) => update
                 .transition()

@@ -3,8 +3,8 @@ import { Data, Indicators, Section, Slide } from '../datatypes';
 import { Subscription, delay, filter, fromEvent, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
-import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl, SafeStyle } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-slides',
@@ -27,8 +27,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   sections: Section[] = [];
   height: any = 100;
   textShadow: SafeStyle | null = null;
+  gridImage: SafeResourceUrl;
 
-  constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
+  constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
   }
 
   ngOnInit() {
@@ -43,6 +44,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       }
     });
     this.currentSlide = this.slides[0];
+    this.setGridImage(this.currentSlide);
     this.setTextShadow(this.currentSlide);
     this.route.fragment.pipe(
       filter(fragment => !!fragment),
@@ -93,10 +95,12 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     if (this.currentSlide === slide) {
       return;
     }
-    this.currentSlide = slide;
     this.bgColor = slide.section.color;
     this.highlightedIndicator = null;
     this.setTextShadow(slide); 
+    this.setGridImage(slide);
+    this.currentSlide = slide;
+    this.router.navigate([], {fragment: slide.section.slug, replaceUrl: true});
   }
 
   updateData(slide: Slide, update: {data: Data, title: string}) {
@@ -142,5 +146,17 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       4px 0 6px ${color},
       -4px 0 6px ${color}
   `);
+  }
+
+  setGridImage(slide: Slide) {
+    // A single path on the right border of the image
+    const gridColor = slide.section.role === 'intro' ? '#243856' : '#fff';
+    const gridOpacity = slide.section.role === 'intro' ? 0.25 : 0.1;
+    const gridSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="200">
+      <path d="M0,0 L0,200" stroke="${gridColor}" stroke-width="1" stroke-opacity="${gridOpacity}" />
+    </svg>`;
+    timer(0).subscribe(() => {
+      this.gridImage = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(gridSvg)+')');
+    });
   }
 }
