@@ -41,7 +41,7 @@ if __name__ == '__main__':
     countries = load_table('Countries', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'flag'])
     sections = load_table('Sections', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'color', 'role', 'Dimensions'])
     data_types = load_table('DataTypes', map=DFA.AIRTABLE_ID_FIELD, keep=['name'])
-    indicators = load_table('Indicators', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'dimension', 'link_to_doc', 'chart_title'])
+    indicators = load_table('Indicators', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'dimension', 'link_to_doc', 'chart_title', 'raw_data_units'])
     dimensions = load_table('Dimensions', map=DFA.AIRTABLE_ID_FIELD, keep=['name', 'indicators', 'section', 'chart_title'])
     data = load_table('Data', map=['country_name', 'data_type_name', 'indicator_name'], keep=[
         'country_name', 'data_type_name', 'indicator_name', 'value', 'estimated'
@@ -179,6 +179,7 @@ if __name__ == '__main__':
                         link_to_doc=indicator['link_to_doc'],
                         chart_title=indicator['chart_title'],
                         dimension_chart_title=dimension['chart_title'],
+                        raw_data_units=indicator['raw_data_units'],
                         dimension=dimension['name'],
                         section=section['name'],
                         color=section['color'],

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Data, Datum, Slide, Value } from '../datatypes';
+import { Data, DataType, Datum, Slide, Value } from '../datatypes';
 
 @Component({
   selector: 'app-weights',
@@ -10,7 +10,7 @@ export class WeightsComponent implements OnInit {
   @Input() slide: Slide;
 
   @Output() highlightIndicator = new EventEmitter<string[]>();
-  @Output() updated = new EventEmitter<{data: Data, title: string}>();
+  @Output() updated = new EventEmitter<{data: Data, title: string, data_type: DataType}>();
 
   currentData: Data;
   dimensions: string[];
@@ -133,7 +133,7 @@ export class WeightsComponent implements OnInit {
     if (this.rawDataMode) {
       newTitle = this.chartTitles[newData.indicators[0]];
     }
-    this.updated.emit({data: newData, title: newTitle});
+    this.updated.emit({data: newData, title: newTitle, data_type: {name: this.rawDataMode ? 'גולמי' : 'מדד'}});
   }
 
   show(indicators: string[]) {

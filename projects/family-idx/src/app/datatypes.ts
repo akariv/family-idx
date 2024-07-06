@@ -40,6 +40,7 @@ export type Indicator = {
     link_to_doc: string;
     chart_title: string;
     dimension_chart_title: string;
+    raw_data_units: string;
     skip: number;
 };
 

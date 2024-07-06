@@ -10,6 +10,7 @@
                            [highlightIndicators]='highlightedIndicators'
                            [sliderResult]='currentSlide.slider_result ? (sliderResult[currentSlide.slider_result] > -1 ? sliderResult[currentSlide.slider_result] : null ) : null'
                            [gridImage]='gridImage'
+                           (hover)='hover = $event'
                            #chart></app-chart>
             </div>
         </div>
@@ -58,4 +59,13 @@
             ></app-footer>
         </ng-container>
     <!-- </div>     -->
+</div>
+<div class='tooltip' [style.top.px]='hover.top' [style.left.px]='hover.left'
+    [class.dark]='currentSlide.section.role === "intro"'
+    *ngIf='hover.country_name'>
+    <span>
+        <strong>{{hover.country_name}}</strong>
+        {{hover.key}}<ng-container *ngIf='hover.value'>: {{hover.value}}</ng-container>
+        <ng-container *ngIf='hover.estimated'> (ציון דמה)</ng-container>
+    </span>
 </div>

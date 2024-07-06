@@ -257,3 +257,44 @@
         .transition(background-color);
     }
 }
+
+.tooltip {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    white-space: nowrap;
+    background-color: @color-white;
+    padding: 8px;
+    z-index: 1;
+    color: @color-text;
+    .font-supporting;
+    font-size: 16px;
+    font-weight: 400;
+
+    strong {
+        font-weight: 700;
+    }
+    padding: 4px 8px;
+    border-radius: 4px;
+    transform: translate(2px, calc(-100% ~'-' 8px));
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: @color-white;
+        top: calc(100% ~'-' 7px);
+        left: 12px;
+        border-radius: 2px;
+        transform: rotate(45deg);
+    }
+
+    &.dark {
+        background-color: @color-text;
+        color: @color-white;
+        &::after {
+            background-color: @color-text;
+        }
+    }
+}

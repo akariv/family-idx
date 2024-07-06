@@ -193,6 +193,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -203,6 +204,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -213,6 +215,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 0
           },
@@ -223,6 +226,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -233,6 +237,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -243,6 +248,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 0
           },
@@ -253,6 +259,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -263,6 +270,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -273,6 +281,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -283,6 +292,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -293,6 +303,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 0
           }
@@ -414,6 +425,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -424,6 +436,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -434,6 +447,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 1
           },
@@ -444,6 +458,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -454,6 +469,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -464,6 +480,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 1
           },
@@ -474,6 +491,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -484,6 +502,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 2
           },
@@ -494,6 +513,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 2
           },
@@ -504,6 +524,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 2
           },
@@ -514,6 +535,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 1
           }
@@ -640,6 +662,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -650,6 +673,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 1
           },
@@ -660,6 +684,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 7
           },
@@ -670,6 +695,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 2
           },
@@ -680,6 +706,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 3
           },
@@ -690,6 +717,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 6
           },
@@ -700,6 +728,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
@@ -710,6 +739,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 10
           },
@@ -720,6 +750,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 9
           },
@@ -730,6 +761,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 8
           },
@@ -740,6 +772,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 5
           }
@@ -2516,6 +2549,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -2526,6 +2560,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 1
           },
@@ -2536,6 +2571,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 7
           },
@@ -2546,6 +2582,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 2
           },
@@ -2556,6 +2593,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 3
           },
@@ -2566,6 +2604,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 6
           },
@@ -2576,6 +2615,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
@@ -2586,6 +2626,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 10
           },
@@ -2596,6 +2637,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 9
           },
@@ -2606,6 +2648,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 8
           },
@@ -2616,6 +2659,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 5
           }
@@ -3706,7 +3750,8 @@
         "chart_title": "שיעור ילדים מחוסנים",
         "dimension": null,
         "link_to_doc": "https://google.com",
-        "name": "שיעור ילדים מחוסנים"
+        "name": "שיעור ילדים מחוסנים",
+        "raw_data_units": "%"
       },
       "start_from_zero": false
     },
@@ -4499,6 +4544,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -4557,7 +4603,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "חל\"ד אבות"
+        "name": "חל\"ד אבות",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -4909,6 +4956,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -5098,7 +5146,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "חל\"ד אבות"
+        "name": "חל\"ד אבות",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -5450,6 +5499,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -5642,7 +5692,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "חל\"ד אבות"
+        "name": "חל\"ד אבות",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -5994,6 +6045,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -6182,7 +6234,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בין חל\"ד לגן"
+        "name": "פער בין חל\"ד לגן",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -6534,6 +6587,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -6722,7 +6776,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בין חל\"ד לגן"
+        "name": "פער בין חל\"ד לגן",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -7074,6 +7129,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -7262,7 +7318,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בין חל\"ד לגן"
+        "name": "פער בין חל\"ד לגן",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -7614,6 +7671,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -7802,7 +7860,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בין חל\"ד לגן"
+        "name": "פער בין חל\"ד לגן",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -8187,6 +8246,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           }
@@ -8375,7 +8435,8 @@
           "rech638IiLKnDhuu1"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בין חל\"ד לגן"
+        "name": "פער בין חל\"ד לגן",
+        "raw_data_units": " שבועות"
       },
       "start_from_zero": false
     },
@@ -9292,6 +9353,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 4
           },
@@ -9302,6 +9364,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -9312,6 +9375,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 1
           },
@@ -9322,6 +9386,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 2
           },
@@ -9332,6 +9397,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 3
           }
@@ -9530,7 +9596,8 @@
               "rech638IiLKnDhuu1"
             ],
             "link_to_doc": "https://google.com",
-            "name": "הוצאה פרטית בחינוך"
+            "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪"
           },
           {
             "chart_title": "חל\"ד אבות",
@@ -9538,7 +9605,8 @@
               "rech638IiLKnDhuu1"
             ],
             "link_to_doc": "https://google.com",
-            "name": "חל\"ד אבות"
+            "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות"
           },
           {
             "chart_title": "חל\"ד אמהות",
@@ -9546,7 +9614,8 @@
               "rech638IiLKnDhuu1"
             ],
             "link_to_doc": "https://google.com",
-            "name": "חל\"ד אמהות"
+            "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות"
           },
           {
             "chart_title": "פער בין חל\"ד לגן",
@@ -9554,7 +9623,8 @@
               "rech638IiLKnDhuu1"
             ],
             "link_to_doc": "https://google.com",
-            "name": "פער בין חל\"ד לגן"
+            "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות"
           },
           {
             "chart_title": "הוצאה לחינוך גיל 0-5 בשקלים חדשים",
@@ -9562,7 +9632,8 @@
               "rech638IiLKnDhuu1"
             ],
             "link_to_doc": "https://google.com",
-            "name": "הוצאה לחינוך גיל 0-5"
+            "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪"
           }
         ],
         "name": "חינוך וטיפול",
@@ -10283,6 +10354,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 0
           }
@@ -10463,7 +10535,8 @@
           "recHzEPMKfuwt7EHG"
         ],
         "link_to_doc": "https://google.com",
-        "name": "פער בחופשות"
+        "name": "פער בחופשות",
+        "raw_data_units": " ימים"
       },
       "start_from_zero": true
     },
@@ -11122,6 +11195,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 1
           },
@@ -11132,6 +11206,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 2
           },
@@ -11142,6 +11217,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 0
           }
@@ -11338,7 +11414,8 @@
               "recHzEPMKfuwt7EHG"
             ],
             "link_to_doc": "https://google.com",
-            "name": "שעות עבודה שבועיות"
+            "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות"
           },
           {
             "chart_title": "זמן בדרכים",
@@ -11346,7 +11423,8 @@
               "recHzEPMKfuwt7EHG"
             ],
             "link_to_doc": "https://google.com",
-            "name": "זמן בדרכים"
+            "name": "זמן בדרכים",
+            "raw_data_units": " שעות"
           },
           {
             "chart_title": "פער בחופשות",
@@ -11354,7 +11432,8 @@
               "recHzEPMKfuwt7EHG"
             ],
             "link_to_doc": "https://google.com",
-            "name": "פער בחופשות"
+            "name": "פער בחופשות",
+            "raw_data_units": " ימים"
           }
         ],
         "name": "זמן משותף",
@@ -12035,6 +12114,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           }
@@ -12199,7 +12279,8 @@
           "recfa4QkqAp6AXl2Q"
         ],
         "link_to_doc": null,
-        "name": "קושי לסגור את החודש"
+        "name": "קושי לסגור את החודש",
+        "raw_data_units": "%"
       },
       "start_from_zero": false
     },
@@ -12855,6 +12936,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 1
           },
@@ -12865,6 +12947,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -12875,6 +12958,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 2
           }
@@ -13071,7 +13155,8 @@
               "recfa4QkqAp6AXl2Q"
             ],
             "link_to_doc": null,
-            "name": "קצבאות לפי הכנסה"
+            "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%"
           },
           {
             "chart_title": "קושי לסגור את החודש",
@@ -13079,7 +13164,8 @@
               "recfa4QkqAp6AXl2Q"
             ],
             "link_to_doc": null,
-            "name": "קושי לסגור את החודש"
+            "name": "קושי לסגור את החודש",
+            "raw_data_units": "%"
           },
           {
             "chart_title": "שיעור עוני ילדים",
@@ -13087,7 +13173,8 @@
               "recfa4QkqAp6AXl2Q"
             ],
             "link_to_doc": null,
-            "name": "שיעור עוני ילדים"
+            "name": "שיעור עוני ילדים",
+            "raw_data_units": "%"
           }
         ],
         "name": "רווחה כלכלית",
@@ -15200,6 +15287,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -15210,6 +15298,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 1
           },
@@ -15220,6 +15309,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 7
           },
@@ -15230,6 +15320,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 2
           },
@@ -15240,6 +15331,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 3
           },
@@ -15250,6 +15342,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 6
           },
@@ -15260,6 +15353,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 4
           },
@@ -15270,6 +15364,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 10
           },
@@ -15280,6 +15375,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 9
           },
@@ -15290,6 +15386,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 8
           },
@@ -15300,6 +15397,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 5
           }
@@ -17334,6 +17432,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה לחינוך גיל 0-5",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -17344,6 +17443,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "הוצאה פרטית בחינוך",
+            "raw_data_units": "₪",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -17354,6 +17454,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "זמן בדרכים",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 0
           },
@@ -17364,6 +17465,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אבות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -17374,6 +17476,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "חל\"ד אמהות",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -17384,6 +17487,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "פער בחופשות",
+            "raw_data_units": " ימים",
             "section": "זמן משותף",
             "skip": 0
           },
@@ -17394,6 +17498,7 @@
             "dimension_chart_title": "מדד חינוך וטיפול",
             "link_to_doc": "https://google.com",
             "name": "פער בין חל\"ד לגן",
+            "raw_data_units": " שבועות",
             "section": "חינוך וטיפול",
             "skip": 0
           },
@@ -17404,6 +17509,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קושי לסגור את החודש",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -17414,6 +17520,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "קצבאות לפי הכנסה",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -17424,6 +17531,7 @@
             "dimension_chart_title": "מדד רווחה כלכלית",
             "link_to_doc": null,
             "name": "שיעור עוני ילדים",
+            "raw_data_units": "%",
             "section": "רווחה כלכלית",
             "skip": 0
           },
@@ -17434,6 +17542,7 @@
             "dimension_chart_title": "מדד זמן משותף",
             "link_to_doc": "https://google.com",
             "name": "שעות עבודה שבועיות",
+            "raw_data_units": " שעות",
             "section": "זמן משותף",
             "skip": 0
           }

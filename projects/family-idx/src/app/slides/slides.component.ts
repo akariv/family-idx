@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Data, Indicators, Section, Slide } from '../datatypes';
+import { Data, DataType, Indicators, Section, Slide } from '../datatypes';
 import { Subscription, delay, filter, fromEvent, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
@@ -29,6 +29,8 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   textShadow: SafeStyle | null = null;
   gridImage: SafeResourceUrl;
 
+  hover: any = {};
+
   constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
   }
 
@@ -48,6 +50,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.setTextShadow(this.currentSlide);
     this.route.fragment.pipe(
       filter(fragment => !!fragment),
+      filter(fragment => fragment !== this.currentSlide.section.slug),
       delay(100),
     ).subscribe((fragment) => {
       const target = this.el.nativeElement.querySelector('[data-slug=' + fragment + ']') as HTMLElement;
@@ -103,8 +106,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.router.navigate([], {fragment: slide.section.slug, replaceUrl: true});
   }
 
-  updateData(slide: Slide, update: {data: Data, title: string}) {
+  updateData(slide: Slide, update: {data: Data, title: string, data_type: DataType}) {
     slide.data = update.data;
+    slide.data_type = update.data_type;
     slide.chart_title = update.title;
     if (this.currentSlide === slide) {
       this.chart.ngOnChanges();

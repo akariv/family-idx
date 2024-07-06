@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, SecurityContext, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, Output, SecurityContext, SimpleChanges, ViewChild } from '@angular/core';
 import { Country, Data, Datum, Indicators, Slide } from '../datatypes';
 
 import { Series, SeriesPoint, stack } from 'd3-shape';
@@ -23,6 +23,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   @Input() sliderResult: number | null = null;
   @Input() gridImage: SafeResourceUrl;
 
+  @Output() hover = new EventEmitter<any>();
+
   @ViewChild('chart') chart: ElementRef;
   @ViewChild('countries') countries: ElementRef;
   @ViewChild('average') average: ElementRef;
@@ -43,7 +45,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   resultVisible = false;
   startFromZero = false;
   moving = false;
-  hover: any = {};
+  hover_: any = {};
 
   constructor(private sanitizer: DomSanitizer) {}
   
@@ -57,6 +59,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.startFromZero = this.slide.start_from_zero && !!changes && !!changes['slide'] && changes['slide'].currentValue !== changes['slide'].previousValue;
 
       const estimated: any = {};
+      const rawValues: any = {};
       const layout = stack<any, Datum, string>()
         .keys([...non_indicators, ...indicators])
         .value((d, key) => {
@@ -66,6 +69,11 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           }
           if (d.values[idx].estimated && this.slide.show_countries) {
             estimated[`${key}-${d.country_name}`] = true;
+          }
+          if (this.slide.data_type.name.indexOf('גולמי') >= 0) {
+            rawValues[`${key}-${d.country_name}`] = d.values[idx].value + this.slide.data.indicator_info[key].raw_data_units;
+          } else {
+            rawValues[`${key}-${d.country_name}`] = null;
           }
           return d.values[idx].value + data.average / 50;
         })(countries);
@@ -141,7 +149,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           this.moving = false;
         });
       this.moving = true;
-      this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, highlightSlide);
+      this.updateBars(layout, x, t, expandedY, expandWidth + 'px', barHeight + 'px', expandPhoto, estimated, rawValues, highlightSlide);
       this.updateLabels(data.countries, t, this.countriesVisible(), expandedY, barHeight + 'px', (expandWidth - barHeight) / 2);
       this.updateHighlightLabels(layout, 
         this.slide.hide_country_labels ? [] : this.slide.highlight_countries,
@@ -210,7 +218,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   barColor(d: any) {
     let ret = 'rgba(255, 255, 255, 0.1)';
-    const hover = this.hover.key === d.key && this.hover.country_name === d.data.country_name;
+    const hover = this.hover_.key === d.key && this.hover_.country_name === d.data.country_name;
     const indicatorHighlight = hover || (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0);
     const countryHighlight = (this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0;
     if (this.slide.section.role === 'intro') {
@@ -294,24 +302,27 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     return barPos + 'px';
   }
  
-  doHover(e: Event, d: any, estimated: {[key: string]: boolean}) {
+  doHover(e: Event, d: any, estimated: {[key: string]: boolean}, rawValues: {[key: string]: string | null}) {
     const boundingRect = (e.target as HTMLElement).getBoundingClientRect();
-    const _estimated = !!estimated[`${d.key}-${d.data.country_name}`];
-    this.hover = {
+    const key = `${d.key}-${d.data.country_name}`;
+    const _estimated = !!estimated[key];
+    this.hover_ = {
       key: d.key,
       country_name: d.data.country_name,
       top: boundingRect.top,
       left: boundingRect.left,
-      estimated: _estimated
+      estimated: _estimated,
+      value: rawValues[key],
     };
-    console.log('HOVER', this.hover);
+    this.hover.emit(this.hover_);
     timer(0).subscribe(() => {
       this.ngOnChanges();
     });
   }
 
   dontHover() {
-    this.hover = {};
+    this.hover_ = {};
+    this.hover.emit(this.hover_);
     timer(0).subscribe(() => {
       this.ngOnChanges();
     });
@@ -319,7 +330,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   updateBars(layout: Series<Datum, string>[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
              expandedY: (d: string) => number | undefined, expandWidth: string, barHeight: string, expandPhoto: string | null,
-             estimated: {[key: string]: boolean}, highlightSlide: {[key: string]: number}) {
+             estimated: {[key: string]: boolean}, rawValues: {[key: string]: string | null},
+             highlightSlide: {[key: string]: number}) {
     const canvas = select(this.chart.nativeElement);
     // Bars
     canvas.selectAll('.series')
@@ -349,9 +361,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
           .attr('class', (d: any) => this.barClass(d, estimated))
-          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated, rawValues))
           .on('touchend', () => this.dontHover())
-          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated, rawValues))
           .on('mouseleave', () => this.dontHover())
           // .style('background-image', (d, i) => i === this.slide.expand_country ? expandPhoto : null)
           .call((enter) => enter
@@ -361,9 +373,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           )
         ,
         (update) => update
-          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated, rawValues))
           .on('touchend', () => this.dontHover())
-          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated))
+          .on('mouseover', (e: Event, d: any) => this.doHover(e, d, estimated, rawValues))
           .on('mouseleave', () => this.dontHover())
           .call((update) => {
             if (!this.startFromZero) {
