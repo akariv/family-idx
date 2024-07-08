@@ -103,14 +103,14 @@ export class SlidesComponent implements AfterViewInit, OnInit {
         this.animationMaskUrl = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(svg) + ')');
       }
     });
-    timer(0).subscribe(() => {
+    timer(100).subscribe(() => {
       const h1 = this.el.nativeElement.querySelector('h1') as HTMLElement;
       const h1Bounds = h1.getBoundingClientRect();
       const text = h1.parentElement as HTMLElement;
       const textBounds = text.getBoundingClientRect()
       const h1SlideBounds = (text.parentElement as HTMLElement).getBoundingClientRect();
-      this.spreadOutOffsetH1 = window.innerHeight - (h1.getBoundingClientRect().bottom - h1SlideBounds.top + 40 - this.spreadOutOffsetH1);
-      this.spreadOutOffsetText = -(window.innerHeight - (text.getBoundingClientRect().bottom - h1SlideBounds.top)) + 20;
+      this.spreadOutOffsetH1 = window.innerHeight - (h1Bounds.bottom - h1SlideBounds.top + 40 - this.spreadOutOffsetH1);
+      this.spreadOutOffsetText = -(window.innerHeight - (textBounds.bottom - h1SlideBounds.top)) + 20;
     });
     this.spreadOut = window.innerWidth <= 768;
   }
