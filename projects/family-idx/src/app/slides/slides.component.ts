@@ -56,14 +56,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     this.currentSlide = this.slides[0];
     this.setGridImage(this.currentSlide);
     this.setTextShadow(this.currentSlide);
-    this.route.fragment.pipe(
-      filter(fragment => !!fragment),
-      filter(fragment => fragment !== this.currentSlide.section.slug),
-      delay(100),
-    ).subscribe((fragment) => {
-      const target = this.el.nativeElement.querySelector('[data-slug=' + fragment + ']') as HTMLElement;
-      target.scrollIntoView();
-    });
   }
 
   ngAfterViewInit(): void {
@@ -113,6 +105,14 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.spreadOutOffsetText = -(window.innerHeight - (textBounds.bottom - h1SlideBounds.top)) + 20;
     });
     this.spreadOut = window.innerWidth <= 768;
+    this.route.fragment.pipe(
+      filter(fragment => !!fragment),
+      filter(fragment => fragment !== this.currentSlide.section.slug),
+      delay(100),
+    ).subscribe((fragment) => {
+      const target = this.el.nativeElement.querySelector('[data-slug=' + fragment + ']') as HTMLElement;
+      target.scrollIntoView();
+    });
   }
 
   updateDimensions() {
