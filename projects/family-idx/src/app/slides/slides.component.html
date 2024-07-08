@@ -2,7 +2,7 @@
                 [hidden]='currentSlide === slides[0]' [gridImage]='gridImage'
 ></app-navigation>
 <div class='scrolled' #scrolled
-    (touchstart)='spreadOut = false'
+    (touchstart)='spreadOut = false; true'
     >
     <!-- <div class='slides'> -->
         <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
