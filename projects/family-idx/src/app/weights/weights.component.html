@@ -1,3 +1,12 @@
+<button class='hider' (click)='hideSliders = !hideSliders'>
+    @if (hideSliders) {
+        <img src='assets/img/icon-show-sliders.svg'>
+        <span>הצג משקולות</span>
+    } @else {
+        <img src='assets/img/icon-hide-sliders.svg'>
+        <span>הסתר משקולות</span>
+    }
+</button>
 <app-weights-dimension *ngFor='let dimension of dimensions' 
                       [dimension]='dimension'
                       [indicators]='dimensionIndicators[dimension]'

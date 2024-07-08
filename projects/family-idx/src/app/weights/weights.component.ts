@@ -4,7 +4,10 @@ import { Data, DataType, Datum, Slide, Value } from '../datatypes';
 @Component({
   selector: 'app-weights',
   templateUrl: './weights.component.html',
-  styleUrls: ['./weights.component.less']
+  styleUrls: ['./weights.component.less'],
+  host: {
+    '[class.hidden]' : 'hideSliders'
+  }
 })
 export class WeightsComponent implements OnInit {
   @Input() slide: Slide;
@@ -27,6 +30,7 @@ export class WeightsComponent implements OnInit {
   openDimension = '';
   countries: Datum[];
   rawDataMode = false;
+  hideSliders = false;
 
   ngOnInit() {
     this.currentData = this.slide.data;
