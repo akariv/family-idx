@@ -342,6 +342,7 @@
             }
             @keyframes showhide {
                 from {
+                  display: block;
                   opacity: 0.5;
                 }
                 2.5% {
@@ -352,12 +353,21 @@
                 }
                 15% {
                   opacity: 0;
+                  display: block;
+                }
+                16% {
+                  display: none;
+                }
+                97% {
+                    display: none;
                 }
                 97.5% {
                   opacity: 0;
+                  display: block;
                 }
                 to {
                   opacity: 0.5;
+                  display: block;
                 }
               }              
         }
