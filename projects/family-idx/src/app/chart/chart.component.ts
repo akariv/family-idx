@@ -324,7 +324,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   dontHover() {
     this.hover_ = {};
-    // this.hover.emit(this.hover_);
+    this.hover.emit(this.hover_);
     timer(0).subscribe(() => {
       this.ngOnChanges();
     });
