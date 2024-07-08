@@ -1,7 +1,9 @@
 <app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'
                 [hidden]='currentSlide === slides[0]' [gridImage]='gridImage'
 ></app-navigation>
-<div class='scrolled' #scrolled>
+<div class='scrolled' #scrolled
+    (touchstart)='spreadOut = false'
+    >
     <!-- <div class='slides'> -->
         <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
             <div class='chart'>
@@ -14,9 +16,23 @@
                            #chart></app-chart>
             </div>
         </div>
-        <div class='slide1overlay'>
+        <div class='slide1overlay' [class.visible]='currentSlide === slides[0]' [class.spread-out]='spreadOut'>
             <div class='logo'></div>
-            <div class='scroll-down' [class.visible]='currentSlide === slides[0]'></div>
+            <div class='scroll-down'
+                [style]='"--offset:" + spreadOutOffsetText + "px"'
+            ></div>
+            <a class='scroll-end' href='#המדד_המלא'>או דלגו הישר לסיכום</a>
+            <div class='animation'>
+                <img src='assets/img/bg/bg1.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg2.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg3.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg4.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg5.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg6.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg7.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg8.jpg' [style.mask-image]='animationMaskUrl'>
+                <img src='assets/img/bg/bg-gray.jpg' class='static' [style.mask-image]='animationMaskUrl'>
+            </div>
         </div>
         <ng-container *ngFor='let slide of slides; let i = index'>
             <div class='slide' *ngIf='slide.section.role !== "footer" && !slide.exploration && !slide.slider'
@@ -25,7 +41,11 @@
                 [attr.data-slug]='slide.id'
                 [style.text-shadow]='textShadow'
             >
-                <div class='text' [innerHTML]='slideContent(slide, 0)'></div>
+                <div class='text' 
+                     [class.spread-out]='i === 0 && spreadOut'
+                     [innerHTML]='slideContent(slide, 0)'
+                     [style]='"--offset:" + spreadOutOffsetH1 + "px"'
+                ></div>
                 <ul class='dimension_list' *ngIf='slide.dimension_list'>
                     <li *ngFor='let indicator of slide.dimension_list'>
                         <div class='indicator-container' (mouseover)='highlightIndicators([indicator])' (mouseleave)='highlightIndicators([])'
@@ -60,12 +80,60 @@
         </ng-container>
     <!-- </div>     -->
 </div>
-<div class='tooltip' [style.top.px]='hover.top' [style.left.px]='hover.left'
+<div class='tooltip' [style.top.px]='hover.top' [style.left.px]='hover.left' [class.bottom]='hover.isBottom'
     [class.dark]='currentSlide.section.role === "intro"'
     *ngIf='hover.country_name'>
     <span>
-        <strong>{{hover.country_name}}</strong>
-        {{hover.key}}<ng-container *ngIf='hover.value'>: {{hover.value}}</ng-container>
+        <strong>{{hover.country_name}}</strong><br/>
+        <span>{{hover.key}}<ng-container *ngIf='hover.value'>: {{hover.value}}</ng-container></span>
         <ng-container *ngIf='hover.estimated'> (ציון דמה)</ng-container>
     </span>
 </div>
+<svg width="600" height="561" viewbox="0 0 600 561" xmlns="http://www.w3.org/2000/svg" #animationMask>
+    <style>
+        @keyframes wave {
+            0% { transform: scaleX(0); }
+            50% { transform: scaleX(1); }
+            100% { transform: scaleX(0); }
+        }
+        .___bar {
+            animation: wave 8s infinite;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+    </style>
+    <rect style="animation-delay: 0.00s;" fill="#fff" height="15" width="600" y="0" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 0.48s;" fill="#fff" height="15" width="600" y="17" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 0.96s;" fill="#fff" height="15" width="600" y="34" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 1.44s;" fill="#fff" height="15" width="600" y="51" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 1.92s;" fill="#fff" height="15" width="600" y="68" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 2.40s;" fill="#fff" height="15" width="600" y="85" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 2.88s;" fill="#fff" height="15" width="600" y="102" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 3.36s;" fill="#fff" height="15" width="600" y="119" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 3.84s;" fill="#fff" height="15" width="600" y="136" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 4.32s;" fill="#fff" height="15" width="600" y="153" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 4.80s;" fill="#fff" height="15" width="600" y="170" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 5.28s;" fill="#fff" height="15" width="600" y="187" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 5.76s;" fill="#fff" height="15" width="600" y="204" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 6.24s;" fill="#fff" height="15" width="600" y="221" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 6.72s;" fill="#fff" height="15" width="600" y="238" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 7.20s;" fill="#fff" height="15" width="600" y="255" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 7.68s;" fill="#fff" height="15" width="600" y="272" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 8.16s;" fill="#fff" height="15" width="600" y="289" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 8.64s;" fill="#fff" height="15" width="600" y="306" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 9.12s;" fill="#fff" height="15" width="600" y="323" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 9.60s;" fill="#fff" height="15" width="600" y="340" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 10.08s;" fill="#fff" height="15" width="600" y="357" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 10.56s;" fill="#fff" height="15" width="600" y="374" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 11.04s;" fill="#fff" height="15" width="600" y="391" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 11.52s;" fill="#fff" height="15" width="600" y="408" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 12.00s;" fill="#fff" height="15" width="600" y="425" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 12.48s;" fill="#fff" height="15" width="600" y="442" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 12.96s;" fill="#fff" height="15" width="600" y="459" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 13.44s;" fill="#fff" height="15" width="600" y="476" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 13.92s;" fill="#fff" height="15" width="600" y="493" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 14.40s;" fill="#fff" height="15" width="600" y="510" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 14.88s;" fill="#fff" height="15" width="600" y="527" x="0" class="___bar"></rect>
+    <rect style="animation-delay: 15.36s;" fill="#fff" height="15" width="600" y="544" x="0" class="___bar"></rect>    
+</svg>
+  

@@ -114,7 +114,11 @@ export class WeightsComponent implements OnInit {
     newData.max = newData.countries.reduce((acc: number, country: Datum) => Math.max(acc, country.sum), 0);
     newData.max = newData.max / 0.75;
     if (resort) {
-      newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
+      if (this.rawDataMode) {
+        newData.countries.sort((a: Datum, b: Datum) =>(b.values[0].origValue || 0) - (a.values[0].origValue || 0));
+      } else {
+        newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
+      }
     }
     this.currentData = newData;
     let newTitle = 'מדד מותאם אישית';
@@ -125,7 +129,6 @@ export class WeightsComponent implements OnInit {
       const onlyDimension = this.indicators.map((indicator: string) => 
         newData.indicators.includes(indicator) === this.dimensionIndicators[dimension].includes(indicator)
       ).every((val: boolean) => val);
-      console.log('DDDD', dimension, onlyDimension, newData.indicators, this.dimensionIndicators[dimension]);
       if (onlyDimension) {
         newTitle = this.chartTitles[dimension];
       }

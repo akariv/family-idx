@@ -224,7 +224,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     if (this.slide.section.role === 'intro') {
       ret = '#d7d6cc';
     }
-    if (countryHighlight) {
+    if (countryHighlight || this.slide.weights) {
       if (this.slide.section.role === 'intro' || this.slide.section.role === 'exploration') {
         ret = '#243856'
         if (this.slide.data.indicator_info[d.key]) {
@@ -281,7 +281,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   
   labelContent(d: any, rawVal: string) {
     if (this.slide.data_type.name.indexOf('גולמי') == 0) {
-      return rawVal;
+      return `${d.name}: ${rawVal}`;
     } else {
       return d.name;
     }
@@ -306,11 +306,13 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     const boundingRect = (e.target as HTMLElement).getBoundingClientRect();
     const key = `${d.key}-${d.data.country_name}`;
     const _estimated = !!estimated[key];
+    const isBottom = boundingRect.top < 100;
     this.hover_ = {
       key: d.key,
       country_name: d.data.country_name,
-      top: boundingRect.top,
+      top: isBottom ? boundingRect.bottom : boundingRect.top,
       left: boundingRect.left,
+      isBottom: isBottom,
       estimated: _estimated,
       value: rawValues[key],
     };
@@ -322,7 +324,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   dontHover() {
     this.hover_ = {};
-    this.hover.emit(this.hover_);
+    // this.hover.emit(this.hover_);
     timer(0).subscribe(() => {
       this.ngOnChanges();
     });
@@ -491,7 +493,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     }) : [];
     const countryVals = countries ? countries.map((d) => {
       const country_last = last.filter(dd => dd.data.country_name === d.name)[0];
-      return country_last.data.values[0]?.value.toLocaleString();
+      return country_last.data.values[0]?.value.toLocaleString() + (this.slide.data.indicator_info[last.key]?.raw_data_units || '');
     }) : [];
     const expand_country = this.slide.expand_country !== null ? this.slide.data.countries[this.slide.expand_country].country_name : null;
     // Bars

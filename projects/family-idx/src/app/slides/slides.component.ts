@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Data, DataType, Indicators, Section, Slide } from '../datatypes';
-import { Subscription, delay, filter, fromEvent, tap, timer } from 'rxjs';
+import { Subscription, delay, filter, fromEvent, interval, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   @Input() slides: Slide[] = [];
   @ViewChild('chart') chart: ChartComponent;
   @ViewChild('scrolled') scrolled: ElementRef;
+  @ViewChild('animationMask') animationMask: ElementRef;
   
   observer: IntersectionObserver;
   currentSlide: Slide;
@@ -30,6 +31,13 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   gridImage: SafeResourceUrl;
 
   hover: any = {};
+
+  animationMaskUrl: SafeResourceUrl | null = null; 
+  animationMaskUrl_ = '';
+
+  spreadOut = true;
+  spreadOutOffsetH1 = 0;
+  spreadOutOffsetText = 0;
 
   constructor(private el: ElementRef, public md: MarkdownService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
   }
@@ -87,6 +95,22 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     });
     fromEvent(window, 'resize').subscribe(() => {
       this.updateDimensions();
+    });
+    timer(0, 1000).subscribe(() => {
+      const svg = this.animationMask.nativeElement.outerHTML;
+      if (svg !== this.animationMaskUrl_) {
+        this.animationMaskUrl_ = svg;
+        this.animationMaskUrl = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(svg) + ')');
+      }
+    });
+    timer(0).subscribe(() => {
+      const h1 = this.el.nativeElement.querySelector('h1') as HTMLElement;
+      const h1Bounds = h1.getBoundingClientRect();
+      const text = h1.parentElement as HTMLElement;
+      const textBounds = text.getBoundingClientRect()
+      const h1SlideBounds = (text.parentElement as HTMLElement).getBoundingClientRect();
+      this.spreadOutOffsetH1 = window.innerHeight - (h1.getBoundingClientRect().bottom - h1SlideBounds.top + 40 - this.spreadOutOffsetH1);
+      this.spreadOutOffsetText = -(window.innerHeight - (text.getBoundingClientRect().bottom - h1SlideBounds.top)) + 20;
     });
   }
 
