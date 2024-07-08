@@ -79,5 +79,4 @@ export type Slide = {
     section: Section;
     data: Data;
     id: string;
-    weights: boolean;
 };

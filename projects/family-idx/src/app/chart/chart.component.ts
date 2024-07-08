@@ -224,7 +224,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     if (this.slide.section.role === 'intro') {
       ret = '#d7d6cc';
     }
-    if (countryHighlight || this.slide.weights) {
+    if (countryHighlight || this.slide.exploration) {
       if (this.slide.section.role === 'intro' || this.slide.section.role === 'exploration') {
         ret = '#243856'
         if (this.slide.data.indicator_info[d.key]) {

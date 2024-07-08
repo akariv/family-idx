@@ -197,7 +197,6 @@ if __name__ == '__main__':
         elif '<משקלות>' in slide['content']:
             slide['exploration'] = True
             slide['content'] = [x.strip() for x in slide['content'].split('<משקלות>')]
-            slide['weights'] = True
 
             for country_rec in country_values:
                 raw_values = []
