@@ -13,7 +13,8 @@ export class MarkdownService {
 
   replaceBolds(md: string) {
     const parts = md.split('**');
-    return parts.map((part, i) => i % 2 === 0 ? ` ${part} ` : part.trim()).join('**');
+    const ret = parts.map((part, i) => i % 2 === 0 ? ` ${part} ` : part.trim()).join('**');
+    return ret;
   }
 
   _(markdown: string) {

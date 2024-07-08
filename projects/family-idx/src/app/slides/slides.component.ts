@@ -112,6 +112,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.spreadOutOffsetH1 = window.innerHeight - (h1.getBoundingClientRect().bottom - h1SlideBounds.top + 40 - this.spreadOutOffsetH1);
       this.spreadOutOffsetText = -(window.innerHeight - (text.getBoundingClientRect().bottom - h1SlideBounds.top)) + 20;
     });
+    this.spreadOut = window.innerWidth <= 768;
   }
 
   updateDimensions() {
