@@ -51,7 +51,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   
   ngOnChanges(changes?: SimpleChanges): void {
     if (this.ready) {
-      console.log('CURRENT SLIDE DATA', this.slide.data);
+      // console.log('CURRENT SLIDE DATA', this.slide.data);
       const data = this.slide.data || {};
       const indicators = data?.indicators || [];
       const non_indicators = data?.non_indicators || [];
@@ -77,7 +77,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           }
           return d.values[idx].value + data.average / 50;
         })(countries);
-      console.log('CURRENT SLIDE LAYOUT', layout);
+      // console.log('CURRENT SLIDE LAYOUT', layout);
       
       layout.forEach((ind) => {
         ind.forEach((d: any) => {
