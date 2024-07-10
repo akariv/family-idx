@@ -88,12 +88,9 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     fromEvent(window, 'resize').subscribe(() => {
       this.updateDimensions();
     });
-    timer(0, 1000).subscribe(() => {
+    timer(0).subscribe(() => {
       const svg = this.animationMask.nativeElement.outerHTML;
-      if (svg !== this.animationMaskUrl_) {
-        this.animationMaskUrl_ = svg;
-        this.animationMaskUrl = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(svg) + ')');
-      }
+      this.animationMaskUrl = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(svg) + ')');
     });
     timer(100).subscribe(() => {
       const h1 = this.el.nativeElement.querySelector('h1') as HTMLElement;
