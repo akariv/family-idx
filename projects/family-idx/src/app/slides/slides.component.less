@@ -213,6 +213,7 @@
             height: 97px;
             max-height: 16%;
             .transition(opacity);
+            z-index: 1;
         }
         .scroll-down {
             .desktop({
@@ -282,7 +283,7 @@
         }
         .animation {
             img, svg {
-                position: absolute;
+                position: fixed;
                 top: 0;
                 width: 80%;
                 .desktop({
@@ -363,7 +364,7 @@
                   opacity: 0.5;
                   display: block;
                 }
-              }              
+            }              
         }
         .mobile({
             &.spread-out {
