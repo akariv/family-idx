@@ -8,8 +8,14 @@
     max-width: 250px;
     .transition(transform);
 
+    app-weights-dimension {
+        .transition(opacity);
+    }
     &.hidden {
         transform: translateY(calc(100% - 32px));
+        app-weights-dimension {
+            opacity: 0;
+        }
     }
 
     .hider {
