@@ -186,6 +186,16 @@ if __name__ == '__main__':
                         skip=skip
                     )
                     indicator_info.append(item)
+                else:
+                    item = dict(
+                        name=indicator['name'],
+                        link_to_doc=indicator['link_to_doc'],
+                        chart_title=indicator['chart_title'],
+                        dimension_chart_title=dimension['chart_title'],
+                        raw_data_units=indicator['raw_data_units'],
+                    )
+                    indicator_info.append(item)
+
         indicator_info = dict((i['name'], i) for i in indicator_info)
 
         if '<רשימה>' in slide['content']:

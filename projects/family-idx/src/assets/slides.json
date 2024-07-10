@@ -4,7 +4,7 @@
       "ascending_order": false,
       "chart_title": null,
       "content": [
-        "<h1>מדד<br/>מדיניות<br/>משפחה</h1>\nמה השפעתה של מדיניות ממשלתית על משפחות? איך זה עובד במדינות אחרות בעולם? ואיפה ישראל ביחס אליהן?\n\nגללו מטה לסיור מודרך במדד...\n"
+        "<h1>מדד<br/>מדיניות<br/>משפחה</h1>\nמה השפעתה של מדיניות ממשלתית על משפחות?  איך זה עובד במדינות אחרות בעולם?  ואיפה ישראל ביחס אליהן?\n\nגללו מטה לסיור מודרך במדד...\n"
       ],
       "data": {
         "average": 0.0,
@@ -3629,7 +3629,15 @@
             ]
           }
         ],
-        "indicator_info": {},
+        "indicator_info": {
+          "שיעור ילדים מחוסנים": {
+            "chart_title": "שיעור ילדים מחוסנים",
+            "dimension_chart_title": "מדד רווחה כלכלית",
+            "link_to_doc": "https://google.com",
+            "name": "שיעור ילדים מחוסנים",
+            "raw_data_units": "%"
+          }
+        },
         "indicators": [
           "שיעור ילדים מחוסנים"
         ],
@@ -15645,8 +15653,7 @@
       ],
       "specific_dimension": null,
       "specific_indicator": null,
-      "start_from_zero": false,
-      "weights": true
+      "start_from_zero": false
     },
     {
       "ascending_order": false,
