@@ -218,8 +218,10 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   barColor(d: any) {
     let ret = 'rgba(255, 255, 255, 0.1)';
+    const isHovering = this.hover_.key && this.hover_.country_name;
     const hover = this.hover_.key === d.key && this.hover_.country_name === d.data.country_name;
-    const indicatorHighlight = hover || (d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0);
+    const isHighlighting = this.highlightIndicator || ((this.highlightIndicators?.length || 0)> 0);
+    const indicatorHighlight = hover || d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0;
     const countryHighlight = (this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0;
     if (this.slide.section.role === 'intro') {
       ret = '#d7d6cc';
@@ -230,7 +232,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         if (this.slide.data.indicator_info[d.key]) {
           ret = this.slide.data.indicator_info[d.key].color || ret;
         }
-        if (indicatorHighlight) {
+        if (isHighlighting && !indicatorHighlight) {
+          ret = ret + 'c0';
+        } else if (isHovering && !hover) {
           ret = ret + 'c0';
         }
       } else {
