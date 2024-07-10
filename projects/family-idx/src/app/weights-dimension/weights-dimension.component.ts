@@ -14,7 +14,7 @@ export class WeightsDimensionComponent implements OnChanges {
   @Input() color: string;
   @Input() open = false;
 
-  @Output() weight = new EventEmitter<{indicators: string[], weight: number, sort: boolean}>();
+  @Output() weight = new EventEmitter<{indicators: string[], weight: number}>();
   @Output() highlight = new EventEmitter<string[]>();
   @Output() show = new EventEmitter<string[]>();
   @Output() hide = new EventEmitter<string[]>();
@@ -39,9 +39,9 @@ export class WeightsDimensionComponent implements OnChanges {
     this.cancel = !this.indicators.every((indicator: string) => this.indicatorWeights[indicator] === this.ownWeight);
   }
 
-  updateWeight(indicators_: string[], weight: number, sort: boolean = true) {
+  updateWeight(indicators_: string[], weight: number) {
     const indicators = [...indicators_];
-    this.weight.emit({indicators, weight, sort});
+    this.weight.emit({indicators, weight});
   }
 
   updateHighlight(indicators: string[]) {

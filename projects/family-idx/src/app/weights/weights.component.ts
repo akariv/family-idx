@@ -62,7 +62,7 @@ export class WeightsComponent implements OnInit {
     this.updateIndicatorWeight([], 1);
   }
 
-  updateIndicatorWeight(indicators: string[], weight: number, resort: boolean = true) {
+  updateIndicatorWeight(indicators: string[], weight: number) {
     if (indicators.length > 0) {
       this.spotlightIndicators = [];
     }
@@ -117,12 +117,10 @@ export class WeightsComponent implements OnInit {
     }
     newData.max = newData.countries.reduce((acc: number, country: Datum) => Math.max(acc, country.sum), 0);
     newData.max = newData.max / 0.75;
-    if (resort) {
-      if (this.rawDataMode) {
-        newData.countries.sort((a: Datum, b: Datum) =>(b.values[0].origValue || 0) - (a.values[0].origValue || 0));
-      } else {
-        newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
-      }
+    if (this.rawDataMode) {
+      newData.countries.sort((a: Datum, b: Datum) =>(b.values[0].origValue || 0) - (a.values[0].origValue || 0));
+    } else {
+      newData.countries.sort((a: Datum, b: Datum) => b.sum - a.sum);
     }
     this.currentData = newData;
     let newTitle = 'מדד מותאם אישית';

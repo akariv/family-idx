@@ -188,4 +188,13 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.gridImage = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(gridSvg)+')');
     });
   }
+
+  // checkOverscroll(event: TouchEvent) {
+  //   console.log('OVERSCROLL', this.scrolled.nativeElement.scrollTop);
+  //   if (this.scrolled.nativeElement.scrollTop < 0) {
+  //       this.spreadOut = true;
+  //   }
+  //   return true;
+  // }
+
 }

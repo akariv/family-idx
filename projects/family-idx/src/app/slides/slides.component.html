@@ -1,6 +1,10 @@
 <app-navigation [sections]='sections' [slide]='currentSlide' *ngIf='sections && currentSlide'
                 [hidden]='currentSlide === slides[0]' [gridImage]='gridImage'
 ></app-navigation>
+<div class='logo'
+    [class.spread-out]='spreadOut'
+    [class.first]='currentSlide === slides[0]'
+></div>
 <div class='scrolled' #scrolled
     (touchstart)='spreadOut = false; true'
     >
@@ -17,7 +21,6 @@
             </div>
         </div>
         <div class='slide1overlay' [class.visible]='currentSlide === slides[0]' [class.spread-out]='spreadOut'>
-            <div class='logo'></div>
             <div class='scroll-down'
                 [style]='"--offset:" + spreadOutOffsetText + "px"'
             ></div>
@@ -40,6 +43,7 @@
                 [style.text-shadow]='textShadow'
             >
                 <div class='text' 
+                     [class.first]='i === 0'
                      [class.spread-out]='i === 0 && spreadOut'
                      [innerHTML]='slideContent(slide, 0)'
                      [style]='"--offset:" + spreadOutOffsetH1 + "px"'

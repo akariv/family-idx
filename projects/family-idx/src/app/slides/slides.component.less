@@ -31,6 +31,33 @@
         width: 0;
         height: 0;
     }
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 28px;
+    right: 12px;
+    .background-image('assets/img/logo.png');
+    width: 115px;
+    height: 97px;
+    max-height: 16%;
+    .transition(opacity transform);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(calc(-100% ~'-' 28px));
+    .mobile({
+        &.first.spread-out {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    });
+    .desktop({
+        &.first {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    })
 }
 
 .scrolled {
@@ -48,6 +75,7 @@
     position: relative;
     display: flex;
     flex-flow: column;
+    overscroll-behavior: none;
     
     .slide {
         .font-light;
@@ -115,6 +143,9 @@
                         margin-bottom: 40px;
                     }
                 }
+                // &.first {
+                //     padding: 0 16px;
+                // }
             });    
             .transition(transform);
             &.spread-out {
@@ -195,22 +226,11 @@
         pointer-events: none;
         display: flex;
         flex-flow: column;
+        overflow: visible;
 
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
 
-        .logo {
-            position: absolute;
-            top: ~'calc((100% - 10px) / 12)';
-            transform: translateY(-50%);
-            right: -4px;
-            .background-image('assets/img/logo.png');
-            width: 115px;
-            height: 97px;
-            max-height: 16%;
-            .transition(opacity);
-            z-index: 1;
-        }
         .scroll-down {
             position: fixed;
             .desktop({
@@ -379,9 +399,6 @@
         }        
         .mobile({
             &.spread-out {
-                .logo {
-                    opacity: 0;
-                }
                 .scroll-down {
                     transform: translateY(0);
                     position: fixed;

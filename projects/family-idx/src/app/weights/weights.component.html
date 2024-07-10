@@ -16,7 +16,7 @@
                       [color]='dimensionColors[dimension]'
                       [open]='dimension === openDimension'
                       (highlight)='highlightIndicator.next($event)'
-                      (weight)='updateIndicatorWeight($event.indicators, $event.weight, $event.sort)'
+                      (weight)='updateIndicatorWeight($event.indicators, $event.weight)'
                       (show)='show($event)'
                       (hide)='hide($event)'
                       (spotlight)='spotlight($event)'
