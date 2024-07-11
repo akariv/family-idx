@@ -1,6 +1,7 @@
 <div class='grid layout-mobile' [style.background-image]='gridImage'></div>
 <div class='container' [class.intro]='slide.section.role === "intro"' [style.background-color]='slide.section.color' #container [class.hidden]='hidden'>
-    <div class='overlay'></div>
+    <div class='overlay layout-mobile' [style.width.px]='container.scrollWidth'></div>
+    <div class='overlay layout-desktop'></div>
     <div class='selector' #selector></div>
     <a class='section' *ngFor='let section of sections;' [class.active]='slide.section.name === section.name' [href]='"#" + section.slug'>
         <span class='label' [innerHTML]='section.display'></span>

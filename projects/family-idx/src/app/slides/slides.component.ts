@@ -91,6 +91,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     timer(0).subscribe(() => {
       const svg = this.animationMask.nativeElement.outerHTML;
       this.animationMaskUrl = this.sanitizer.bypassSecurityTrustResourceUrl('url(data:image/svg+xml;base64,' + btoa(svg) + ')');
+      this.spreadOut = window.innerWidth <= 768;
     });
     timer(100).subscribe(() => {
       const h1 = this.el.nativeElement.querySelector('h1') as HTMLElement;
@@ -101,7 +102,6 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.spreadOutOffsetH1 = window.innerHeight - (h1Bounds.bottom - h1SlideBounds.top + 40 - this.spreadOutOffsetH1);
       this.spreadOutOffsetText = -(window.innerHeight - (textBounds.bottom - h1SlideBounds.top)) + 20;
     });
-    this.spreadOut = window.innerWidth <= 768;
     this.route.fragment.pipe(
       filter(fragment => !!fragment),
       filter(fragment => fragment !== this.currentSlide.section.slug),

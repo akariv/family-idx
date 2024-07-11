@@ -71,7 +71,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
             estimated[`${key}-${d.country_name}`] = true;
           }
           if (this.slide.data_type.name.indexOf('גולמי') >= 0) {
-            rawValues[`${key}-${d.country_name}`] = d.values[idx].value + this.slide.data.indicator_info[key].raw_data_units;
+            rawValues[`${key}-${d.country_name}`] = d.values[idx].value.toLocaleString() + this.slide.data.indicator_info[key].raw_data_units;
           } else {
             rawValues[`${key}-${d.country_name}`] = null;
           }
@@ -154,6 +154,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.updateHighlightLabels(layout, 
         this.slide.hide_country_labels ? [] : this.slide.highlight_countries,
         x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
+      this.updateValues(data.countries, x, t, expandedY, barHeight, rawValues);
 
       // this.avgVisible = false;
       if (!!data.average) {
@@ -218,8 +219,8 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
   barColor(d: any) {
     let ret = 'rgba(255, 255, 255, 0.1)';
-    const isHovering = this.hover_.key && this.hover_.country_name;
-    const hover = this.hover_.key === d.key && this.hover_.country_name === d.data.country_name;
+    const isHovering = this.hover_.title && this.hover_.country_name;
+    const hover = this.hover_.title === d.key && this.hover_.country_name === d.data.country_name;
     const isHighlighting = this.highlightIndicator || ((this.highlightIndicators?.length || 0)> 0);
     const indicatorHighlight = hover || d.key === this.highlightIndicator || (this.highlightIndicators || []).indexOf(d.key) >= 0;
     const countryHighlight = (this.slide.highlight_countries || []).map(x => x.name).indexOf(d.data.country_name) >= 0;
@@ -233,7 +234,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           ret = this.slide.data.indicator_info[d.key].color || ret;
         }
         if (isHighlighting && !indicatorHighlight) {
-          ret = ret + 'c0';
+          ret = ret + '99';
         } else if (isHovering && !hover) {
           ret = ret + 'c0';
         }
@@ -308,11 +309,17 @@ export class ChartComponent implements OnChanges, AfterViewInit {
  
   doHover(e: Event, d: any, estimated: {[key: string]: boolean}, rawValues: {[key: string]: string | null}) {
     const boundingRect = (e.target as HTMLElement).getBoundingClientRect();
+    let title = 'מדד מדיניות משפחה';
+    if (this.slide.resolution === 'dimension') {
+      title = this.slide.data.indicator_info[d.key].dimension;
+    } else if (this.slide.resolution === 'indicator' || this.slide.data.indicators.length === 1) {
+      title = d.key;
+    }
     const key = `${d.key}-${d.data.country_name}`;
     const _estimated = !!estimated[key];
     const isBottom = boundingRect.top < 100;
     this.hover_ = {
-      key: d.key,
+      title: title,
       country_name: d.data.country_name,
       top: isBottom ? boundingRect.bottom : boundingRect.top,
       left: boundingRect.left,
@@ -424,6 +431,56 @@ export class ChartComponent implements OnChanges, AfterViewInit {
             .style('left', '0px')
             .style('width', '0px')
             .remove()
+      )
+    ;
+  }
+
+  updateValues(data: Datum[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
+               expandedY: (d: string) => number | undefined, barHeight: number, rawValues: {[key: string]: string | null}) {
+    const canvas = select(this.chart.nativeElement);
+    const rawDataGet = (d: any): string => {
+      if (!this.slide.exploration || this.slide.data_type?.name.indexOf('גולמי') < 0) {
+        return '';
+      }
+      const indicator = this.slide.data.indicators[0];
+      const key = `${indicator}-${d.country_name}`;
+      const raw = rawValues[key] || '';
+      return raw;
+    };
+    const skip = this.slide.data.indicator_info[this.slide.data.indicators[0]]?.skip || 0;
+
+    canvas.selectAll('.raw-value')
+      .data(data || [], (d) => (d as Datum).country_name)
+      .join(
+        (enter) => enter.append('div')
+          .attr('class', 'raw-value')
+          .attr('data-country-name', (d: any) => d.country_name)
+          // .style('transform', 'translateY(-50%)')
+          .style('color', '#fff')
+          .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
+          .style('left', (d, i) => (8 + skip + x(d.sum)) + 'px')
+          .style('opacity', 0)
+          .html((d: any, i: number) => rawDataGet(d))
+          .call((enter) => enter
+            .transition()
+            .duration(this.DURATION)
+            .delay(this.DURATION)
+            .style('opacity', 1)
+          )
+        ,
+        (update) => update
+          .call((x) => x
+            .html((d: any, i: number) => rawDataGet(d))
+          )
+          .transition(t)
+          .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
+          .style('left', (d, i) => (8 + skip + x(d.sum)) + 'px')
+          .style('opacity', 1)
+        ,
+        (exit) => exit
+          .transition(t)
+          .style('opacity', 0)
+          .remove()
       )
     ;
   }

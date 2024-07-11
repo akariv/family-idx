@@ -87,7 +87,7 @@
     *ngIf='hover.country_name'>
     <span>
         <strong>{{hover.country_name}}</strong><br/>
-        <span>{{hover.key}}<ng-container *ngIf='hover.value'>: {{hover.value}}</ng-container></span>
+        <span>{{hover.title}}<ng-container *ngIf='hover.value'>: {{hover.value}}</ng-container></span>
         <ng-container *ngIf='hover.estimated'> (ציון דמה)</ng-container>
     </span>
 </div>

@@ -1,7 +1,7 @@
 @import '../../common.less';
 
 @desktop-slide-width: 624px;
-@mobile-slide-width: 300px;
+@mobile-slide-width: calc(100% ~'-' 16px);
 
 :host {
     height: 100%;
@@ -102,10 +102,6 @@
 
         pointer-events: none;
 
-        & > * {
-            pointer-events: all;
-        }
-
         &.darken {
             color: @color-text;
         }
@@ -136,7 +132,6 @@
                 }
             });
             .mobile({
-                max-width: @mobile-slide-width;
                 ::ng-deep {
                     h1 {
                         font-size: 40px;
@@ -187,6 +182,7 @@
                 }
                 width: fit-content;
                 max-width: 100%;
+                pointer-events: all;
             }
         }
 
@@ -195,6 +191,7 @@
             max-width: none;
             position: relative;
             justify-content: center;
+            pointer-events: all;
             
             .text {
                 transform: translateY(-50%)translateY(-16px);
@@ -444,7 +441,10 @@
             });
             .mobile({
                 max-width: @mobile-slide-width;
-            });    
+            });
+        }
+        app-weights {
+            pointer-events: all;
         }
     }
     .footer {
