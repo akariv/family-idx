@@ -189,6 +189,8 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   gestureStart(event: TouchEvent) {
     if (this.spreadOut) {
       this.spreadOut = false;
+      event.stopImmediatePropagation();
+      event.preventDefault();
       return;
     }
     if (this.scrolled.nativeElement.scrollTop > 0) {
