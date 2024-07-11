@@ -63,10 +63,10 @@
                  [attr.data-slide]='i' [attr.data-slug]='"המדד"'
                  [style.text-shadow]='textShadow'
             >
-                <div class='text' [innerHTML]='slideContent(slide, 0)'></div>
+                <div class='text' [innerHTML]='slideContent(slide, 0)' *ngIf='slideContent(slide, 0)'></div>
                 <app-weights [slide]='slide'
-                             (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
-                ></app-weights>
+                                (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
+                ></app-weights>    
             </div>
             <div class='slide slider' *ngIf='slide.section.role !== "footer" && slide.slider'
                  [attr.data-slide]='i' [attr.data-slug]='slide.id'
