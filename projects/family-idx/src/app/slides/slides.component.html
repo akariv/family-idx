@@ -6,8 +6,8 @@
     [class.first]='currentSlide === slides[0]'
 ></div>
 <div class='scrolled' #scrolled
-    (touchstart)='spreadOut = false; true'
-    >
+    (touchstart)='gestureStart($event)'
+>
     <!-- <div class='slides'> -->
         <div class='chart-container' [style.background-color]='bgColor' [style.margin-bottom]='-height + "px"'>
             <div class='chart'>

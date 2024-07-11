@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Data, DataType, Indicators, Section, Slide } from '../datatypes';
-import { Subscription, delay, filter, fromEvent, interval, tap, timer } from 'rxjs';
+import { Subscription, delay, filter, first, fromEvent, interval, tap, timer } from 'rxjs';
 import { MarkdownService } from '../markdown.service';
 import { ChartComponent } from '../chart/chart.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -186,6 +186,24 @@ export class SlidesComponent implements AfterViewInit, OnInit {
     });
   }
 
+  gestureStart(event: TouchEvent) {
+    if (this.spreadOut) {
+      this.spreadOut = false;
+      return;
+    }
+    if (this.scrolled.nativeElement.scrollTop > 0) {
+      return;
+    }
+    const startY = event.touches[0].clientY;
+    fromEvent<TouchEvent>(window, 'touchend').pipe(
+      first(),
+    ).subscribe((event2: TouchEvent) => {
+      const endY = event2.changedTouches[0].clientY;
+      if (endY - startY > 100) {
+        this.spreadOut = true;
+      }
+    });
+  }
   // checkOverscroll(event: TouchEvent) {
   //   console.log('OVERSCROLL', this.scrolled.nativeElement.scrollTop);
   //   if (this.scrolled.nativeElement.scrollTop < 0) {
