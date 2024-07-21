@@ -113,7 +113,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
 
       let expandWidth = 0;
       if (this.slide.expand_country !== null) {
-        expandWidth = x(countries[this.slide.expand_country].sum) - this.leftPadding;
+        expandWidth = 0.5 * (x(countries[this.slide.expand_country].sum) - this.leftPadding);
       }
       const maxHeight = countries.length * 40;
       const paddingOuter = maxHeight > this.height ? 0 : (this.height - maxHeight) / 80;
