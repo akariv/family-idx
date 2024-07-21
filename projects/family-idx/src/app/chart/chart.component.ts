@@ -460,7 +460,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           // .style('transform', 'translateY(-50%)')
           .style('color', '#fff')
           .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
-          .style('left', (d, i) => (8 + skip + x(d.sum)) + 'px')
+          .style('left', (d, i) => (16 + skip + x(d.sum)) + 'px')
           .style('opacity', 0)
           .html((d: any, i: number) => rawDataGet(d))
           .call((enter) => enter
@@ -476,7 +476,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           )
           .transition(t)
           .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
-          .style('left', (d, i) => (8 + skip + x(d.sum)) + 'px')
+          .style('left', (d, i) => (16 + skip + x(d.sum)) + 'px')
           .style('opacity', 1)
         ,
         (exit) => exit
