@@ -77,7 +77,7 @@ export class WeightsComponent implements OnInit {
     for (const indicator of this.indicators) {
       if (this.spotlightIndicators.length > 0) {
         if (this.spotlightIndicators.includes(indicator)) {
-          weights[indicator] = weight;
+          weights[indicator] = this.indicatorWeights[indicator];
           this.states[indicator] = 'spotlight';
         } else {
           weights[indicator] = 0;
@@ -155,6 +155,7 @@ export class WeightsComponent implements OnInit {
   }
 
   hide(indicators: string[]) {
+    console.log('UUU  HHHH', indicators);
     indicators.forEach((indicator: string) => {
       this.hiddenIndicators[indicator] = true;
     });
