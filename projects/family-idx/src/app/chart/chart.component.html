@@ -4,8 +4,13 @@
 <div class='chart' [class.intro]='slide.section.role === "intro"' #chart>
     <div class='grid' [style.backgroundImage]='gridImage'></div>
     <div class='average' [class.visible]='avgVisible' #average [style.left.px]='avgPos'>
-        <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>
-        <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>
+        @if (rawDataSlide) {
+            <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>
+            <span [style.textShadow]='avgTextShadow()'>ממוצע: {{slide.data.average | number: '1.0-1'}}</span>    
+        } @else {
+            <span [style.textShadow]='avgTextShadow()'>ממוצע</span>
+            <span [style.textShadow]='avgTextShadow()'>ממוצע</span>    
+        }
     </div>
     <div class='result' [class.visible]='resultVisible' #result [style.left.px]='resultPos'>
         <span [style.textShadow]='avgTextShadow()'>הניחוש שלך: {{sliderResult | number: '1.0-1'}}</span>

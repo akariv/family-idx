@@ -46,6 +46,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   startFromZero = false;
   moving = false;
   hover_: any = {};
+  rawDataSlide = false;
 
   constructor(private sanitizer: DomSanitizer) {}
   
@@ -57,6 +58,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const non_indicators = data?.non_indicators || [];
       const countries = data?.countries || [];
       this.startFromZero = this.slide.start_from_zero && !!changes && !!changes['slide'] && changes['slide'].currentValue !== changes['slide'].previousValue;
+      this.rawDataSlide = this.slide.data_type.name.indexOf('גולמי') >= 0;
 
       const estimated: any = {};
       const rawValues: any = {};
@@ -70,7 +72,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           if (d.values[idx].estimated && this.slide.show_countries) {
             estimated[`${key}-${d.country_name}`] = true;
           }
-          if (this.slide.data_type.name.indexOf('גולמי') >= 0) {
+          if (this.rawDataSlide) {
             rawValues[`${key}-${d.country_name}`] = d.values[idx].value.toLocaleString() + this.slide.data.indicator_info[key].raw_data_units;
           } else {
             rawValues[`${key}-${d.country_name}`] = null;
