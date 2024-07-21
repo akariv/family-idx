@@ -58,7 +58,11 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const non_indicators = data?.non_indicators || [];
       const countries = data?.countries || [];
       this.startFromZero = this.slide.start_from_zero && !!changes && !!changes['slide'] && changes['slide'].currentValue !== changes['slide'].previousValue;
-      this.rawDataSlide = this.slide.data_type.name.indexOf('גולמי') >= 0;
+      this.rawDataSlide = this.slide.data_type?.name?.indexOf('גולמי') >= 0;
+
+      if (changes) {
+        this.dontHover();
+      }
 
       const estimated: any = {};
       const rawValues: any = {};
