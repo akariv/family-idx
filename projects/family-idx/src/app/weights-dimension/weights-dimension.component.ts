@@ -26,7 +26,7 @@ export class WeightsDimensionComponent implements OnChanges {
   cancel = false;
   
   ngOnChanges() {
-    console.log('DIMENSION CHANGES', this.dimension);
+    // console.log('DIMENSION CHANGES', this.dimension);
     if (this.indicators.every((indicator: string) => this.states[indicator] === 'spotlight')) {
       this.state = 'spotlight';
     } else if (this.indicators.some((indicator: string) => this.states[indicator] === 'spotlight')) {

@@ -43,7 +43,7 @@ export class SlidesComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    console.log('SLIDES', this.slides);
+    // console.log('SLIDES', this.slides);
     const sectionNames: string[] = [];
     this.sections = [];
     this.slides.forEach((slide, index) => {
@@ -64,14 +64,14 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       this.observer = new IntersectionObserver((entries) => {
         let handled = false;
         let slideNum : number | null = null;
-        console.log('ENTRIES', entries);
+        // console.log('ENTRIES', entries);
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target as HTMLElement;
             const slideNumS = el.getAttribute('data-slide'); 
             slideNum = parseInt(slideNumS || '');
             if (slideNumS !== null) {
-              console.log('SLIDE NUM', slideNumS);
+              // console.log('SLIDE NUM', slideNumS);
               handled = true;
             }
           }

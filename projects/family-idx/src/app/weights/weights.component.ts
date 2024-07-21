@@ -155,7 +155,6 @@ export class WeightsComponent implements OnInit {
   }
 
   hide(indicators: string[]) {
-    console.log('UUU  HHHH', indicators);
     indicators.forEach((indicator: string) => {
       this.hiddenIndicators[indicator] = true;
     });

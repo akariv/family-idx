@@ -159,7 +159,7 @@ if __name__ == '__main__':
 
         resolution = slide['resolution'] or None
         indicator_info = []
-        skip = 0
+        skip = -0.1
         for indicator_name in indicators_:
             for indicator in indicators.values():
                 if indicator['name'] != indicator_name:
@@ -170,9 +170,9 @@ if __name__ == '__main__':
                     if len(indicator_info) == 0:
                         pass
                     elif resolution == 'dimension' and dimension['name'] != indicator_info[-1]['dimension']:
-                        skip += 1
+                        skip += 1.5
                     elif resolution == 'indicator':
-                        skip += 1
+                        skip += 1.5
                     
                     item = dict(
                         name=indicator['name'],

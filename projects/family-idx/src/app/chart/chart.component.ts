@@ -160,7 +160,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       this.updateHighlightLabels(layout, 
         this.slide.hide_country_labels ? [] : this.slide.highlight_countries,
         x, expandedY, barHeight, t, highlightSlide, expandWidth/2);
-      this.updateValues(data.countries, x, t, expandedY, barHeight, rawValues);
+      this.updateValues(layout, x, t, expandedY, barHeight, rawValues);
 
       // this.avgVisible = false;
       if (!!data.average) {
@@ -448,12 +448,13 @@ export class ChartComponent implements OnChanges, AfterViewInit {
     ;
   }
 
-  updateValues(data: Datum[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
+  updateValues(layout: Series<Datum, string>[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
                expandedY: (d: string) => number | undefined, barHeight: number, rawValues: {[key: string]: string | null}) {
     const canvas = select(this.chart.nativeElement);
     const highlightedCountries = (this.slide.highlight_countries || []).map(x => x.name);
+    const showValues = this.slide.exploration && this.slide.data_type?.name.indexOf('גולמי') >= 0
     const rawDataGet = (d: any): string => {
-      if (!this.slide.exploration || this.slide.data_type?.name.indexOf('גולמי') < 0) {
+      if (!showValues) {
         return '';
       }
       const indicator = this.slide.data.indicators[0];
@@ -464,20 +465,39 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       const raw = rawValues[key] || '';
       return raw;
     };
+    const getData = (l: Series<Datum, string>[]) => {
+      if (!showValues) {
+        return [];
+      }
+      const indicator = this.slide.data.indicators[0];
+      return l.filter((d: any) => d.key === indicator);
+    };
     const skip = this.slide.data.indicator_info[this.slide.data.indicators[0]]?.skip || 0;
-
-    canvas.selectAll('.raw-value')
-      .data(data || [], (d) => (d as Datum).country_name)
+    canvas.selectAll('.raw-value-series')
+      .data(getData(layout), (d, i, nodes) => (d ? (d as any).key : (nodes && nodes[i] as HTMLElement).id || ''))
+      .join(
+        (enter) => enter.append('div')
+          .attr('class', 'raw-value-series')
+          .attr('data-series', (d: any) => d.key)
+        ,
+        (update) => update,
+        (exit) => exit
+          .remove()
+      )
+      .selectAll('.raw-value')
+      .data((d) => d)
       .join(
         (enter) => enter.append('div')
           .attr('class', 'raw-value')
-          .attr('data-country-name', (d: any) => d.country_name)
+          .attr('data-country-name', (d) => d.data.country_name)
           // .style('transform', 'translateY(-50%)')
           .style('color', '#fff')
-          .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
-          .style('left', (d, i) => (16 + skip + x(d.sum)) + 'px')
+          .style('top', (d) =>  ((expandedY(d.data.country_name) || 0) + barHeight/2) + 'px')
+          .style('left', (d, i) => {
+            return (0 + skip + x(d[1])) + 'px';
+          })
           .style('opacity', 0)
-          .html((d: any, i: number) => rawDataGet(d))
+          .html((d: any, i: number) => rawDataGet(d.data))
           .call((enter) => enter
             .transition()
             .duration(this.DURATION)
@@ -487,11 +507,11 @@ export class ChartComponent implements OnChanges, AfterViewInit {
         ,
         (update) => update
           .call((x) => x
-            .html((d: any, i: number) => rawDataGet(d))
+            .html((d: any, i: number) => rawDataGet(d.data))
           )
           .transition(t)
-          .style('top', (d) =>  ((expandedY(d.country_name) || 0) + barHeight/2) + 'px')
-          .style('left', (d, i) => (16 + skip + x(d.sum)) + 'px')
+          .style('top', (d) =>  ((expandedY(d.data.country_name) || 0) + barHeight/2) + 'px')
+          .style('left', (d, i) => (0 + skip + x(d[1])) + 'px')
           .style('opacity', 1)
         ,
         (exit) => exit
