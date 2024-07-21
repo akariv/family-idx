@@ -311,11 +311,15 @@ export class ChartComponent implements OnChanges, AfterViewInit {
  
   doHover(e: Event, d: any, estimated: {[key: string]: boolean}, rawValues: {[key: string]: string | null}) {
     const boundingRect = (e.target as HTMLElement).getBoundingClientRect();
-    let title = 'מדד מדיניות משפחה';
+    let title: string | null = null;
     if (this.slide.resolution === 'dimension') {
       title = this.slide.data.indicator_info[d.key].dimension;
     } else if (this.slide.resolution === 'indicator' || this.slide.data.indicators.length === 1) {
       title = d.key;
+    }
+    if (title === null) {
+      this.dontHover();
+      return;
     }
     const key = `${d.key}-${d.data.country_name}`;
     const _estimated = !!estimated[key];
@@ -324,7 +328,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       title: title,
       country_name: d.data.country_name,
       top: isBottom ? boundingRect.bottom : boundingRect.top,
-      left: boundingRect.left,
+      left: boundingRect.left + boundingRect.width / 2,
       isBottom: isBottom,
       estimated: _estimated,
       value: rawValues[key],
@@ -440,12 +444,16 @@ export class ChartComponent implements OnChanges, AfterViewInit {
   updateValues(data: Datum[], x: ScaleLinear<number, number, number>, t: Transition<BaseType, any, any, any>, 
                expandedY: (d: string) => number | undefined, barHeight: number, rawValues: {[key: string]: string | null}) {
     const canvas = select(this.chart.nativeElement);
+    const highlightedCountries = (this.slide.highlight_countries || []).map(x => x.name);
     const rawDataGet = (d: any): string => {
       if (!this.slide.exploration || this.slide.data_type?.name.indexOf('גולמי') < 0) {
         return '';
       }
       const indicator = this.slide.data.indicators[0];
       const key = `${indicator}-${d.country_name}`;
+      if (highlightedCountries.indexOf(d.country_name) >= 0) {
+        return '';
+      }
       const raw = rawValues[key] || '';
       return raw;
     };
