@@ -28,7 +28,12 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "projects/family-idx/src/favicon.ico",
-              "projects/family-idx/src/assets"
+              "projects/family-idx/src/assets",
+              {
+                "glob": "**/*",
+                "input": "projects/family-idx/src/favicon/",
+                "output": "/"
+              }
             ],
             "styles": [
               "projects/family-idx/src/styles.less"
