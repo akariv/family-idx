@@ -64,7 +64,9 @@ export class WeightsComponent implements OnInit {
 
   updateIndicatorWeight(indicators: string[], weight: number) {
     if (indicators.length > 0) {
-      this.spotlightIndicators = [];
+      if (indicators.some((indicator: string) => !this.spotlightIndicators.includes(indicator))) {
+        this.spotlightIndicators = [];
+      }
     }
     indicators.forEach((indicator: string) => {
       this.indicatorWeights[indicator] = weight;

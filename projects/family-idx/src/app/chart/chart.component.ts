@@ -216,6 +216,9 @@ export class ChartComponent implements OnChanges, AfterViewInit {
       classes.push('estimated');
       classes.push(`estimated-${this.slide.section.color.slice(1)}`);      
     }
+    if (this.slide.resolution === 'indicator' || this.slide.data.indicators.length === 1) {
+      classes.push('hoverable');
+    }
     return classes.join(' ');
   }
 
