@@ -386,6 +386,7 @@ export class ChartComponent implements OnChanges, AfterViewInit {
           .style('width', '0px')
           .style('background-color', (d) => this.barColor(d))
           .style('background-image', (d, i) => this.backgroundImage(d, i, expandPhoto))
+          .style('z-index', (d) => d.data.country_name === 'ישראל' ? 1 : 0)
           .attr('class', (d: any) => this.barClass(d, estimated))
           .on('touchstart', (e: Event, d: any) => this.doHover(e, d, estimated, rawValues))
           .on('touchend', () => this.dontHover())
