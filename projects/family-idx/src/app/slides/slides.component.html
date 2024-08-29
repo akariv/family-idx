@@ -60,7 +60,8 @@
                 <div class='text' *ngIf='slide.content.length > 1' [innerHTML]='slideContent(slide, 1)'></div>
             </div>
             <div class='slide exploration' *ngIf='slide.section.role !== "footer" && slide.exploration'
-                 [attr.data-slide]='i' [attr.data-slug]='"המדד"'
+                 [attr.data-slide]='i'
+                 [attr.data-slug]='slide.id'
                  [style.text-shadow]='textShadow'
             >
                 <div class='text' [innerHTML]='slideContent(slide, 0)' *ngIf='slideContent(slide, 0)'></div>
