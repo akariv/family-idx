@@ -68,7 +68,8 @@
             >
                 <div class='text' [innerHTML]='slideContent(slide, 0)' *ngIf='slideContent(slide, 0)'></div>
                 <app-weights [slide]='slide'
-                                (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
+                             (updated)='updateData(slide, $event)' (highlightIndicator)='highlightIndicators($event)'
+                             (scrollHack)='scrollHack()'
                 ></app-weights>    
             </div>
             <div class='slide slider' *ngIf='slide.section.role !== "footer" && slide.slider'

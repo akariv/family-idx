@@ -14,6 +14,7 @@ export class WeightsComponent implements OnInit {
 
   @Output() highlightIndicator = new EventEmitter<string[]>();
   @Output() updated = new EventEmitter<{data: Data, title: string, data_type: DataType}>();
+  @Output() scrollHack = new EventEmitter<void>();
 
   currentData: Data;
   dimensions: string[];
@@ -27,7 +28,7 @@ export class WeightsComponent implements OnInit {
   spotlightIndicators: string[] = [];
   indicators: string[];
   non_indicators: string[];
-  openDimension = '';
+  openDimension_ = '';
   countries: Datum[];
   rawDataMode = false;
   hideSliders = false;
@@ -165,5 +166,14 @@ export class WeightsComponent implements OnInit {
   spotlight(indicators: string[]) {
     this.spotlightIndicators = indicators;
     this.updateIndicatorWeight([], 1);
+  }
+
+  set openDimension(dimension: string) {
+    this.openDimension_ = dimension;
+    this.scrollHack.emit();
+  }
+
+  get openDimension() {
+    return this.openDimension_;
   }
 }

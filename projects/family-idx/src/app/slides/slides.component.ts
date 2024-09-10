@@ -206,6 +206,14 @@ export class SlidesComponent implements AfterViewInit, OnInit {
       }
     });
   }
+  
+  scrollHack() {
+    const saved = this.scrolled.nativeElement.scrollTop;
+    console.log('SHSH', saved);
+    timer(100).subscribe(() => {
+      this.scrolled.nativeElement.scrollTop = saved;
+    });
+  }
   // checkOverscroll(event: TouchEvent) {
   //   console.log('OVERSCROLL', this.scrolled.nativeElement.scrollTop);
   //   if (this.scrolled.nativeElement.scrollTop < 0) {
