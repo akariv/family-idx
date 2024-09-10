@@ -1,12 +1,19 @@
-<button class='hider' (click)='hideSliders = !hideSliders'>
-    @if (hideSliders) {
-        <img src='assets/img/icon-show-sliders.svg'>
-        <span>הצגת משקלות</span>
-    } @else {
-        <img src='assets/img/icon-hide-sliders.svg'>
-        <span>הסתרת משקלות</span>
-    }
-</button>
+<div class='top-container'>
+    <button class='hider' (click)='hideSliders = !hideSliders'>
+        @if (hideSliders) {
+            <img src='assets/img/icon-show-sliders.svg'>
+            <span>הצגת משקלות</span>
+        } @else {
+            <img src='assets/img/icon-hide-sliders.svg'>
+            <span>הסתרת משקלות</span>
+        }
+    </button>
+    <a class='yt' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target="_blank">
+        <img src='assets/img/icon-play.svg'>
+        <span>סרטון הדרכה</span>
+    </a>
+</div>
+
 <app-weights-dimension *ngFor='let dimension of dimensions' 
                       [dimension]='dimension'
                       [indicators]='dimensionIndicators[dimension]'
